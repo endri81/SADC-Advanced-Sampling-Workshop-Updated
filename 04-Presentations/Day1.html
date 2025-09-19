@@ -1,0 +1,5077 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Sampling Methods for National Statistical Offices</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Dr. Endri Raço" />
+    <meta name="date" content="2025-09-19" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <script src="libs/kePrint/kePrint.js"></script>
+    <link href="libs/lightable/lightable.css" rel="stylesheet" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Sampling Methods for National Statistical Offices
+]
+.subtitle[
+## Day 1: Foundations of Modern Survey Sampling
+]
+.author[
+### Dr. Endri Raço
+]
+.institute[
+### International Statistical Training Institute
+]
+.date[
+### 2025-09-19
+]
+
+---
+
+
+
+
+---
+class: inverse, center, middle
+
+# Welcome to Your Sampling Journey
+
+---
+
+# Meet Harry
+
+Harry is a junior statistician at your National Statistical Office.
+
+Three months into his role, he's responsible for the household expenditure survey.
+
+His manager, Anya, has high expectations.
+
+Today, Harry receives an email that will change everything.
+
+---
+
+# The Email from Anya
+
+**Subject: URGENT - Minister's Question on Survey Precision**
+
+Harry,
+
+The Minister wants to know why our poverty estimates have a 3.2% margin of error.
+
+She says neighboring countries report 1.5%.
+
+Can we match that? What would it cost?
+
+Need your analysis by Friday.
+
+- Anya
+
+---
+
+# Harry's Internal Monologue
+
+"3.2% margin of error... 1.5% target..."
+
+"How do I even calculate what sample size we need?"
+
+"What will this cost the taxpayer?"
+
+"There must be a formula for this..."
+
+---
+class: inverse, center, middle
+
+# The Power of Sample Size Determination
+
+---
+
+# Your Challenge as a Statistician
+
+When decision-makers ask about precision, they're really asking three questions:
+
+1. How many households must we survey?
+
+2. What will it cost?
+
+3. Can we trust the results?
+
+The answer lies in the fundamental equation of survey sampling.
+
+---
+
+# The Sample Size Formula
+
+To achieve a specific margin of error for a proportion:
+
+`$$n = \frac{z^2 \times p \times (1-p)}{e^2}$$`
+
+Where each symbol answers a practical question:
+- `\(n\)` = How many households do we need?
+- `\(z\)` = How confident do we want to be? (usually 1.96 for 95%)
+- `\(p\)` = What proportion are we estimating? (use 0.5 if unknown)
+- `\(e\)` = What margin of error can we accept?
+
+---
+
+# Breaking Down Harry's Problem
+
+Current situation:
+- Margin of error: 3.2% (0.032)
+- Current sample size: Unknown
+
+Target situation:
+- Margin of error: 1.5% (0.015)
+- Required sample size: To be calculated
+
+---
+
+# Your Turn: Calculate Harry's Answer
+
+Open `day1_module1_sample_size.R` in RStudio.
+
+Run lines 15-25 to calculate the required sample sizes.
+
+
+``` r
+# Current and target margins of error
+current_margin &lt;- 0.032
+target_margin &lt;- 0.015
+
+# Calculate sample sizes (95% confidence)
+z_score &lt;- 1.96
+p_estimate &lt;- 0.5  # Conservative estimate
+
+current_n &lt;- (z_score^2 * p_estimate * (1 - p_estimate)) / current_margin^2
+target_n &lt;- (z_score^2 * p_estimate * (1 - p_estimate)) / target_margin^2
+```
+
+---
+
+# Understanding Your Results
+
+&lt;table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Scenario &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Margin of Error &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Required Sample Size &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Increase Factor &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Current Survey &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.2% &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 938 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; - &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Minister's Target &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.5% &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4,269 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4.6 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+To match neighboring countries, Harry needs to survey 4.5 times more households.
+
+---
+
+# The Cost Reality Check
+
+If each household interview costs $50:
+
+- Current survey: 938 households × $50 = $46,900
+- Target survey: 4,269 households × $50 = $213,450
+
+Additional budget needed: $166,550
+
+This is the trade-off between precision and resources.
+
+---
+
+# Harry Drafts His Response
+
+**To: Anya**
+
+**Re: Minister's Question on Survey Precision**
+
+To achieve 1.5% margin of error (matching neighboring countries), we need:
+- Sample size: 4,269 households (currently 938)
+- Additional budget: $166,550
+- Timeline extension: 3 additional months
+
+Recommendation: Consider targeted precision for key indicators only.
+
+---
+
+# The International Standard
+
+The UN Statistical Division's "Designing Household Survey Samples" (2005) states:
+
+*"Sample size determination must balance statistical precision with operational constraints."*
+
+Key principle: Not all indicators need equal precision.
+
+Focus resources on priority policy indicators.
+
+---
+class: inverse, center, middle
+
+# When Simple Random Sampling Isn't Enough
+
+---
+
+# Monday Morning Crisis
+
+Harry arrives to find another email from Anya:
+
+**Subject: Problem with Rural Estimates**
+
+Harry,
+
+The rural development minister says our poverty estimates for rural areas are "useless."
+
+Only 8% of our sample is rural, but 35% of our population is rural.
+
+Fix this.
+
+- Anya
+
+---
+
+# Harry's Realization
+
+"We selected households randomly from the entire country..."
+
+"Cities have more households per square kilometer..."
+
+"Of course we ended up with mostly urban households..."
+
+"How do I ensure proper rural representation?"
+
+---
+
+# The Solution: Stratified Sampling
+
+Stratified sampling divides the population into groups (strata) and samples from each.
+
+Benefits:
+- Guaranteed representation of all groups
+- More precise estimates for subgroups
+- Often more cost-efficient
+
+The Neyman allocation formula optimizes sample distribution across strata.
+
+---
+
+# Neyman Allocation Formula
+
+The optimal sample size for stratum `\(h\)`:
+
+`$$n_h = n \times \frac{N_h \times S_h}{\sum_{i=1}^{L} N_i \times S_i}$$`
+
+Translation:
+- `\(n_h\)` = How many to sample from rural/urban areas?
+- `\(N_h\)` = How many households in this area?
+- `\(S_h\)` = How variable is income in this area?
+- `\(n\)` = Total sample size available
+
+---
+
+# Your Turn: Design Harry's Stratified Sample
+
+Open `day1_module1_sample_size.R` and run lines 30-55.
+
+
+``` r
+# Population information
+urban_households &lt;- 650000
+rural_households &lt;- 350000
+urban_std_dev &lt;- 2500  # Income standard deviation
+rural_std_dev &lt;- 1800
+
+# Total sample size
+total_sample &lt;- 4269
+
+# Calculate Neyman allocation
+urban_weight &lt;- urban_households * urban_std_dev
+rural_weight &lt;- rural_households * rural_std_dev
+total_weight &lt;- urban_weight + rural_weight
+
+urban_sample &lt;- round(total_sample * urban_weight / total_weight)
+rural_sample &lt;- round(total_sample * rural_weight / total_weight)
+```
+
+---
+
+# The Stratified Solution
+
+&lt;table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Stratum &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Population (%) &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Simple Random (%) &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Stratified (%) &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Sample Size &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Urban &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 65 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 92 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 72 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3,076 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Rural &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 35 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 28 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1,193 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Total &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 100 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 100 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 100 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4,269 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+Rural representation increases from 8% to 28% - much closer to population share.
+
+---
+
+# Eurostat Guidelines on Stratification
+
+The European Statistical System Handbook (2020) recommends:
+
+*"Stratification should reflect policy domains and reporting requirements."*
+
+Common stratification variables:
+- Geographic regions
+- Urban/rural classification
+- Economic sectors
+- Demographic characteristics
+
+---
+class: inverse, center, middle
+
+# The Hidden Populations Challenge
+
+---
+
+# Tuesday's Urgent Request
+
+**From: Ministry of Social Protection**
+
+**To: NSO (via Anya → Harry)**
+
+We need poverty estimates for:
+- Homeless populations
+- Undocumented migrants
+- Remote mountain communities
+
+Current survey misses these vulnerable groups entirely.
+
+What can you do?
+
+---
+
+# Harry's Dilemma
+
+"Our sampling frame is the dwelling registry..."
+
+"Homeless people don't have registered dwellings..."
+
+"Some mountain villages aren't even on our maps..."
+
+"How do we sample populations we can't list?"
+
+---
+
+# Adaptive and Network Sampling
+
+When populations are hidden or rare:
+
+**Adaptive Cluster Sampling**: Start with initial sample, then add neighboring units if they meet criteria.
+
+**Respondent-Driven Sampling**: Use social networks where participants recruit peers.
+
+Both methods recognized by WHO for hard-to-reach populations.
+
+---
+
+# Adaptive Cluster Example
+
+&lt;img src="Day1_files/figure-html/adaptive_viz-1.png" width="100%" /&gt;
+
+---
+
+# Your Turn: Estimate Hidden Population Size
+
+Run lines 60-90 in your script to see capture-recapture estimation.
+
+
+``` r
+# Capture-recapture for homeless population
+# Two independent counts
+first_count &lt;- 156   # Night shelter survey
+second_count &lt;- 143  # Day center survey
+both_counts &lt;- 47    # Seen in both
+
+# Lincoln-Petersen estimator
+total_estimate &lt;- (first_count * second_count) / both_counts
+standard_error &lt;- sqrt(((first_count * second_count) * 
+                       (first_count - both_counts) * 
+                       (second_count - both_counts)) / 
+                       both_counts^3)
+
+confidence_interval &lt;- c(total_estimate - 1.96 * standard_error,
+                        total_estimate + 1.96 * standard_error)
+```
+
+---
+
+# Hidden Population Results
+
+&lt;table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Method &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Count &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; 95% CI &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Night Shelter Count &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 156 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; - &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Day Center Count &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 143 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; - &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Overlap &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 47 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; - &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Estimated Total Population &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 475 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; [382, 568] &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+The capture-recapture method estimates 474 homeless individuals in the city.
+
+---
+
+# WHO Guidelines on Hidden Populations
+
+The World Health Organization's "Sampling Hidden Populations" (2018) states:
+
+*"Traditional probability sampling often fails for marginalized populations. Alternative methods are ethically necessary."*
+
+Key principle: Some bias is acceptable when the alternative is complete exclusion.
+
+---
+class: inverse, center, middle
+
+# The Response Rate Crisis
+
+---
+
+# Wednesday's Performance Review
+
+**Email from Anya:**
+
+Harry,
+
+HR audit shows:
+- 2019 survey: 76% response rate
+- 2023 survey: 42% response rate
+
+Regional office wants explanation and solution.
+
+This threatens our ISO 20252 certification.
+
+- Anya
+
+---
+
+# Harry Investigates the Problem
+
+&lt;img src="Day1_files/figure-html/response_decline-1.png" width="100%" /&gt;
+
+Traditional landline-based contact methods no longer work.
+
+---
+
+# The Nonresponse Bias Formula
+
+Bias from nonresponse:
+
+`$$Bias = (1 - r) \times (\bar{y}_{resp} - \bar{y}_{nonresp})$$`
+
+Where:
+- `\(r\)` = Response rate (0.42 in Harry's case)
+- `\(\bar{y}_{resp}\)` = Average for responders
+- `\(\bar{y}_{nonresp}\)` = Average for non-responders
+
+The lower the response rate, the larger the potential bias.
+
+---
+
+# Your Turn: Calculate Nonresponse Weights
+
+Run lines 95-120 to create post-stratification weights.
+
+
+``` r
+# Population distribution (from census)
+pop_dist &lt;- tibble(
+  age_group = c("18-34", "35-54", "55+"),
+  education = rep(c("High School", "University"), each = 3),
+  pop_percent = c(15, 18, 12, 20, 22, 13)
+)
+
+# Sample distribution (who responded)
+sample_dist &lt;- tibble(
+  age_group = c("18-34", "35-54", "55+"),
+  education = rep(c("High School", "University"), each = 3),
+  sample_percent = c(8, 14, 10, 16, 28, 24)
+)
+
+# Calculate weights
+weights &lt;- pop_dist %&gt;%
+  left_join(sample_dist, by = c("age_group", "education")) %&gt;%
+  mutate(weight = pop_percent / sample_percent)
+```
+
+---
+
+# Post-Stratification Weights
+
+&lt;table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Age Group &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Education &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Population % &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Sample % &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Weight &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 18-34 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; High School &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 15 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.88 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 35-54 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; High School &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 18 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 14 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.29 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 55+ &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; High School &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 12 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.20 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 18-34 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; University &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 20 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 16 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.25 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 35-54 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; University &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 22 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 28 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.79 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 55+ &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; University &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 13 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 24 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.54 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+Young adults with high school education are severely underrepresented (weight = 1.88).
+
+---
+
+# Responsive Design Framework
+
+The US Census Bureau's Adaptive Design Manual (2023) recommends:
+
+Monitor response rates daily and adjust:
+1. Switch contact modes for non-responders
+2. Increase incentives for hard-to-reach groups
+3. Deploy specialized interviewers
+4. Use paradata to predict and prevent nonresponse
+
+Real-time monitoring enables mid-survey corrections.
+
+---
+class: inverse, center, middle
+
+# The Panel Attrition Challenge
+
+---
+
+# Thursday Morning Meeting
+
+**Anya in person:**
+
+"Harry, the longitudinal income study is in trouble.
+
+Wave 1: 5,000 households
+Wave 2: 4,200 households  
+Wave 3: 3,100 households
+
+At this rate, Wave 5 will have under 2,000.
+
+The World Bank is threatening to withdraw funding."
+
+---
+
+# Understanding Attrition Patterns
+
+&lt;img src="Day1_files/figure-html/attrition_viz-1.png" width="100%" /&gt;
+
+---
+
+# The Inverse Probability Weighting Solution
+
+For each household still in the panel:
+
+`$$w_i = \frac{1}{p_i}$$`
+
+Where `\(p_i\)` is the probability of remaining, estimated from:
+
+`$$logit(p_i) = \beta_0 + \beta_1 \times income_i + \beta_2 \times age_i + ...$$`
+
+This gives higher weights to households similar to those who left.
+
+---
+
+# Your Turn: Model Attrition Probability
+
+Run lines 125-155 to estimate attrition weights.
+
+
+``` r
+# Logistic regression for attrition
+panel_data &lt;- read_csv("panel_wave3.csv")
+
+attrition_model &lt;- glm(
+  still_in_panel ~ income_quintile + education + 
+                   urban_rural + household_size + 
+                   interview_quality_wave2,
+  data = panel_data,
+  family = binomial()
+)
+
+# Calculate inverse probability weights
+panel_data &lt;- panel_data %&gt;%
+  mutate(
+    prob_remain = predict(attrition_model, type = "response"),
+    attrition_weight = 1 / prob_remain
+  )
+
+# Check weight distribution
+summary(panel_data$attrition_weight)
+```
+
+---
+
+# Attrition Weight Distribution
+
+&lt;img src="Day1_files/figure-html/unnamed-chunk-10-1.png" width="100%" /&gt;
+
+Weights range from 0.8 to 5.2, with median of 1.4.
+
+---
+
+# OECD Guidelines on Panel Surveys
+
+The OECD's "Best Practices for Panel Surveys" (2022) emphasizes:
+
+*"Panel attrition is not random. Statistical adjustment is necessary but not sufficient."*
+
+Recommendations:
+1. Minimize attrition through respondent engagement
+2. Model attrition using rich baseline data
+3. Consider refreshment samples
+4. Document all weighting procedures
+
+---
+class: inverse, center, middle
+
+# Complex Survey Variance Estimation
+
+---
+
+# Friday's Board Presentation Prep
+
+**Anya's text at 7 AM:**
+
+"Board wants confidence intervals for all estimates.
+
+Remember we used stratified cluster sampling.
+
+Standard formulas don't apply.
+
+Board meeting at 2 PM."
+
+Harry has 7 hours to produce valid confidence intervals.
+
+---
+
+# Why Standard Formulas Fail
+
+Standard error formula assumes simple random sampling:
+
+`$$SE_{SRS} = \sqrt{\frac{s^2}{n}}$$`
+
+But with complex sampling:
+- Clustering increases variance
+- Stratification decreases variance  
+- Weights affect precision
+
+Design effect (DEFF) captures this: `\(DEFF = \frac{Var_{complex}}{Var_{SRS}}\)`
+
+---
+
+# The Survey Package Solution
+
+
+``` r
+library(survey)
+
+# Define survey design
+survey_design &lt;- svydesign(
+  ids = ~cluster_id,        # Cluster variable
+  strata = ~stratum,        # Stratification variable
+  weights = ~final_weight,  # Survey weights
+  data = survey_data,
+  nest = TRUE
+)
+
+# Calculate means with correct standard errors
+poverty_estimate &lt;- svymean(~poverty_indicator, survey_design)
+confint(poverty_estimate)
+```
+
+---
+
+# Your Turn: Calculate Complex Survey Estimates
+
+Run lines 160-190 to see the difference.
+
+
+``` r
+# Naive estimate (wrong)
+naive_mean &lt;- mean(survey_data$income)
+naive_se &lt;- sd(survey_data$income) / sqrt(nrow(survey_data))
+
+# Complex survey estimate (correct)
+income_estimate &lt;- svymean(~income, survey_design)
+
+# Compare results
+comparison &lt;- tibble(
+  Method = c("Naive (Wrong)", "Complex Survey (Correct)"),
+  Estimate = c(naive_mean, as.numeric(income_estimate)),
+  `Standard Error` = c(naive_se, as.numeric(SE(income_estimate))),
+  `95% CI Lower` = Estimate - 1.96 * `Standard Error`,
+  `95% CI Upper` = Estimate + 1.96 * `Standard Error`
+)
+```
+
+---
+
+# The Variance Estimation Comparison
+
+&lt;table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Method &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Point Estimate &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Standard Error &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Design Effect &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; 95% CI Width &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Naive (Ignoring Design) &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 24,500 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 250 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.00 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 980 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Taylor Linearization &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 24,500 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 420 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.82 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1,646 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Jackknife &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 24,500 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 415 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.76 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1,627 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Bootstrap &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 24,500 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 425 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2.89 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1,666 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+Ignoring the complex design underestimates uncertainty by 40%.
+
+---
+
+# UN Statistical Division Standards
+
+The UN's "Guidelines on Variance Estimation" (2021) mandates:
+
+*"All estimates from complex surveys must be accompanied by design-consistent variance estimates."*
+
+Acceptable methods:
+- Taylor linearization (for smooth statistics)
+- Replication methods (jackknife, bootstrap)
+- Model-based approaches (for small domains)
+
+Software must account for survey design.
+
+---
+class: inverse, center, middle
+
+# Small Area Estimation
+
+---
+
+# The Provincial Governor's Call
+
+**Monday, 8:15 AM**
+
+"The national poverty rate is 18.5%.
+
+But what about my province? My district? 
+
+We have only 30 households sampled in some districts.
+
+How can 30 households represent 50,000 people?"
+
+Harry needs estimates for 412 districts with samples ranging from 15 to 200 households.
+
+---
+
+# The Small Domain Problem
+
+&lt;img src="Day1_files/figure-html/small_area_viz-1.png" width="100%" /&gt;
+
+---
+
+# The Fay-Herriot Model
+
+Combine direct survey estimates with auxiliary data:
+
+`$$y_i = x_i'\beta + v_i + e_i$$`
+
+Where:
+- `\(y_i\)` = Direct estimate for district `\(i\)`
+- `\(x_i\)` = Auxiliary variables (census, administrative data)
+- `\(v_i\)` = District random effect
+- `\(e_i\)` = Sampling error
+
+"Borrows strength" from similar districts.
+
+---
+
+# Your Turn: Small Area Estimation
+
+Run lines 195-225 for model-based estimates.
+
+
+``` r
+library(sae)
+
+# Direct estimates for each district
+direct_estimates &lt;- survey_data %&gt;%
+  group_by(district) %&gt;%
+  summarise(
+    direct_est = weighted.mean(poverty, weight),
+    sample_size = n(),
+    se_direct = sqrt(weighted.var(poverty, weight) / sample_size)
+  )
+
+# Fay-Herriot model with auxiliary variables
+sae_model &lt;- mseFH(
+  formula = direct_est ~ unemployment_rate + median_income + 
+            rural_percent + education_index,
+  vardir = se_direct^2,
+  data = district_data,
+  method = "REML"
+)
+
+# Extract smoothed estimates
+district_data$sae_estimate &lt;- sae_model$est$eblup
+district_data$sae_mse &lt;- sae_model$mse
+```
+
+---
+
+# Comparing Direct vs Model Estimates
+
+&lt;table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; District &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Sample Size &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Direct Estimate &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Direct CV (%) &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; SAE Estimate &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; SAE CV (%) &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; A &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 20 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 32.5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 42 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 24.2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 15 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; B &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 35 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 28.3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 28 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 23.1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 13 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; C &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 50 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 24.1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 21 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 22.5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; D &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 75 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 19.8 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 16 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 19.5 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 10 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; E &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 100 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 17.2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 13 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 17.8 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; F &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 125 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 15.6 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 11 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 16.2 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; G &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 150 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 14.3 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 9 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 14.8 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 7 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; H &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 180 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 13.1 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 13.4 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+Small area estimation dramatically improves precision for small samples.
+
+---
+
+# World Bank Small Area Estimation Guidelines
+
+The World Bank's "Poverty Mapping Guidelines" (2023) states:
+
+*"Model-based estimates are essential for policy targeting when direct estimates are unreliable."*
+
+Requirements:
+- Strong auxiliary variables correlated with outcome
+- Model validation using cross-validation
+- Clear communication of uncertainty
+- Regular model updates with new data
+
+---
+class: inverse, center, middle
+
+# Multi-Mode Data Collection
+
+---
+
+# Tuesday's Innovation Committee
+
+**Anya's Announcement:**
+
+"The government wants us to modernize.
+
+Starting next quarter:
+- 40% web surveys
+- 30% telephone
+- 30% face-to-face
+
+How do we combine these different modes?"
+
+---
+
+# Mode Effects on Responses
+
+&lt;img src="Day1_files/figure-html/mode_effects-1.png" width="100%" /&gt;
+
+---
+
+# Propensity Score Adjustment
+
+Balance mode differences using propensity scores:
+
+1. Model probability of each mode:
+`$$P(mode = web) = f(age, education, urban, ...)$$`
+
+2. Create inverse probability weights:
+`$$w_i = \frac{1}{P(mode_i | X_i)}$$`
+
+3. Apply to achieve balanced sample.
+
+---
+
+# Your Turn: Mode Calibration
+
+Run lines 230-260 for mode adjustment.
+
+
+``` r
+# Model mode selection
+library(nnet)
+
+mode_model &lt;- multinom(
+  survey_mode ~ age + education + income + urban_rural + 
+                internet_access + employment_status,
+  data = multimode_data
+)
+
+# Calculate propensity scores
+multimode_data &lt;- multimode_data %&gt;%
+  mutate(
+    prob_web = predict(mode_model, type = "probs")[,1],
+    prob_phone = predict(mode_model, type = "probs")[,2],
+    prob_f2f = predict(mode_model, type = "probs")[,3]
+  ) %&gt;%
+  mutate(
+    mode_weight = case_when(
+      survey_mode == "Web" ~ 1/prob_web,
+      survey_mode == "Phone" ~ 1/prob_phone,
+      survey_mode == "F2F" ~ 1/prob_f2f
+    )
+  )
+
+# Combine with design weights
+multimode_data$final_weight &lt;- multimode_data$design_weight * 
+                               multimode_data$mode_weight
+```
+
+---
+
+# Mode Distribution After Adjustment
+
+&lt;img src="Day1_files/figure-html/unnamed-chunk-17-1.png" width="100%" /&gt;
+
+---
+
+# Eurostat Mixed-Mode Guidelines
+
+Eurostat's "Handbook on Mixed-Mode Surveys" (2024) recommends:
+
+*"Design for comparability, adjust for selectivity, document everything."*
+
+Key principles:
+1. Use unified questionnaires across modes
+2. Apply mode-specific adjustments
+3. Monitor mode effects continuously
+4. Report mode composition with all estimates
+
+---
+class: inverse, center, middle
+
+# Machine Learning for Survey Optimization
+
+---
+
+# Wednesday's Efficiency Challenge
+
+**CFO's Memo to All Departments:**
+
+"Budget cuts of 25% effective immediately.
+
+Maintain current precision levels.
+
+Use innovation to achieve more with less."
+
+Harry knows traditional methods won't achieve this.
+
+---
+
+# Adaptive Survey Design Using ML
+
+&lt;img src="Day1_files/figure-html/ml_response-1.png" width="100%" /&gt;
+
+Machine learning predicts optimal stopping points per household.
+
+---
+
+# Random Forest for Nonresponse Prediction
+
+
+``` r
+library(randomForest)
+
+# Train model on previous survey
+response_model &lt;- randomForest(
+  responded ~ age + income_decile + education + 
+              previous_response + neighborhood_response_rate +
+              building_type + contact_time + day_of_week,
+  data = training_data,
+  ntree = 500,
+  importance = TRUE
+)
+
+# Predict response probability for current survey
+current_survey$response_prob &lt;- predict(response_model, 
+                                       current_survey, 
+                                       type = "prob")[,2]
+
+# Optimize contact strategy
+current_survey &lt;- current_survey %&gt;%
+  mutate(
+    priority = case_when(
+      response_prob &gt; 0.7 ~ "Low",     # Will respond anyway
+      response_prob &lt; 0.3 ~ "Low",     # Won't respond anyway
+      TRUE ~ "High"                    # Focus efforts here
+    )
+  )
+```
+
+---
+
+# Your Turn: Implement ML Optimization
+
+Run lines 265-295 to see resource allocation.
+
+
+``` r
+# Calculate expected value of contact attempt
+current_survey &lt;- current_survey %&gt;%
+  mutate(
+    contact_cost = 15,  # $ per attempt
+    response_value = 100,  # Value of completed interview
+    expected_value = (response_prob * response_value) - contact_cost,
+    should_contact = expected_value &gt; 0
+  )
+
+# Resource allocation
+resource_summary &lt;- current_survey %&gt;%
+  group_by(priority) %&gt;%
+  summarise(
+    n_households = n(),
+    avg_response_prob = mean(response_prob),
+    total_attempts = sum(should_contact),
+    expected_responses = sum(response_prob * should_contact),
+    cost = sum(contact_cost * should_contact),
+    cost_per_response = cost / expected_responses
+  )
+
+print(resource_summary)
+```
+
+---
+
+# ML Optimization Results
+
+&lt;table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Priority &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Households &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Avg Response Prob &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Contact Attempts &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Expected Responses &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Total Cost &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Cost per Response &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; High &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2500 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.52 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2500 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1300 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; $37,500 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; $28.85 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Low &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1769 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.28 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 500 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 140 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; $7,500 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; $53.57 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Total &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4269 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.42 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1440 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; $45,000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; $31.25 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+ML-optimized design reduces costs by 35% while maintaining response rate.
+
+---
+
+# UNECE Machine Learning Guidelines
+
+The UN Economic Commission for Europe's "ML in Official Statistics" (2024):
+
+*"Machine learning should augment, not replace, statistical expertise."*
+
+Applications:
+- Response propensity modeling
+- Imputation of missing values
+- Coding of open-ended responses
+- Quality control and anomaly detection
+
+Always validate against traditional methods.
+
+---
+class: inverse, center, middle
+
+# Real-Time Quality Monitoring
+
+---
+
+# Thursday's Data Quality Alert
+
+**Automated System Alert:**
+
+```
+ANOMALY DETECTED - District 47
+- Mean income: $89,000 (Expected: $25,000)
+- Interviews completed: 45/50
+- Interviewer: ID_2847
+- Action required: IMMEDIATE
+```
+
+Harry has 2 hours before data transmission to headquarters.
+
+---
+
+# Statistical Process Control for Surveys
+
+&lt;img src="Day1_files/figure-html/spc_chart-1.png" width="100%" /&gt;
+
+---
+
+# Benford's Law Check
+
+First-digit distribution should follow: `\(P(d) = \log_{10}(1 + 1/d)\)`
+
+
+``` r
+# Check Benford's Law for income data
+first_digits &lt;- district_47_data %&gt;%
+  filter(income &gt; 0) %&gt;%
+  mutate(first_digit = as.numeric(substr(income, 1, 1))) %&gt;%
+  count(first_digit) %&gt;%
+  mutate(
+    observed_prop = n / sum(n),
+    expected_prop = log10(1 + 1/first_digit),
+    chi_contribution = (observed_prop - expected_prop)^2 / expected_prop
+  )
+
+# Chi-square test
+chi_square &lt;- sum(first_digits$chi_contribution) * nrow(district_47_data)
+p_value &lt;- pchisq(chi_square, df = 8, lower.tail = FALSE)
+
+if(p_value &lt; 0.01) {
+  flag_for_review &lt;- TRUE
+  send_alert("Potential data fabrication detected")
+}
+```
+
+---
+
+# Your Turn: Implement Quality Checks
+
+Run lines 300-330 for automated quality control.
+
+
+``` r
+# Multi-dimensional quality check
+quality_checks &lt;- function(data, interviewer_id) {
+  checks &lt;- list()
+  
+  # Check 1: Interview duration
+  checks$duration &lt;- data %&gt;%
+    summarise(
+      mean_duration = mean(interview_duration),
+      sd_duration = sd(interview_duration),
+      outliers = sum(interview_duration &lt; 10 | interview_duration &gt; 90)
+    )
+  
+  # Check 2: Response patterns
+  checks$patterns &lt;- data %&gt;%
+    select(starts_with("q_")) %&gt;%
+    summarise_all(~length(unique(.))) %&gt;%
+    pivot_longer(everything()) %&gt;%
+    filter(value == 1)  # Same answer to all
+  
+  # Check 3: GPS verification
+  checks$gps &lt;- data %&gt;%
+    mutate(
+      distance = sqrt((gps_lat - assigned_lat)^2 + 
+                     (gps_lon - assigned_lon)^2)
+    ) %&gt;%
+    filter(distance &gt; 0.01)  # More than ~1km away
+  
+  return(checks)
+}
+```
+
+---
+
+# Real-Time Dashboard Results
+
+&lt;table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Metric &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Interviewer 2847 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; District Average &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Action Required &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Interviews Completed &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 45/50 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 42/50 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; - &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: rgba(255, 230, 230, 255) !important;"&gt; Average Duration &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(255, 230, 230, 255) !important;"&gt; 12 min &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(255, 230, 230, 255) !important;"&gt; 35 min &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(255, 230, 230, 255) !important;"&gt; Review &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: rgba(255, 230, 230, 255) !important;"&gt; Suspicious Patterns &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(255, 230, 230, 255) !important;"&gt; 8 &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(255, 230, 230, 255) !important;"&gt; 1 &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(255, 230, 230, 255) !important;"&gt; Review &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: rgba(255, 230, 230, 255) !important;"&gt; GPS Mismatches &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(255, 230, 230, 255) !important;"&gt; 15 &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(255, 230, 230, 255) !important;"&gt; 2 &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(255, 230, 230, 255) !important;"&gt; Verify &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: rgba(255, 230, 230, 255) !important;"&gt; Benford's Law p-value &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(255, 230, 230, 255) !important;"&gt; 0.003 &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(255, 230, 230, 255) !important;"&gt; 0.42 &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(255, 230, 230, 255) !important;"&gt; Investigate &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: rgba(255, 230, 230, 255) !important;"&gt; Quality Score &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(255, 230, 230, 255) !important;"&gt; 32/100 &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(255, 230, 230, 255) !important;"&gt; 87/100 &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(255, 230, 230, 255) !important;"&gt; Replace &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+Decision: Re-interview 20% of Interviewer 2847's cases immediately.
+
+---
+
+# ISO 20252 Quality Standards
+
+International Standard for Market Research requires:
+
+*"Continuous monitoring and validation of data collection processes."*
+
+Mandatory checks:
+- Logic and consistency checks
+- Interviewer performance monitoring  
+- Back-checking of 10% minimum
+- Paradata analysis
+- Real-time anomaly detection
+
+Documentation of all quality procedures required for certification.
+
+---
+class: inverse, center, middle
+
+# Bringing It All Together
+
+---
+
+# Harry's Monday Morning Journey
+
+Start of Day:
+- Panicked about margin of error
+- Using wrong formulas
+- No systematic approach
+
+End of Day:
+- Mastered sample size determination
+- Implemented stratified designs
+- Understood hidden populations
+- Ready for Tuesday's challenges
+
+---
+
+# Your Statistical Toolkit
+
+&lt;img src="Day1_files/figure-html/toolkit_summary-1.png" width="100%" /&gt;
+
+---
+
+# Harry's Final Report to Anya
+
+**Subject: Q1 Survey Operations Summary**
+
+Achievements:
+- Reduced survey costs by 35% through ML optimization
+- Improved rural representation from 8% to 28%
+- Implemented real-time quality monitoring
+- Achieved ISO 20252 certification
+
+All while maintaining precision targets.
+
+Ready for next challenges.
+
+---
+
+# Key Takeaways for Your NSO
+
+1. **Always account for complex design** - Wrong variance estimates destroy credibility
+
+2. **Embrace modern methods** - ML and adaptive design save money
+
+3. **Monitor quality continuously** - Catch problems before they spread
+
+4. **Document everything** - International standards require it
+
+5. **Combine methods strategically** - No single approach solves all problems
+
+---
+class: inverse, center, middle
+
+# Your Action Items
+
+1. Review your current sampling design
+2. Calculate your true design effects
+3. Implement at least one optimization
+4. Share your success story
+
+## You're now equipped to transform your NSO's sampling operations
+
+---
+
+# Resources and Standards
+
+Essential References:
+- UN Statistical Division: "Designing Household Survey Samples" (2005)
+- Eurostat: "Handbook on Precision Requirements" (2020)
+- World Bank: "Poverty Mapping Guidelines" (2023)  
+- OECD: "Best Practices for Panel Surveys" (2022)
+- ISO 20252: "Market, Opinion and Social Research" (2019)
+
+R Packages:
+- `survey`: Complex survey analysis
+- `sae`: Small area estimation
+- `randomForest`: ML optimization
+- `lavaan`: Structural equation modeling for mode effects
+
+---
+class: inverse, center, middle
+
+# Day 1 Progress: Module 1 Complete
+
+
+### Next: Module 2 - Advanced Estimation Techniques
+
+
+---
+class: inverse, center, middle
+
+# Module 2: Advanced Estimation Techniques
+
+## Monday Afternoon - The Complexity Deepens
+
+---
+
+# After Lunch: The Regional Director Calls
+
+Harry just finished explaining sample sizes to Anya when his phone rings.
+
+**Regional Director**: "Harry, we need poverty estimates for all 47 districts by month's end.
+
+Some districts have only 20 households sampled.
+
+The Minister wants 10% precision for EACH district.
+
+This is for the poverty reduction grant allocation."
+
+---
+
+# Harry's Quick Math
+
+Current design:
+- National sample: 4,269 households
+- Districts: 47
+- Average per district: 91 households
+
+For 10% precision per district:
+- Needed per district: 385 households
+- Total needed: 18,095 households
+- Budget required: $904,750
+
+"This is impossible with our budget..."
+
+---
+
+# The Composite Estimator Solution
+
+Instead of direct estimates, combine three sources of information:
+
+`$$\hat{Y}_i^{comp} = w_1 \hat{Y}_i^{direct} + w_2 \hat{Y}_i^{synthetic} + w_3 \hat{Y}_i^{regression}$$`
+
+Where:
+- Direct: Survey data from the district
+- Synthetic: Borrowed from similar districts
+- Regression: Model-based using auxiliary variables
+
+Weights depend on sample size and reliability.
+
+---
+
+# Your Turn: Implement Composite Estimation
+
+Open `day1_module2_estimation.R` and run lines 15-45.
+
+
+``` r
+# Load district data
+district_data &lt;- read_csv("district_survey_data.csv")
+
+# Calculate direct estimates where possible
+direct_estimates &lt;- district_data %&gt;%
+  group_by(district_id) %&gt;%
+  summarise(
+    n = n(),
+    direct_est = weighted.mean(poverty, weight, na.rm = TRUE),
+    direct_var = weighted.var(poverty, weight) / n
+  ) %&gt;%
+  mutate(
+    direct_cv = sqrt(direct_var) / direct_est,
+    reliable = direct_cv &lt; 0.20  # 20% CV threshold
+  )
+
+# For unreliable estimates, we'll use composite methods
+```
+
+---
+
+# Synthetic Estimation for Small Districts
+
+&lt;img src="Day1_files/figure-html/synthetic_demo-1.png" width="100%" /&gt;
+
+---
+
+# The James-Stein Estimator
+
+Shrinkage estimator that "borrows strength" across districts:
+
+`$$\hat{\theta}_i^{JS} = \bar{\theta} + (1 - B)(\hat{\theta}_i - \bar{\theta})$$`
+
+Where shrinkage factor B is:
+`$$B = \frac{(k-3)\sigma^2}{\sum_{i=1}^k (\hat{\theta}_i - \bar{\theta})^2}$$`
+
+This optimally combines district-specific and global information.
+
+---
+
+# Your Turn: Apply James-Stein Shrinkage
+
+Run lines 50-75 in your script.
+
+
+``` r
+# Calculate James-Stein estimates
+k &lt;- nrow(direct_estimates)  # Number of districts
+theta_bar &lt;- weighted.mean(direct_estimates$direct_est, 
+                          1/direct_estimates$direct_var)
+
+# Calculate shrinkage factor
+ss_between &lt;- sum((direct_estimates$direct_est - theta_bar)^2 / 
+                 direct_estimates$direct_var)
+sigma2 &lt;- mean(direct_estimates$direct_var)
+B &lt;- min(1, (k - 3) * sigma2 / ss_between)
+
+# Apply shrinkage
+direct_estimates &lt;- direct_estimates %&gt;%
+  mutate(
+    js_estimate = theta_bar + (1 - B) * (direct_est - theta_bar),
+    js_variance = (1 - B)^2 * direct_var + B^2 * sigma2/k,
+    improvement = (direct_var - js_variance) / direct_var * 100
+  )
+
+cat(sprintf("Shrinkage factor B: %.3f\n", B))
+cat(sprintf("Average variance reduction: %.1f%%\n", 
+            mean(direct_estimates$improvement)))
+```
+
+---
+
+# Empirical Best Linear Unbiased Prediction (EBLUP)
+
+The optimal combination of direct and model-based estimates:
+
+`$$\hat{Y}_i^{EBLUP} = \gamma_i \hat{Y}_i^{direct} + (1-\gamma_i) \hat{Y}_i^{model}$$`
+
+Where `\(\gamma_i = \frac{\sigma_u^2}{\sigma_u^2 + \psi_i}\)`
+
+- `\(\sigma_u^2\)`: Between-district variance
+- `\(\psi_i\)`: Sampling variance for district i
+
+Districts with larger samples get higher weight on direct estimate.
+
+---
+
+# Comparison of Estimation Methods
+
+&lt;img src="Day1_files/figure-html/estimation_comparison-1.png" width="100%" /&gt;
+
+---
+
+# World Bank Small Area Guidelines Update
+
+The World Bank's Technical Note on Poverty Mapping (2024) states:
+
+*"No single method dominates. Choose based on:
+- Sample size per area
+- Quality of auxiliary data
+- Stability of relationships
+- Policy requirements"*
+
+Recommended thresholds:
+- n &lt; 30: Use model-based methods
+- 30 ≤ n &lt; 100: Use composite estimators
+- n ≥ 100: Direct estimates acceptable
+
+---
+
+class: inverse, center, middle
+
+# Calibration and Benchmarking
+
+---
+
+# Monday, 2 PM: The Consistency Crisis
+
+Email from the Central Bank:
+
+**Subject: Urgent - Income Discrepancy**
+
+Your survey shows average household income: $24,500
+
+Our administrative data shows: $27,200
+
+Parliament wants explanation TODAY.
+
+Which number is correct?
+
+---
+
+# Harry Discovers the Issue
+
+Survey data:
+- Based on 4,269 households
+- Self-reported income
+- 42% response rate
+- Possible underreporting
+
+Administrative data:
+- Tax records for all formal workers
+- Misses informal economy
+- No data for 30% of population
+
+Both are "correct" but measure different things.
+
+---
+
+# Calibration Weighting Solution
+
+Adjust survey weights to match known population totals:
+
+`$$w_i^{cal} = w_i^{base} \times (1 + \lambda' x_i)$$`
+
+Where `\(\lambda\)` is chosen so that:
+`$$\sum_{i \in s} w_i^{cal} x_i = X_{pop}$$`
+
+This ensures survey estimates match administrative totals for calibration variables.
+
+---
+
+# Your Turn: Implement Calibration
+
+Run lines 80-110 for calibration weights.
+
+
+``` r
+library(survey)
+
+# Create survey design object
+design_uncalibrated &lt;- svydesign(
+  ids = ~cluster_id,
+  strata = ~stratum,
+  weights = ~base_weight,
+  data = survey_data
+)
+
+# Population totals from administrative sources
+pop_totals &lt;- c(
+  `(Intercept)` = 1000000,  # Total households
+  age_group_35_54 = 380000,
+  age_group_55plus = 250000,
+  urban = 650000,
+  employed = 680000
+)
+
+# Calibrate to known totals
+design_calibrated &lt;- calibrate(
+  design_uncalibrated,
+  formula = ~ age_group + urban + employed,
+  population = pop_totals,
+  calfun = "raking"  # Raking ratio method
+)
+
+# Compare estimates
+svymean(~income, design_uncalibrated)
+svymean(~income, design_calibrated)
+```
+
+---
+
+# Calibration Impact Analysis
+
+&lt;table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Variable &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Before Calibration &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; After Calibration &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Admin Data &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Change &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: rgba(230, 243, 255, 255) !important;"&gt; Total Households &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(230, 243, 255, 255) !important;"&gt; 995,000 &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(230, 243, 255, 255) !important;"&gt; 1,000,000 &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(230, 243, 255, 255) !important;"&gt; 1,000,000 &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(230, 243, 255, 255) !important;"&gt; Exact match &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: rgba(230, 243, 255, 255) !important;"&gt; Urban % &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(230, 243, 255, 255) !important;"&gt; 72% &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(230, 243, 255, 255) !important;"&gt; 65% &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(230, 243, 255, 255) !important;"&gt; 65% &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(230, 243, 255, 255) !important;"&gt; Exact match &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: rgba(230, 243, 255, 255) !important;"&gt; Employment Rate &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(230, 243, 255, 255) !important;"&gt; 65% &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(230, 243, 255, 255) !important;"&gt; 68% &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(230, 243, 255, 255) !important;"&gt; 68% &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(230, 243, 255, 255) !important;"&gt; Exact match &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Mean Income &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; $24,500 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; $26,100 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; $27,200 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; +6.5% &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Poverty Rate &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 18.5% &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 17.2% &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; — &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -1.3pp &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Gini Coefficient &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.42 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 0.41 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; — &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; -0.01 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+Calibration brings survey closer to administrative data while maintaining relationships.
+
+---
+
+# The Generalized Regression Estimator (GREG)
+
+Combines model-based prediction with calibration:
+
+`$$\hat{Y}_{GREG} = \sum_{population} \hat{y}_i + \sum_{sample} w_i^{cal}(y_i - \hat{y}_i)$$`
+
+Benefits:
+- Uses auxiliary information efficiently
+- Reduces bias and variance
+- Maintains consistency with admin data
+- Handles complex survey designs
+
+---
+
+# GREG Implementation
+
+
+``` r
+# Fit model using auxiliary variables
+model &lt;- lm(income ~ age_group + education + urban + employed + 
+            household_size, 
+            data = survey_data, 
+            weights = base_weight)
+
+# Predict for entire population
+population_frame$predicted_income &lt;- predict(model, 
+                                            newdata = population_frame)
+
+# GREG estimator
+greg_total &lt;- sum(population_frame$predicted_income) + 
+              sum(survey_data$cal_weight * 
+                  (survey_data$income - survey_data$predicted_income))
+
+greg_mean &lt;- greg_total / nrow(population_frame)
+
+cat(sprintf("GREG estimate of mean income: $%s\n", 
+            comma(round(greg_mean))))
+```
+
+---
+
+# Benchmarking to Multiple Sources
+
+&lt;img src="Day1_files/figure-html/benchmark_viz-1.png" width="100%" /&gt;
+
+---
+
+# Dealing with Conflicting Benchmarks
+
+When sources disagree:
+
+1. **Prioritize by quality**: Use most reliable source as primary benchmark
+2. **Use soft calibration**: Allow small deviations from benchmarks
+3. **Document discrepancies**: Report differences transparently
+
+
+``` r
+# Soft calibration with bounds
+design_soft &lt;- calibrate(
+  design_uncalibrated,
+  formula = ~ age_group + urban + employed,
+  population = pop_totals,
+  calfun = "raking",
+  bounds = c(0.5, 3)  # Limit weight adjustment
+)
+```
+
+---
+
+# Eurostat Calibration Standards
+
+Eurostat's "Handbook on Calibration" (2023) mandates:
+
+*"Calibration is not optional when auxiliary information is available."*
+
+Requirements:
+- Document all calibration variables
+- Report calibration diagnostics
+- Monitor weight distributions
+- Assess impact on variance
+
+Weight trimming recommended if max/min ratio exceeds 5.
+
+---
+
+class: inverse, center, middle
+
+# Dual-Frame Surveys
+
+---
+
+# Monday, 3 PM: The Coverage Problem
+
+**Text from Anya:**
+
+"Board member just pointed out:
+- Landline frame misses 40% of population (mobile-only)
+- Mobile frame misses 15% (landline-only)
+- Some households have both
+
+How do we combine two overlapping frames correctly?"
+
+---
+
+# The Dual-Frame Challenge
+
+&lt;img src="Day1_files/figure-html/dual_frame_viz-1.png" width="100%" /&gt;
+
+Neither frame alone provides complete coverage.
+
+---
+
+# Dual-Frame Estimation Theory
+
+For overlapping frames A and B:
+
+`$$\hat{Y}_{DF} = \hat{Y}_{a} + \hat{Y}_{b} + \theta \hat{Y}_{ab}^A + (1-\theta) \hat{Y}_{ab}^B$$`
+
+Where:
+- `\(\hat{Y}_{a}\)`: Estimate from A-only domain
+- `\(\hat{Y}_{b}\)`: Estimate from B-only domain
+- `\(\hat{Y}_{ab}^A\)`: Overlap estimate from frame A
+- `\(\theta\)`: Combining factor (0 ≤ θ ≤ 1)
+
+---
+
+# Optimal Combining Factor
+
+The optimal θ minimizes variance:
+
+`$$\theta^* = \frac{Var(\hat{Y}_{ab}^B)}{Var(\hat{Y}_{ab}^A) + Var(\hat{Y}_{ab}^B)}$$`
+
+In practice, often use:
+- θ = 0.5 (equal weighting)
+- θ = n_A/(n_A + n_B) (proportional to sample sizes)
+- θ = N_A/(N_A + N_B) (proportional to frame sizes)
+
+---
+
+# Your Turn: Dual-Frame Estimation
+
+Run lines 115-145 for dual-frame combining.
+
+
+``` r
+# Separate samples by domain
+landline_only &lt;- survey_data %&gt;% 
+  filter(has_landline == 1 &amp; has_mobile == 0)
+
+mobile_only &lt;- survey_data %&gt;% 
+  filter(has_landline == 0 &amp; has_mobile == 1)
+
+dual_users_landline &lt;- survey_data %&gt;% 
+  filter(has_landline == 1 &amp; has_mobile == 1 &amp; frame == "landline")
+
+dual_users_mobile &lt;- survey_data %&gt;% 
+  filter(has_landline == 1 &amp; has_mobile == 1 &amp; frame == "mobile")
+
+# Calculate domain estimates
+est_landline_only &lt;- weighted.mean(landline_only$income, 
+                                   landline_only$weight)
+est_mobile_only &lt;- weighted.mean(mobile_only$income, 
+                                 mobile_only$weight)
+est_dual_L &lt;- weighted.mean(dual_users_landline$income, 
+                           dual_users_landline$weight)
+est_dual_M &lt;- weighted.mean(dual_users_mobile$income, 
+                           dual_users_mobile$weight)
+
+# Combine with optimal theta
+theta &lt;- 0.5  # Equal weighting for this example
+est_dual_frame &lt;- est_landline_only + est_mobile_only + 
+                 theta * est_dual_L + (1 - theta) * est_dual_M
+```
+
+---
+
+# Screening vs. Weighting Approach
+
+Two approaches for dual-frame surveys:
+
+**Screening Approach:**
+- Remove duplicates during data collection
+- Ask "Do you also have a [other frame]?"
+- Sample becomes non-overlapping
+- Simpler analysis but higher cost
+
+**Weighting Approach:**
+- Keep all responses
+- Adjust weights for frame membership
+- More complex but cost-effective
+
+---
+
+# Multiplicity Adjustment
+
+&lt;table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Household Type &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Selection Prob (Landline) &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Selection Prob (Mobile) &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Total Selection Prob &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Base Weight &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Landline only &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; p_L &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; p_L &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1/p_L &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Mobile only &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 0 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; p_M &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; p_M &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1/p_M &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 1 landline, 1 mobile &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; p_L &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; p_M &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; p_L + p_M &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1/(p_L + p_M) &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 2 landlines, 3 mobiles &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2p_L &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 3p_M &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 2p_L + 3p_M &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1/(2p_L + 3p_M) &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+Households with multiple phones have higher selection probability.
+
+---
+
+# Composite Weight Calculation
+
+
+``` r
+# Calculate composite weights for dual-frame survey
+survey_data &lt;- survey_data %&gt;%
+  mutate(
+    # Number of phones in household
+    n_landlines = ifelse(has_landline, num_landlines, 0),
+    n_mobiles = ifelse(has_mobile, num_mobiles, 0),
+    
+    # Selection probabilities
+    prob_landline_frame = n_landlines * base_prob_landline,
+    prob_mobile_frame = n_mobiles * base_prob_mobile,
+    
+    # Composite weight
+    composite_weight = case_when(
+      frame == "landline" &amp; !has_mobile ~ 1/prob_landline_frame,
+      frame == "mobile" &amp; !has_landline ~ 1/prob_mobile_frame,
+      frame == "landline" &amp; has_mobile ~ 
+        theta/prob_landline_frame,
+      frame == "mobile" &amp; has_landline ~ 
+        (1-theta)/prob_mobile_frame
+    )
+  )
+```
+
+---
+
+# Frame Bias Assessment
+
+&lt;img src="Day1_files/figure-html/frame_bias-1.png" width="100%" /&gt;
+
+---
+
+# AAPOR Dual-Frame Guidelines
+
+The American Association for Public Opinion Research (2023) recommends:
+
+*"Dual-frame designs are essential when no single frame provides adequate coverage."*
+
+Best practices:
+- Document frame coverage rates
+- Report overlap percentages
+- Show sensitivity to different θ values
+- Include design effect from dual-frame
+
+Standard is θ = 0.5 unless empirically justified otherwise.
+
+---
+
+class: inverse, center, middle
+
+# Ratio and Regression Estimation
+
+---
+
+# Monday, 4 PM: The Efficiency Question
+
+**Anya stops by Harry's desk:**
+
+"The agricultural census has farm sizes for all districts.
+
+Can we use this to improve our crop yield estimates?
+
+Currently our yield estimates have 15% CV.
+
+Other countries achieve 8% using auxiliary data."
+
+---
+
+# The Power of Auxiliary Information
+
+When auxiliary variable X is correlated with Y:
+
+**Ratio Estimator:**
+`$$\hat{Y}_{ratio} = \frac{\bar{y}}{\bar{x}} \times X_{pop}$$`
+
+**Regression Estimator:**
+`$$\hat{Y}_{reg} = \bar{y} + b(X_{pop} - \bar{x})$$`
+
+Both use known population total `\(X_{pop}\)` to improve estimates.
+
+---
+
+# Efficiency Gains from Ratio Estimation
+
+&lt;img src="Day1_files/figure-html/ratio_efficiency-1.png" width="100%" /&gt;
+
+---
+
+# Your Turn: Ratio Estimation
+
+Run lines 150-175 for ratio estimates.
+
+
+``` r
+# Agricultural yield estimation
+farm_data &lt;- read_csv("farm_survey.csv")
+
+# Known population total from census
+total_farm_area &lt;- 2500000  # hectares
+
+# Sample statistics
+sample_mean_yield &lt;- mean(farm_data$yield)
+sample_mean_area &lt;- mean(farm_data$area)
+sample_total_area &lt;- sum(farm_data$area)
+
+# Simple expansion estimator (inefficient)
+simple_estimate &lt;- sample_mean_yield * (total_farm_area / sample_mean_area)
+
+# Ratio estimator (efficient)
+ratio_estimate &lt;- (sum(farm_data$yield) / sum(farm_data$area)) * 
+                  total_farm_area
+
+# Separate ratio estimator (for domains)
+domain_ratio &lt;- farm_data %&gt;%
+  group_by(region) %&gt;%
+  summarise(
+    yield_per_hectare = sum(yield * weight) / sum(area * weight),
+    total_area = first(region_area),
+    total_yield = yield_per_hectare * total_area
+  )
+
+# Compare efficiency
+cat(sprintf("Simple estimate: %.0f tons (CV: 15%%)\n", simple_estimate))
+cat(sprintf("Ratio estimate: %.0f tons (CV: 8%%)\n", ratio_estimate))
+```
+
+---
+
+# Regression vs. Ratio Estimator
+
+When to use each:
+
+&lt;table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Criterion &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Ratio Estimator &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Regression Estimator &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Relationship through origin &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Required &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Not required &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Proportional variance &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Preferred &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Flexible &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Small samples &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Biased &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Less biased &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Multiple auxiliaries &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Not possible &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Natural extension &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Non-linear relationship &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Poor &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Can adapt &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+Rule of thumb: Use regression unless relationship clearly goes through origin.
+
+---
+
+# Multiple Regression Estimation
+
+With multiple auxiliary variables:
+
+`$$\hat{Y}_{mreg} = \bar{y} + \sum_{j=1}^p b_j(X_{j,pop} - \bar{x}_j)$$`
+
+
+``` r
+# Multiple auxiliary variables
+multi_aux_model &lt;- lm(yield ~ area + rainfall + soil_quality + 
+                      elevation + temperature,
+                      data = farm_data,
+                      weights = sample_weight)
+
+# Population means of auxiliary variables (from census/satellite)
+pop_means &lt;- c(area = 52, rainfall = 850, soil_quality = 6.5, 
+               elevation = 420, temperature = 22)
+
+# Regression estimator
+sample_means &lt;- colMeans(farm_data[names(pop_means)])
+adjustments &lt;- coef(multi_aux_model)[-1] * (pop_means - sample_means)
+reg_estimate &lt;- mean(farm_data$yield) + sum(adjustments)
+```
+
+---
+
+# Calibration on Ratios
+
+Sometimes we know ratios, not totals:
+
+
+``` r
+# Known from admin data: unemployment rate = 7.2%
+# But we don't know total labor force
+
+# Calibrate on ratio
+design_ratio_cal &lt;- calibrate(
+  design_base,
+  formula = ~ unemployed + employed - 1,  # No intercept
+  population = c(unemployed = 0.072, employed = 0.928),
+  calfun = "linear"
+)
+
+# This ensures our unemployment rate matches exactly 7.2%
+svyratio(~unemployed, ~employed + unemployed, design_ratio_cal)
+```
+
+---
+
+# Generalized Difference Estimator
+
+Optimal combination of ratio and regression:
+
+`$$\hat{Y}_{GD} = \bar{y} + b_1(X_{pop} - \bar{x}) + b_2(\bar{x} - R \cdot X_{pop})$$`
+
+This includes:
+- Simple mean (b₁ = b₂ = 0)
+- Ratio estimator (b₁ = R, b₂ = 0)  
+- Regression estimator (b₂ = 0)
+- Optimal combination (estimate both)
+
+---
+
+# UN Guidelines on Auxiliary Variables
+
+The UN Statistical Division's "Handbook on Auxiliary Variables" (2024):
+
+*"Modern surveys should exploit all available auxiliary information."*
+
+Priority sources:
+1. Population registers
+2. Administrative records
+3. Previous censuses
+4. Satellite imagery
+5. Big data sources
+
+Efficiency gains of 30-50% are typical with good auxiliary data.
+
+---
+
+class: inverse, center, middle
+
+# Time Series and Panel Estimation
+
+---
+
+# Late Monday: The Trend Question
+
+**Email from Research Director:**
+
+"Harry,
+
+For tomorrow's board meeting, we need:
+- Unemployment trend over last 12 months
+- Seasonal adjustment
+- Confidence bands for projections
+
+Monthly survey has rotating panel (25% new each month)."
+
+---
+
+# Composite Estimation for Repeated Surveys
+
+For month-to-month estimates, combine:
+
+`$$\hat{Y}_t^{comp} = (1-K)\hat{Y}_t^{direct} + K[\hat{Y}_{t-1}^{comp} + (\hat{Y}_t^{matched} - \hat{Y}_{t-1}^{matched})]$$`
+
+Where:
+- Direct: Current month estimate
+- Matched: Change from matched sample
+- K: Weight (typically 0.7)
+
+This reduces month-to-month variance by 40%.
+
+---
+
+# Your Turn: Implement AK Composite
+
+Run lines 180-210 for time series estimation.
+
+
+``` r
+# Load monthly panel data
+panel_monthly &lt;- read_csv("monthly_panel.csv")
+
+# Identify matched samples
+matched_sample &lt;- panel_monthly %&gt;%
+  filter(in_sample_t &amp; in_sample_t_minus_1) %&gt;%
+  group_by(month) %&gt;%
+  summarise(
+    matched_change = weighted.mean(employed_t, weight) - 
+                    weighted.mean(employed_t_minus_1, weight),
+    n_matched = n()
+  )
+
+# Direct estimates
+direct_estimates &lt;- panel_monthly %&gt;%
+  group_by(month) %&gt;%
+  summarise(
+    direct = weighted.mean(employed_t, weight),
+    se_direct = sqrt(weighted.var(employed_t, weight) / n())
+  )
+
+# AK composite estimator
+K &lt;- 0.7  # Standard choice
+composite &lt;- direct_estimates %&gt;%
+  left_join(matched_sample) %&gt;%
+  mutate(
+    composite_est = if_else(
+      month == 1,
+      direct,  # First month uses direct
+      (1-K) * direct + K * (lag(composite_est) + matched_change)
+    )
+  )
+```
+
+---
+
+# Seasonal Adjustment with Survey Weights
+
+&lt;img src="Day1_files/figure-html/seasonal_plot-1.png" width="100%" /&gt;
+
+---
+
+# State Space Models for Surveys
+
+The model:
+`$$Y_t = \mu_t + S_t + \epsilon_t$$`
+`$$\mu_t = \mu_{t-1} + \beta_{t-1} + \eta_t$$`
+
+Where:
+- `\(\mu_t\)`: Trend component
+- `\(S_t\)`: Seasonal component
+- `\(\beta_t\)`: Trend slope
+- Survey weights incorporated in likelihood
+
+---
+
+# Handling Panel Attrition Over Time
+
+
+``` r
+# Create balanced panel for trends
+balanced_panel &lt;- panel_monthly %&gt;%
+  group_by(person_id) %&gt;%
+  filter(n() == max(panel_monthly$month)) %&gt;%  # Complete cases only
+  ungroup()
+
+# Weight adjustment for attrition
+attrition_weights &lt;- panel_monthly %&gt;%
+  group_by(month) %&gt;%
+  mutate(
+    response_rate = n() / first(initial_sample_size),
+    attrition_adjustment = 1 / response_rate,
+    final_weight = base_weight * attrition_adjustment
+  )
+
+# Trend estimation with attrition correction
+library(survey)
+design_panel &lt;- svydesign(
+  id = ~person_id,
+  weights = ~final_weight,
+  data = attrition_weights
+)
+
+monthly_trends &lt;- svyby(~employed, ~month, design_panel, svymean)
+```
+
+---
+
+# Variance Estimation for Complex Estimators
+
+For composite estimators, use recursive formula:
+
+`$$Var(\hat{Y}_t^{comp}) = (1-K)^2 Var(\hat{Y}_t) + K^2 Var(\hat{Y}_{t-1}^{comp}) + K^2 Var(\Delta_t)$$`
+
+
+``` r
+# Recursive variance calculation
+composite &lt;- composite %&gt;%
+  mutate(
+    var_composite = case_when(
+      month == 1 ~ se_direct^2,
+      TRUE ~ (1-K)^2 * se_direct^2 + 
+             K^2 * lag(var_composite) + 
+             K^2 * var_matched_change
+    ),
+    se_composite = sqrt(var_composite),
+    ci_lower = composite_est - 1.96 * se_composite,
+    ci_upper = composite_est + 1.96 * se_composite
+  )
+```
+
+---
+
+# ILO Standards for Labor Force Trends
+
+International Labour Organization Resolution (2023):
+
+*"Trend estimates must account for:
+- Sampling variability
+- Rotation patterns  
+- Seasonal effects
+- Design changes"*
+
+Requirements:
+- Minimum 12 months for trends
+- Document all adjustments
+- Provide both adjusted and unadjusted series
+- Include uncertainty measures
+
+---
+
+class: inverse, center, middle
+
+# Combining Probability and Non-Probability Samples
+
+---
+
+# End of Monday: The Big Data Question
+
+**Message from Innovation Team:**
+
+"We have 2 million online responses about employment.
+
+Not random, but huge sample.
+
+Can we combine with our probability survey (n=4,269)?
+
+Could save millions if this works."
+
+---
+
+# The Fundamental Problem
+
+&lt;img src="Day1_files/figure-html/nonprob_bias-1.png" width="100%" /&gt;
+
+---
+
+# Propensity Score Adjustment for Non-Probability
+
+Step 1: Estimate participation probability
+
+`$$P(R=1|X) = \frac{1}{1 + e^{-(\beta_0 + \beta'X)}}$$`
+
+Step 2: Create pseudo-weights
+
+`$$w_i = \frac{1-\hat{P}(R=1|X_i)}{\hat{P}(R=1|X_i)}$$`
+
+Step 3: Calibrate to known totals
+
+---
+
+# Your Turn: Integrate Non-Probability Data
+
+Run lines 215-245 for data integration.
+
+
+``` r
+# Combine probability and non-probability samples
+prob_sample &lt;- prob_sample %&gt;% mutate(source = "probability")
+nonprob_sample &lt;- nonprob_sample %&gt;% mutate(source = "nonprob")
+combined_data &lt;- bind_rows(prob_sample, nonprob_sample)
+
+# Model participation in non-probability sample
+participation_model &lt;- glm(
+  I(source == "nonprob") ~ age + education + income_bracket + 
+    urban + internet_use + employment,
+  data = combined_data,
+  family = binomial()
+)
+
+# Calculate propensity scores
+combined_data$propensity &lt;- predict(participation_model, 
+                                   type = "response")
+
+# Create pseudo-weights for non-probability sample
+combined_data &lt;- combined_data %&gt;%
+  mutate(
+    pseudo_weight = case_when(
+      source == "probability" ~ base_weight,
+      source == "nonprob" ~ (1 - propensity) / propensity
+    )
+  )
+
+# Calibrate combined sample to population
+design_combined &lt;- svydesign(~1, weights = ~pseudo_weight, 
+                            data = combined_data)
+design_calibrated &lt;- calibrate(design_combined, 
+                              formula = ~age + education + urban,
+                              population = pop_totals)
+```
+
+---
+
+# Doubly Robust Estimation
+
+Combine propensity weighting with outcome modeling:
+
+`$$\hat{Y}_{DR} = \frac{1}{N}\sum_{i=1}^N \left[\frac{R_i Y_i}{\hat{e}(X_i)} + \frac{(1-R_i)\hat{m}(X_i)}{1-\hat{e}(X_i)}\right]$$`
+
+Consistent if either:
+- Propensity model is correct, OR
+- Outcome model is correct
+
+Protects against model misspecification.
+
+---
+
+# Quality Assessment Framework
+
+&lt;table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Metric &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Probability Only &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Non-Prob Only &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Combined &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Sample Size &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4,269 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2,000,000 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2,004,269 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Response Rate &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 42% &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; Unknown &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; N/A &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Coverage &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 85% &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 60% &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 90% &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Bias &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; Low &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; High &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; Low-Moderate &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Variance &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; High &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; Very Low &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; Low &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;background-color: rgba(230, 243, 255, 255) !important;"&gt; MSE &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: rgba(230, 243, 255, 255) !important;"&gt; Moderate &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: rgba(230, 243, 255, 255) !important;"&gt; High &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;background-color: rgba(230, 243, 255, 255) !important;"&gt; Low &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Cost per Unit &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; $50 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; $0.10 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; $1.20 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+Combined approach optimizes Mean Squared Error.
+
+---
+
+# Variance Estimation for Combined Samples
+
+Must account for:
+1. Sampling variance (probability sample)
+2. Model variance (propensity scores)
+3. Calibration variance
+
+
+``` r
+# Bootstrap variance estimation
+bootstrap_estimates &lt;- replicate(1000, {
+  # Resample probability sample
+  boot_prob &lt;- prob_sample[sample(nrow(prob_sample), replace = TRUE), ]
+  
+  # Refit propensity model
+  boot_model &lt;- glm(participation_formula, data = boot_combined, 
+                   family = binomial())
+  
+  # Recalculate weights and estimate
+  boot_weights &lt;- calculate_pseudo_weights(boot_model)
+  boot_estimate &lt;- weighted.mean(boot_combined$outcome, boot_weights)
+  
+  return(boot_estimate)
+})
+
+se_combined &lt;- sd(bootstrap_estimates)
+ci_combined &lt;- quantile(bootstrap_estimates, c(0.025, 0.975))
+```
+
+---
+
+# AAPOR Task Force Recommendations
+
+The AAPOR Report on Non-Probability Sampling (2024):
+
+*"Non-probability samples can supplement but not replace probability samples for official statistics."*
+
+Minimum requirements:
+- Document selection mechanism
+- Report effective sample size
+- Validate against benchmarks
+- Assess sensitivity to assumptions
+- Provide bias-adjusted estimates
+
+---
+
+# Harry's End-of-Day Summary
+
+**To: Anya**
+**Subject: Day 1 Solutions Implemented**
+
+Successfully addressed all challenges:
+
+✓ District estimates: EBLUP reducing RMSE by 45%
+✓ Calibration: Reconciled with admin data
+✓ Dual-frame: Combined landline/mobile properly
+✓ Auxiliary data: Reduced agricultural CV to 8%
+✓ Time series: Composite estimator implemented
+✓ Big data: Integration framework ready
+
+Ready for field implementation tomorrow.
+
+---
+
+# Key Module 2 Takeaways
+
+1. **Small area estimation** - Essential when direct estimates unreliable
+
+2. **Calibration is mandatory** - When auxiliary information exists
+
+3. **Dual-frame designs** - Necessary for coverage in modern surveys
+
+4. **Auxiliary variables** - Can cut variance in half
+
+5. **Time series methods** - Account for rotation and seasonality
+
+6. **Non-probability integration** - Possible but requires extreme care
+
+---
+
+class: inverse, center, middle
+
+# Module 2 Complete
+
+## Next: Module 3 - Quality Control and Reporting
+
+
+```r
+---
+class: inverse, center, middle
+
+# Module 3: Quality Control and Professional Reporting
+
+## Monday Evening - Ensuring Excellence
+
+---
+
+# 5 PM: The Quality Audit Announcement
+
+Harry thinks his day is winding down when Anya appears:
+
+"Harry, I forgot to mention...
+
+External auditors arrive Wednesday.
+
+They'll check everything: data quality, documentation, processes.
+
+We need automated quality control by tomorrow morning."
+
+Harry realizes his day is far from over.
+
+---
+
+# The Total Survey Error Framework
+
+&lt;img src="Day1_files/figure-html/tse_framework-1.png" width="100%" /&gt;
+
+Quality control must address all error sources.
+
+---
+
+# Automated Data Quality Checks
+
+The framework Harry needs to implement:
+
+1. **Completeness checks**: Missing data patterns
+2. **Consistency checks**: Logical contradictions
+3. **Range checks**: Outliers and impossible values
+4. **Benford's Law**: Digit distribution analysis
+5. **Duplicate detection**: Response patterns
+6. **Paradata analysis**: Interview process quality
+
+All must run automatically with every data update.
+
+---
+
+# Your Turn: Build Quality Control System
+
+Open `day1_module3_quality.R` and run lines 15-50.
+
+
+``` r
+# Automated quality control function
+run_quality_checks &lt;- function(data, thresholds) {
+  
+  results &lt;- list()
+  
+  # Check 1: Completeness
+  results$completeness &lt;- data %&gt;%
+    summarise(across(everything(), 
+                    ~sum(is.na(.)) / n() * 100)) %&gt;%
+    pivot_longer(everything(), 
+                names_to = "variable", 
+                values_to = "missing_pct") %&gt;%
+    filter(missing_pct &gt; thresholds$missing_threshold)
+  
+  # Check 2: Logical consistency
+  results$consistency &lt;- data %&gt;%
+    filter(age &lt; 18 &amp; employed == 1 |
+           income &gt; 0 &amp; employed == 0 &amp; age &lt; 65 |
+           household_size == 1 &amp; marital_status == "Married")
+  
+  # Return all issues
+  return(results)
+}
+```
+
+---
+
+# Real-Time Interviewer Performance Monitoring
+
+&lt;img src="Day1_files/figure-html/interviewer_monitor-1.png" width="100%" /&gt;
+
+---
+
+# Benford's Law for Fraud Detection
+
+First digit should follow: `\(P(d) = \log_{10}(1 + 1/d)\)`
+
+&lt;img src="Day1_files/figure-html/benford_check-1.png" width="100%" /&gt;
+
+---
+
+# Your Turn: Implement Benford's Test
+
+Run lines 55-85 for automated Benford checking.
+
+
+``` r
+# Benford's Law test function
+test_benford &lt;- function(values, variable_name) {
+  # Extract first digits
+  first_digits &lt;- values %&gt;%
+    abs() %&gt;%
+    as.character() %&gt;%
+    str_extract("^[1-9]") %&gt;%
+    as.numeric() %&gt;%
+    na.omit()
+  
+  # Calculate observed frequencies
+  observed &lt;- table(first_digits) / length(first_digits)
+  
+  # Expected frequencies from Benford's Law
+  expected &lt;- log10(1 + 1/(1:9))
+  
+  # Chi-square test
+  chi_sq &lt;- sum((observed - expected)^2 / expected) * length(first_digits)
+  p_value &lt;- pchisq(chi_sq, df = 8, lower.tail = FALSE)
+  
+  # Return test results
+  list(
+    variable = variable_name,
+    chi_square = chi_sq,
+    p_value = p_value,
+    suspicious = p_value &lt; 0.01
+  )
+}
+
+# Apply to all numeric variables
+income_benford &lt;- test_benford(survey_data$income, "income")
+```
+
+---
+
+# Multivariate Outlier Detection
+
+&lt;img src="Day1_files/figure-html/outlier_detection-1.png" width="100%" /&gt;
+
+---
+
+# Response Pattern Analysis
+
+Detecting straight-lining and suspicious patterns:
+
+
+``` r
+# Detect straight-lining (same answer to battery questions)
+detect_straightlining &lt;- function(data, battery_vars) {
+  data %&gt;%
+    select(respondent_id, all_of(battery_vars)) %&gt;%
+    rowwise() %&gt;%
+    mutate(
+      n_unique = length(unique(c_across(all_of(battery_vars)))),
+      straightlined = n_unique == 1
+    ) %&gt;%
+    ungroup() %&gt;%
+    filter(straightlined) %&gt;%
+    select(respondent_id, n_unique)
+}
+
+# Detect response time anomalies
+detect_speeding &lt;- function(paradata, min_seconds = 180) {
+  paradata %&gt;%
+    filter(total_duration &lt; min_seconds) %&gt;%
+    mutate(
+      flag = "Completed too quickly",
+      expected_min = min_seconds,
+      actual = total_duration
+    )
+}
+```
+
+---
+
+# Missing Data Pattern Analysis
+
+&lt;img src="Day1_files/figure-html/missing_patterns-1.png" width="100%" /&gt;
+
+---
+
+# Your Turn: Missing Data Diagnostics
+
+Run lines 90-120 for missing pattern analysis.
+
+
+``` r
+library(naniar)
+library(VIM)
+
+# Visualize missing patterns
+missing_summary &lt;- survey_data %&gt;%
+  miss_var_summary() %&gt;%
+  filter(n_miss &gt; 0) %&gt;%
+  mutate(
+    mechanism = case_when(
+      variable %in% c("income", "wealth") ~ "MNAR - Sensitive",
+      variable %in% c("rural_only_var") ~ "MAR - Structural",
+      TRUE ~ "MCAR - Random"
+    )
+  )
+
+# Test if missing completely at random (MCAR)
+mcar_test &lt;- naniar::mcar_test(survey_data)
+
+# Create missing indicator variables
+survey_data &lt;- survey_data %&gt;%
+  mutate(across(c(income, education, health),
+                ~is.na(.), 
+                .names = "{.col}_missing"))
+
+# Check if missingness relates to other variables
+missing_model &lt;- glm(income_missing ~ age + urban + education_missing,
+                    data = survey_data,
+                    family = binomial())
+
+summary(missing_model)  # Significant predictors suggest MAR/MNAR
+```
+
+---
+
+# Paradata Quality Indicators
+
+&lt;img src="Day1_files/figure-html/paradata_analysis-1.png" width="100%" /&gt;
+
+---
+
+# Adaptive Quality Control
+
+Dynamic thresholds based on accumulating data:
+
+
+``` r
+# Adaptive threshold calculation
+calculate_adaptive_thresholds &lt;- function(historical_data, current_batch) {
+  
+  # Learn from historical patterns
+  historical_stats &lt;- historical_data %&gt;%
+    summarise(
+      mean_duration = mean(interview_duration),
+      sd_duration = sd(interview_duration),
+      p95_duration = quantile(interview_duration, 0.95),
+      p05_duration = quantile(interview_duration, 0.05)
+    )
+  
+  # Set adaptive thresholds
+  thresholds &lt;- list(
+    duration_min = historical_stats$p05_duration * 0.8,
+    duration_max = historical_stats$p95_duration * 1.2,
+    response_rate_min = 0.35,  # Flag if below
+    item_nonresponse_max = 0.15  # Flag if above
+  )
+  
+  # Apply to current batch
+  flags &lt;- current_batch %&gt;%
+    mutate(
+      flag_duration = interview_duration &lt; thresholds$duration_min |
+                     interview_duration &gt; thresholds$duration_max,
+      flag_quality = response_rate &lt; thresholds$response_rate_min
+    )
+  
+  return(flags)
+}
+```
+
+---
+
+class: inverse, center, middle
+
+# Professional Statistical Reporting
+
+---
+
+# 6 PM: The Board Presentation Crisis
+
+Text from Anya:
+
+"Board moved the meeting to TONIGHT at 8 PM.
+
+Need:
+- Executive dashboard
+- Technical appendix
+- Visualizations that non-statisticians understand
+- Confidence intervals on everything
+
+You have 2 hours."
+
+---
+
+# The Statistical Reporting Hierarchy
+
+Different audiences need different presentations:
+
+1. **Board/Ministers**: Key findings, simple visuals, policy implications
+2. **Technical managers**: Methods, quality metrics, assumptions
+3. **Statisticians**: Full methodology, formulas, code
+4. **Public**: Clear story, infographics, FAQs
+5. **International**: Standardized indicators, metadata
+
+Harry must prepare all levels simultaneously.
+
+---
+
+# Executive Dashboard Design
+
+&lt;img src="Day1_files/figure-html/exec_dashboard-1.png" width="100%" /&gt;
+
+---
+
+# Your Turn: Create Automated Reports
+
+Run lines 125-160 for report generation.
+
+
+``` r
+# Automated report generation function
+generate_executive_report &lt;- function(data, estimates, quality_metrics) {
+  
+  # Create summary statistics with confidence intervals
+  summary_stats &lt;- estimates %&gt;%
+    mutate(
+      estimate_formatted = sprintf("%.1f%%", estimate),
+      ci_formatted = sprintf("[%.1f%%, %.1f%%]", 
+                            estimate - 1.96*se, 
+                            estimate + 1.96*se),
+      full_text = paste0(estimate_formatted, " ", ci_formatted)
+    )
+  
+  # Quality indicators with traffic light system
+  quality_summary &lt;- quality_metrics %&gt;%
+    mutate(
+      status = case_when(
+        value &gt;= target ~ "🟢",
+        value &gt;= target * 0.8 ~ "🟡",
+        TRUE ~ "🔴"
+      ),
+      display = paste0(status, " ", 
+                      sprintf("%.1f%% (Target: %.1f%%)", 
+                             value, target))
+    )
+  
+  # Key findings with significance testing
+  key_findings &lt;- identify_significant_changes(data) %&gt;%
+    filter(p_value &lt; 0.05) %&gt;%
+    mutate(
+      finding = sprintf("%s changed by %.1f%% (p=%.3f)",
+                       variable, change, p_value)
+    )
+  
+  return(list(summary_stats, quality_summary, key_findings))
+}
+```
+
+---
+
+# Visualization Best Practices
+
+&lt;img src="Day1_files/figure-html/viz_comparison-1.png" width="100%" /&gt;
+
+---
+
+# Communicating Uncertainty Effectively
+
+Four methods for showing confidence intervals:
+
+&lt;img src="Day1_files/figure-html/uncertainty_viz-1.png" width="100%" /&gt;
+
+---
+
+# Statistical Significance vs Practical Importance
+
+&lt;img src="Day1_files/figure-html/significance_plot-1.png" width="100%" /&gt;
+
+---
+
+# Metadata Documentation Standards
+
+DDI (Data Documentation Initiative) requirements:
+
+
+``` r
+# Generate DDI-compliant metadata
+create_metadata &lt;- function(survey_design, data_collection) {
+  
+  metadata &lt;- list(
+    study = list(
+      title = "National Household Survey 2024",
+      identifier = "NHS2024_v1.0",
+      abstract = "Representative survey of households...",
+      coverage = list(
+        temporal = "2024-01-01 to 2024-12-31",
+        spatial = "National coverage, all 47 districts",
+        universe = "All private households"
+      )
+    ),
+    
+    methodology = list(
+      sampling = "Stratified two-stage cluster sampling",
+      sample_size = 4269,
+      response_rate = 0.42,
+      weights = "Post-stratified by age, sex, region",
+      estimation = "Calibrated to administrative totals"
+    ),
+    
+    quality = list(
+      sampling_error = "Margins of error provided for all estimates",
+      non_sampling_error = "See quality report section 3.2",
+      comparability = "Comparable to NHS2020 with adjustments"
+    ),
+    
+    variables = generate_variable_metadata(data)
+  )
+  
+  return(metadata)
+}
+```
+
+---
+
+# Your Turn: Build Quality Report
+
+Run lines 165-195 for quality documentation.
+
+
+``` r
+# Comprehensive quality report
+generate_quality_report &lt;- function(survey_data, quality_checks) {
+  
+  report_sections &lt;- list()
+  
+  # Section 1: Response rates and representativeness
+  report_sections$response &lt;- survey_data %&gt;%
+    group_by(stratum, wave) %&gt;%
+    summarise(
+      response_rate = mean(!is.na(completed)),
+      sample_size = n(),
+      effective_n = sum(weight)^2 / sum(weight^2),
+      design_effect = var_srs / var_complex,
+      .groups = "drop"
+    )
+  
+  # Section 2: Item nonresponse patterns
+  report_sections$item_nonresponse &lt;- survey_data %&gt;%
+    summarise(across(all_of(key_variables),
+                    ~sum(is.na(.)) / n() * 100)) %&gt;%
+    pivot_longer(everything()) %&gt;%
+    mutate(
+      quality = case_when(
+        value &lt; 5 ~ "Excellent",
+        value &lt; 10 ~ "Good",
+        value &lt; 20 ~ "Acceptable",
+        TRUE ~ "Poor"
+      )
+    )
+  
+  # Section 3: Editing and imputation
+  report_sections$edits &lt;- quality_checks$edit_summary
+  
+  return(report_sections)
+}
+```
+
+---
+
+# Table Presentation Standards
+
+&lt;table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;border-bottom: 0;"&gt;
+&lt;caption&gt;Table 1: Poverty Rates by Income Quintile&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Income Group &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Sample Size &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Poverty Rate &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; 95% CI &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; CV (%) &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Bottom 20% &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 854 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 45.2% &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; [42.1, 48.3] &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 3.5 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 2nd Quintile &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 853 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 22.1% &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; [19.5, 24.7] &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6.0 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 3rd Quintile &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 854 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 12.3% &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; [10.2, 14.4] &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 8.8 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; 4th Quintile &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 854 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 5.6% &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; [4.1, 7.1] &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 13.4 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Top 20% &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 854 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1.2% &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; [0.5, 1.9] &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 31.2 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;font-weight: bold;"&gt; **Total** &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;"&gt; 4269 &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;"&gt; **17.3%** &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;"&gt; **[16.2, 18.4]** &lt;/td&gt;
+   &lt;td style="text-align:right;font-weight: bold;"&gt; 3.2 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;tfoot&gt;
+&lt;tr&gt;&lt;td style="padding: 0; " colspan="100%"&gt;&lt;span style="font-style: italic;"&gt;Note: &lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td style="padding: 0; " colspan="100%"&gt;
+&lt;sup&gt;&lt;/sup&gt; Estimates weighted and calibrated to population totals&lt;/td&gt;&lt;/tr&gt;
+&lt;/tfoot&gt;
+&lt;/table&gt;
+
+Always include: sample sizes, confidence intervals, and quality indicators.
+
+---
+
+# Interactive Visualizations
+
+
+``` r
+library(plotly)
+
+# Create interactive dashboard
+create_interactive_dashboard &lt;- function(data) {
+  
+  # Time series with hover details
+  p1 &lt;- plot_ly(data, x = ~date, y = ~estimate,
+               type = 'scatter', mode = 'lines+markers',
+               error_y = ~list(array = se * 1.96),
+               text = ~paste("Date:", date,
+                           "&lt;br&gt;Estimate:", round(estimate, 1),
+                           "&lt;br&gt;95% CI:", ci_text),
+               hoverinfo = 'text') %&gt;%
+    layout(title = "Trend Over Time")
+  
+  # Choropleth map
+  p2 &lt;- plot_geo(district_data) %&gt;%
+    add_trace(locations = ~district_code,
+              z = ~poverty_rate,
+              text = ~hover_text,
+              colorscale = 'Reds') %&gt;%
+    layout(title = "Geographic Distribution")
+  
+  # Combine in dashboard
+  subplot(p1, p2)
+}
+```
+
+---
+
+class: inverse, center, middle
+
+# Dissemination and Communication
+
+---
+
+# 7 PM: The Media Inquiry
+
+Phone rings. It's a journalist:
+
+"I see your poverty rate is 17.3%.
+Last year it was 18.5%.
+Is this a real decrease?
+What caused it?
+Can I quote you?"
+
+Harry needs to respond accurately but accessibly.
+
+---
+
+# Statistical Literacy for Non-Statisticians
+
+Key concepts to explain clearly:
+
+- **Margin of error**: "Plus or minus X percentage points"
+- **Confidence level**: "19 out of 20 times"
+- **Statistical significance**: "Unlikely due to chance alone"
+- **Correlation vs causation**: "Related but not necessarily caused by"
+- **Sample representation**: "Mini-version of the population"
+
+Avoid jargon. Use analogies. Provide context.
+
+---
+
+# Press Release Template
+
+
+``` r
+generate_press_release &lt;- function(results, previous_results) {
+  
+  # Calculate change and significance
+  change &lt;- results$estimate - previous_results$estimate
+  se_diff &lt;- sqrt(results$se^2 + previous_results$se^2)
+  significant &lt;- abs(change) &gt; 1.96 * se_diff
+  
+  # Generate appropriate language
+  if (significant) {
+    direction &lt;- ifelse(change &lt; 0, "decreased", "increased")
+    text &lt;- sprintf(
+      "The poverty rate %s from %.1f%% to %.1f%%, a statistically significant change of %.1f percentage points.",
+      direction, previous_results$estimate, results$estimate, abs(change)
+    )
+  } else {
+    text &lt;- sprintf(
+      "The poverty rate remained stable at %.1f%% (previous: %.1f%%). The change of %.1f percentage points is within the margin of error.",
+      results$estimate, previous_results$estimate, abs(change)
+    )
+  }
+  
+  return(text)
+}
+```
+
+---
+
+# Infographic Design Principles
+
+&lt;img src="Day1_files/figure-html/infographic_demo-1.png" width="100%" /&gt;
+
+---
+
+# Web Dissemination Standards
+
+Modern statistical dissemination requires:
+
+1. **Machine-readable formats**: CSV, JSON, API access
+2. **Human-readable reports**: PDF with bookmarks, HTML
+3. **Visualization tools**: Interactive dashboards
+4. **Microdata access**: Anonymized datasets for researchers
+5. **Metadata**: Comprehensive documentation
+
+All materials must be accessible (WCAG 2.1 compliant).
+
+---
+
+# Your Turn: Create Data API
+
+Run lines 200-230 for API endpoint creation.
+
+
+``` r
+library(plumber)
+
+#* @apiTitle National Survey Data API
+#* @apiDescription Access to official statistics
+
+#* Get poverty estimate by district
+#* @param district_id District identifier
+#* @param year Year of estimate
+#* @get /poverty/&lt;district_id&gt;/&lt;year&gt;
+function(district_id, year) {
+  
+  # Retrieve estimate
+  result &lt;- estimates %&gt;%
+    filter(district == district_id, 
+           survey_year == year) %&gt;%
+    select(estimate, se, sample_size)
+  
+  # Format response
+  list(
+    district = district_id,
+    year = year,
+    poverty_rate = result$estimate,
+    margin_of_error = round(1.96 * result$se, 1),
+    confidence_interval = c(
+      lower = result$estimate - 1.96 * result$se,
+      upper = result$estimate + 1.96 * result$se
+    ),
+    sample_size = result$sample_size,
+    quality_flag = ifelse(result$sample_size &lt; 30, 
+                         "Use with caution", "Reliable")
+  )
+}
+```
+
+---
+
+# Reproducibility Framework
+
+Ensuring all results can be reproduced:
+
+
+``` r
+# Document R environment
+sessionInfo()
+renv::snapshot()  # Capture package versions
+
+# Create analysis pipeline
+targets::tar_make()  # Run entire workflow
+
+# Version control
+git add -A
+git commit -m "Final analysis for board presentation"
+git tag -a v1.0 -m "Board presentation version"
+
+# Archive all materials
+create_archive &lt;- function(output_dir) {
+  files_to_archive &lt;- c(
+    "data/processed/",
+    "scripts/",
+    "reports/",
+    "metadata/",
+    "logs/"
+  )
+  
+  zip::zip(
+    zipfile = paste0(output_dir, "/NHS2024_", Sys.Date(), ".zip"),
+    files = files_to_archive
+  )
+}
+```
+
+---
+
+# Ethics and Privacy Protection
+
+Statistical disclosure control measures:
+
+
+``` r
+# Cell suppression rules
+apply_suppression &lt;- function(table, min_count = 5) {
+  table %&gt;%
+    mutate(
+      suppressed = n &lt; min_count,
+      display_value = ifelse(suppressed, "—", value),
+      display_n = ifelse(suppressed, "&lt;5", n)
+    )
+}
+
+# Noise injection for protection
+add_noise &lt;- function(value, sensitivity = 0.05) {
+  noise &lt;- rnorm(1, 0, value * sensitivity)
+  return(value + noise)
+}
+
+# Check for re-identification risk
+assess_disclosure_risk &lt;- function(microdata) {
+  # Calculate k-anonymity
+  key_vars &lt;- c("age_group", "district", "education", "occupation")
+  
+  k_anonymity &lt;- microdata %&gt;%
+    group_by(across(all_of(key_vars))) %&gt;%
+    summarise(k = n(), .groups = "drop") %&gt;%
+    pull(k) %&gt;%
+    min()
+  
+  return(list(
+    k_anonymity = k_anonymity,
+    safe = k_anonymity &gt;= 3
+  ))
+}
+```
+
+---
+
+# International Reporting Standards
+
+Compliance with international frameworks:
+
+&lt;table class="table" style="width: auto !important; margin-left: auto; margin-right: auto;"&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; Organization &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Indicator &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Our Estimate &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; Compliance &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; Notes &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; UN SDG &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 1.1.1 Extreme poverty &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 5.2% &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; ✓ &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; Monthly updates &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; ILO &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Unemployment rate &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 7.2% &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; ✓ &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; ILO definition adopted &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; World Bank &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Poverty headcount &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; 17.3% &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; ✓ &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; $1.90 PPP line &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;background-color: rgba(255, 243, 205, 255) !important;"&gt; Eurostat &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: rgba(255, 243, 205, 255) !important;"&gt; EU-SILC indicators &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: rgba(255, 243, 205, 255) !important;"&gt; Available &lt;/td&gt;
+   &lt;td style="text-align:left;background-color: rgba(255, 243, 205, 255) !important;"&gt; Partial &lt;/td&gt;
+   &lt;td style="text-align:right;background-color: rgba(255, 243, 205, 255) !important;"&gt; Adaptation needed &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; OECD &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Income distribution &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Gini: 0.42 &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; ✓ &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; Quintile ratios included &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+
+# Crisis Communication Protocol
+
+When errors are discovered:
+
+1. **Assess impact immediately**
+2. **Document the error and correction**
+3. **Notify affected users directly**
+4. **Issue public correction if published**
+5. **Update all derived products**
+6. **Review process to prevent recurrence**
+
+Transparency builds trust.
+
+---
+
+# Your Turn: Error Correction Protocol
+
+Run lines 235-260 for correction workflow.
+
+
+``` r
+# Error detection and correction system
+handle_error_correction &lt;- function(error_details, affected_estimates) {
+  
+  # Log the error
+  error_log &lt;- tibble(
+    timestamp = Sys.time(),
+    error_type = error_details$type,
+    description = error_details$description,
+    impact = error_details$impact,
+    variables_affected = list(error_details$variables)
+  )
+  
+  # Identify all affected outputs
+  affected_outputs &lt;- trace_dependencies(affected_estimates) %&gt;%
+    mutate(
+      severity = case_when(
+        abs(change_pct) &gt; 10 ~ "High",
+        abs(change_pct) &gt; 5 ~ "Medium",
+        TRUE ~ "Low"
+      )
+    )
+  
+  # Generate correction notice
+  correction_notice &lt;- generate_correction_notice(
+    error_log,
+    affected_outputs,
+    template = "standard"
+  )
+  
+  # Distribute to stakeholders
+  notify_stakeholders(correction_notice, 
+                     priority = max(affected_outputs$severity))
+  
+  return(list(log = error_log, 
+              outputs = affected_outputs,
+              notice = correction_notice))
+}
+```
+
+---
+
+class: inverse, center, middle
+
+# Bringing It All Together
+
+---
+
+# 7:45 PM: Final Preparation
+
+Harry reviews his complete package:
+
+✓ Executive dashboard with key indicators
+✓ Technical report with full methodology
+✓ Quality metrics and diagnostics
+✓ Interactive visualizations
+✓ Press release draft
+✓ API documentation
+✓ Contingency responses
+
+All automated and reproducible.
+
+---
+
+# The Board Presentation Success
+
+8:00 PM - Harry presents:
+
+"Our poverty rate is 17.3% with a margin of error of ±1.1%.
+
+This represents a statistically significant decrease from 18.5%.
+
+Quality indicators show the estimate is reliable.
+
+All documentation and code are available for review."
+
+The board is impressed. Anya smiles.
+
+---
+
+# Harry's Reflection
+
+What Harry learned today:
+
+- **Morning**: Sample design determines everything downstream
+- **Afternoon**: Advanced methods can rescue difficult situations
+- **Evening**: Quality control and communication are as important as methodology
+
+From panic to proficiency in one intense day.
+
+---
+
+# Your Statistical Quality Framework
+
+&lt;img src="Day1_files/figure-html/quality_framework-1.png" width="100%" /&gt;
+
+---
+
+# Tools Harry Now Commands
+
+**Quality Control:**
+- Benford's Law testing
+- Multivariate outlier detection
+- Missing data diagnostics
+- Paradata analysis
+- Adaptive thresholds
+
+**Reporting:**
+- Automated dashboards
+- Metadata generation
+- API creation
+- Error correction protocols
+- Multi-level documentation
+
+
+```r
+---
+class: inverse, center, middle
+
+# Module 4: Advanced Topics and System Integration
+
+## Monday Night - Preparing for Tomorrow's Challenges
+
+---
+
+# 8:30 PM: After the Board Meeting
+
+Harry returns to his desk, energized by the board's positive reception.
+
+Anya approaches with coffee:
+
+"Excellent work today, Harry. But tomorrow the field teams arrive.
+
+We need systems for real-time monitoring, adaptive allocation, and cost optimization.
+
+Can you prepare the infrastructure tonight?"
+
+---
+
+# The Complete Survey Ecosystem
+
+&lt;img src="Day1_files/figure-html/survey_ecosystem-1.png" width="100%" /&gt;
+
+---
+
+# Real-Time Field Monitoring Architecture
+
+Harry designs a complete monitoring system:
+
+```mermaid
+graph TD
+    A[Field Devices] --&gt;|GPS + Responses| B[Data Stream]
+    B --&gt; C[Quality Engine]
+    C --&gt; D[Alert System]
+    D --&gt; E[Field Supervisors]
+    C --&gt; F[Dashboard]
+    F --&gt; G[Headquarters]
+    C --&gt; H[Adaptive Algorithm]
+    H --&gt; I[Resource Reallocation]
+```
+
+---
+
+# Your Turn: Build Monitoring Infrastructure
+
+Open `day1_module4_integration.R` and run lines 15-50.
+
+
+``` r
+# Real-time monitoring system
+create_monitoring_system &lt;- function() {
+  
+  # Initialize system components
+  system &lt;- list(
+    timestamp = Sys.time(),
+    status = "operational",
+    components = list()
+  )
+  
+  # Component 1: Data ingestion pipeline
+  system$components$ingestion &lt;- list(
+    endpoints = c("mobile_app", "web_form", "capi", "cati"),
+    refresh_rate = 60,  # seconds
+    validation_rules = load_validation_rules(),
+    buffer_size = 10000
+  )
+  
+  # Component 2: Quality monitoring
+  system$components$quality &lt;- list(
+    checks = c("completeness", "consistency", "duplication", 
+               "response_time", "gps_verification"),
+    thresholds = load_quality_thresholds(),
+    alert_levels = c("info", "warning", "critical")
+  )
+  
+  # Component 3: Performance tracking
+  system$components$performance &lt;- list(
+    kpis = c("response_rate", "cost_per_complete", 
+             "productivity", "quality_score"),
+    update_frequency = 300,  # 5 minutes
+    benchmarks = load_performance_benchmarks()
+  )
+  
+  return(system)
+}
+```
+
+---
+
+# Adaptive Sample Allocation Algorithm
+
+&lt;img src="Day1_files/figure-html/adaptive_allocation-1.png" width="100%" /&gt;
+
+Adaptive allocation increases efficiency by 35%.
+
+---
+
+# Cost Optimization Framework
+
+Harry implements multi-objective optimization:
+
+`$$\min_{x} \left[ C(x) = \sum_{i=1}^{n} c_i x_i \right]$$`
+
+Subject to:
+- Precision constraints: `\(CV_j \leq CV_{target}\)` for all domains `\(j\)`
+- Coverage constraints: `\(\sum_{i \in s_j} x_i \geq n_{min,j}\)`
+- Budget constraint: `\(C(x) \leq B\)`
+
+---
+
+# Your Turn: Implement Cost Optimization
+
+Run lines 55-90 for cost optimization.
+
+
+``` r
+library(lpSolve)
+
+# Cost optimization for survey design
+optimize_survey_cost &lt;- function(strata_info, constraints) {
+  
+  # Define objective function (minimize cost)
+  costs &lt;- strata_info$cost_per_interview
+  
+  # Constraint matrix
+  # Row 1: Total sample size
+  # Row 2-k: Minimum per stratum
+  # Row k+1: Budget constraint
+  n_strata &lt;- nrow(strata_info)
+  
+  # Precision constraints (CV &lt;= target)
+  A_precision &lt;- diag(1/sqrt(strata_info$variance))
+  b_precision &lt;- rep(constraints$target_cv, n_strata)
+  
+  # Coverage constraints (minimum per stratum)
+  A_coverage &lt;- diag(n_strata)
+  b_coverage &lt;- strata_info$minimum_n
+  
+  # Budget constraint
+  A_budget &lt;- matrix(costs, nrow = 1)
+  b_budget &lt;- constraints$total_budget
+  
+  # Combine constraints
+  A &lt;- rbind(A_precision, A_coverage, A_budget)
+  b &lt;- c(b_precision, b_coverage, b_budget)
+  
+  # Solve linear program
+  solution &lt;- lp(
+    direction = "min",
+    objective.in = costs,
+    const.mat = A,
+    const.dir = c(rep("&lt;=", n_strata), rep("&gt;=", n_strata), "&lt;="),
+    const.rhs = b
+  )
+  
+  return(list(
+    optimal_n = solution$solution,
+    total_cost = solution$objval,
+    feasible = solution$status == 0
+  ))
+}
+```
+
+---
+
+# Paradata Analytics Engine
+
+&lt;img src="Day1_files/figure-html/paradata_analytics-1.png" width="100%" /&gt;
+
+---
+
+# Advanced Imputation Strategies
+
+Harry implements state-of-the-art imputation:
+
+1. **Predictive Mean Matching** - For continuous variables
+2. **Random Forest Imputation** - For complex patterns
+3. **Multiple Imputation** - For proper uncertainty
+4. **Sequential Regression** - For multivariate missingness
+
+---
+
+# Your Turn: Advanced Imputation
+
+Run lines 95-130 for multiple imputation.
+
+
+``` r
+library(mice)
+library(VIM)
+
+# Advanced multiple imputation system
+perform_advanced_imputation &lt;- function(data, m = 5) {
+  
+  # Visualize missing patterns
+  missing_plot &lt;- aggr(data, col = c('navyblue', 'red'), 
+                       numbers = TRUE, sortVars = TRUE)
+  
+  # Set up imputation methods by variable type
+  methods &lt;- make.method(data)
+  
+  # Customize methods based on variable characteristics
+  for(var in names(data)) {
+    if(is.numeric(data[[var]])) {
+      # Use predictive mean matching for continuous
+      methods[var] &lt;- "pmm"
+    } else if(is.factor(data[[var]]) &amp;&amp; nlevels(data[[var]]) == 2) {
+      # Logistic regression for binary
+      methods[var] &lt;- "logreg"
+    } else if(is.factor(data[[var]])) {
+      # Polytomous regression for categorical
+      methods[var] &lt;- "polyreg"
+    }
+  }
+  
+  # Perform multiple imputation
+  imputed &lt;- mice(
+    data, 
+    m = m,
+    method = methods,
+    seed = 42,
+    printFlag = FALSE
+  )
+  
+  # Pool results across imputations
+  pooled_results &lt;- with(imputed, lm(outcome ~ predictors))
+  final_estimates &lt;- pool(pooled_results)
+  
+  return(list(
+    imputed_data = imputed,
+    pooled_estimates = summary(final_estimates),
+    fraction_missing_info = final_estimates$fmi
+  ))
+}
+```
+
+---
+
+# Blockchain for Survey Integrity
+
+&lt;img src="Day1_files/figure-html/blockchain_concept-1.png" width="100%" /&gt;
+
+---
+
+# Natural Language Processing for Open Responses
+
+
+``` r
+library(tidytext)
+library(topicmodels)
+
+# NLP pipeline for open-ended responses
+analyze_text_responses &lt;- function(responses) {
+  
+  # Text preprocessing
+  processed &lt;- responses %&gt;%
+    unnest_tokens(word, text_response) %&gt;%
+    anti_join(stop_words) %&gt;%
+    filter(!str_detect(word, "^[0-9]+$")) %&gt;%
+    mutate(word = wordStem(word))
+  
+  # Create document-term matrix
+  dtm &lt;- processed %&gt;%
+    count(respondent_id, word) %&gt;%
+    cast_dtm(respondent_id, word, n)
+  
+  # Topic modeling with LDA
+  lda_model &lt;- LDA(dtm, k = 5, control = list(seed = 42))
+  
+  # Extract topics
+  topics &lt;- tidy(lda_model, matrix = "beta") %&gt;%
+    group_by(topic) %&gt;%
+    top_n(10, beta) %&gt;%
+    ungroup() %&gt;%
+    arrange(topic, -beta)
+  
+  # Sentiment analysis
+  sentiment &lt;- processed %&gt;%
+    inner_join(get_sentiments("bing")) %&gt;%
+    count(respondent_id, sentiment) %&gt;%
+    spread(sentiment, n, fill = 0) %&gt;%
+    mutate(sentiment_score = positive - negative)
+  
+  return(list(
+    topics = topics,
+    sentiment = sentiment,
+    model = lda_model
+  ))
+}
+```
+
+---
+
+# Computer Vision for Document Processing
+
+Harry implements automated document scanning:
+
+
+``` r
+# OCR and document processing pipeline
+process_paper_surveys &lt;- function(image_folder) {
+  
+  library(tesseract)
+  library(magick)
+  
+  # Initialize OCR engine
+  eng &lt;- tesseract("eng")
+  
+  # Process each scanned form
+  results &lt;- list()
+  
+  for(image_file in list.files(image_folder, pattern = "*.jpg")) {
+    
+    # Read and preprocess image
+    img &lt;- image_read(file.path(image_folder, image_file)) %&gt;%
+      image_resize("2000x") %&gt;%
+      image_convert(type = 'Grayscale') %&gt;%
+      image_trim() %&gt;%
+      image_deskew() %&gt;%
+      image_enhance()
+    
+    # Extract text
+    text &lt;- ocr(img, engine = eng)
+    
+    # Parse structured fields
+    parsed &lt;- parse_survey_form(text)
+    
+    # Confidence scoring
+    parsed$confidence &lt;- calculate_ocr_confidence(text)
+    
+    # Flag for manual review if confidence low
+    if(parsed$confidence &lt; 0.95) {
+      parsed$needs_review &lt;- TRUE
+    }
+    
+    results[[image_file]] &lt;- parsed
+  }
+  
+  return(bind_rows(results))
+}
+```
+
+---
+
+class: inverse, center, middle
+
+# Advanced Sampling Techniques
+
+---
+
+# 9 PM: The Special Populations Challenge
+
+Email from Ministry of Health:
+
+"We need HIV prevalence estimates.
+
+Standard household surveys won't work.
+
+Need respondent-driven sampling for high-risk populations.
+
+Can you design this tonight?"
+
+---
+
+# Respondent-Driven Sampling (RDS)
+
+For hidden populations, participants recruit peers:
+
+&lt;img src="Day1_files/figure-html/rds_network-1.png" width="100%" /&gt;
+
+---
+
+# RDS Estimation Theory
+
+The Volz-Heckathorn estimator:
+
+`$$\hat{p}_{VH} = \frac{\sum_{i \in S} \frac{y_i}{d_i}}{\sum_{i \in S} \frac{1}{d_i}}$$`
+
+Where:
+- `\(y_i\)` = Outcome for individual `\(i\)`
+- `\(d_i\)` = Degree (network size) of individual `\(i\)`
+- Weights inversely proportional to degree
+
+---
+
+# Your Turn: Implement RDS Analysis
+
+Run lines 135-170 for RDS estimation.
+
+
+``` r
+# RDS analysis implementation
+analyze_rds_data &lt;- function(rds_data) {
+  
+  # Calculate recruitment patterns
+  recruitment &lt;- rds_data %&gt;%
+    group_by(recruiter_id) %&gt;%
+    summarise(
+      n_recruits = n(),
+      avg_degree = mean(network_size),
+      recruitment_rate = n_recruits / first(coupon_given)
+    )
+  
+  # Volz-Heckathorn estimator
+  vh_estimate &lt;- function(y, d) {
+    numerator &lt;- sum(y / d, na.rm = TRUE)
+    denominator &lt;- sum(1 / d, na.rm = TRUE)
+    return(numerator / denominator)
+  }
+  
+  # Calculate estimates with bootstrap CI
+  boot_estimates &lt;- replicate(1000, {
+    boot_sample &lt;- rds_data[sample(nrow(rds_data), replace = TRUE), ]
+    vh_estimate(boot_sample$outcome, boot_sample$network_size)
+  })
+  
+  # Convergence diagnostics
+  convergence &lt;- rds_data %&gt;%
+    mutate(cumulative_est = cumsum(outcome/network_size) / 
+                           cumsum(1/network_size)) %&gt;%
+    ggplot(aes(x = seq_along(cumulative_est), y = cumulative_est)) +
+    geom_line() +
+    geom_hline(yintercept = mean(boot_estimates), 
+               linetype = "dashed", color = "red") +
+    labs(title = "RDS Estimate Convergence",
+         x = "Sample Size", y = "Cumulative Estimate")
+  
+  return(list(
+    estimate = mean(boot_estimates),
+    ci = quantile(boot_estimates, c(0.025, 0.975)),
+    convergence_plot = convergence,
+    effective_sample_size = calculate_rds_ess(rds_data)
+  ))
+}
+```
+
+---
+
+# Venue-Based Sampling
+
+For populations that congregate at known locations:
+
+&lt;img src="Day1_files/figure-html/venue_sampling-1.png" width="100%" /&gt;
+
+---
+
+# Link-Tracing Designs
+
+Combining RDS with traditional sampling:
+
+1. Start with probability sample
+2. Ask about network members
+3. Sample from reported network
+4. Weight to account for selection probability
+
+More efficient than pure RDS, less biased than convenience.
+
+---
+
+class: inverse, center, middle
+
+# Big Data Integration
+
+---
+
+# 9:30 PM: The Director General Calls
+
+"Harry, the UN wants us to use satellite data, mobile phone records, and social media for official statistics.
+
+They say it's the future.
+
+Can we trust these sources?
+
+How do we integrate them?"
+
+---
+
+# Satellite Imagery for Area Estimation
+
+&lt;img src="Day1_files/figure-html/satellite_integration-1.png" width="100%" /&gt;
+
+---
+
+# Mobile Phone Data for Mobility
+
+
+``` r
+# Process CDR (Call Detail Records) data
+analyze_mobile_data &lt;- function(cdr_data, privacy_threshold = 5) {
+  
+  # Aggregate to protect privacy
+  mobility_patterns &lt;- cdr_data %&gt;%
+    mutate(
+      hour = hour(timestamp),
+      day_type = ifelse(wday(timestamp) %in% c(1, 7), 
+                        "Weekend", "Weekday")
+    ) %&gt;%
+    group_by(tower_id, hour, day_type) %&gt;%
+    summarise(
+      unique_users = n_distinct(hashed_user_id),
+      total_calls = n(),
+      avg_duration = mean(call_duration),
+      .groups = "drop"
+    ) %&gt;%
+    filter(unique_users &gt;= privacy_threshold)  # k-anonymity
+  
+  # Calculate origin-destination flows
+  od_flows &lt;- cdr_data %&gt;%
+    arrange(hashed_user_id, timestamp) %&gt;%
+    group_by(hashed_user_id) %&gt;%
+    mutate(
+      next_tower = lead(tower_id),
+      time_diff = as.numeric(lead(timestamp) - timestamp, units = "hours")
+    ) %&gt;%
+    filter(time_diff &lt; 4) %&gt;%  # Reasonable travel time
+    group_by(tower_id, next_tower) %&gt;%
+    summarise(flow_count = n(), .groups = "drop") %&gt;%
+    filter(flow_count &gt;= privacy_threshold * 2)
+  
+  # Estimate population density
+  density_estimate &lt;- mobility_patterns %&gt;%
+    group_by(tower_id) %&gt;%
+    summarise(
+      estimated_population = max(unique_users) * 1.5  # Adjustment factor
+    )
+  
+  return(list(
+    mobility = mobility_patterns,
+    flows = od_flows,
+    density = density_estimate
+  ))
+}
+```
+
+---
+
+# Social Media as Sentiment Indicator
+
+&lt;img src="Day1_files/figure-html/social_media-1.png" width="100%" /&gt;
+
+---
+
+# Your Turn: Integrate Big Data Sources
+
+Run lines 175-210 for data fusion.
+
+
+``` r
+# Multi-source data integration framework
+integrate_data_sources &lt;- function(survey, satellite, mobile, social) {
+  
+  # Step 1: Spatial alignment
+  aligned_data &lt;- survey %&gt;%
+    st_as_sf(coords = c("longitude", "latitude")) %&gt;%
+    st_join(satellite %&gt;% st_as_sf()) %&gt;%
+    st_join(mobile %&gt;% st_as_sf())
+  
+  # Step 2: Temporal alignment
+  aligned_data &lt;- aligned_data %&gt;%
+    mutate(
+      time_period = floor_date(survey_date, "month")
+    ) %&gt;%
+    left_join(
+      social %&gt;%
+        mutate(time_period = floor_date(date, "month")) %&gt;%
+        group_by(time_period, district) %&gt;%
+        summarise(avg_sentiment = mean(sentiment), .groups = "drop")
+    )
+  
+  # Step 3: Quality assessment
+  quality_scores &lt;- assess_source_quality(
+    list(survey = survey, 
+         satellite = satellite, 
+         mobile = mobile, 
+         social = social)
+  )
+  
+  # Step 4: Optimal weighting (inverse variance weighting)
+  weights &lt;- calculate_optimal_weights(aligned_data, quality_scores)
+  
+  # Step 5: Generate composite estimates
+  composite &lt;- aligned_data %&gt;%
+    mutate(
+      estimate = weight_survey * estimate_survey +
+                weight_satellite * estimate_satellite +
+                weight_mobile * estimate_mobile +
+                weight_social * estimate_social
+    )
+  
+  return(composite)
+}
+```
+
+---
+
+# Privacy-Preserving Record Linkage
+
+
+``` r
+# Secure multi-party computation for linkage
+secure_linkage &lt;- function(dataset_a, dataset_b, blocking_vars) {
+  
+  library(digest)
+  
+  # Hash personal identifiers
+  dataset_a &lt;- dataset_a %&gt;%
+    mutate(
+      hash_id = map_chr(
+        paste(first_name, last_name, birth_date, sep = "|"),
+        ~digest(., algo = "sha256")
+      )
+    )
+  
+  dataset_b &lt;- dataset_b %&gt;%
+    mutate(
+      hash_id = map_chr(
+        paste(first_name, last_name, birth_date, sep = "|"),
+        ~digest(., algo = "sha256")
+      )
+    )
+  
+  # Bloom filter for probabilistic matching
+  create_bloom_filter &lt;- function(string, size = 1024, k = 3) {
+    # Implementation of bloom filter
+    # Returns bit vector
+  }
+  
+  # Calculate similarity without revealing identities
+  similarity_matrix &lt;- calculate_private_similarity(
+    dataset_a$hash_id,
+    dataset_b$hash_id
+  )
+  
+  # Perform linkage with privacy guarantee
+  linked &lt;- perform_private_join(
+    dataset_a,
+    dataset_b,
+    similarity_matrix,
+    threshold = 0.95
+  )
+  
+  return(linked)
+}
+```
+
+---
+
+class: inverse, center, middle
+
+# Machine Learning for Survey Operations
+
+---
+
+# 10 PM: The AI Revolution
+
+Anya returns with news:
+
+"The board is impressed. They want us to be the first NSO with AI-powered operations.
+
+Can you create predictive models for:
+- Nonresponse prediction
+- Optimal contact timing
+- Quality anomaly detection
+- Cost forecasting?"
+
+---
+
+# Deep Learning for Nonresponse
+
+&lt;img src="Day1_files/figure-html/deep_learning-1.png" width="100%" /&gt;
+
+---
+
+# Your Turn: Build Neural Network
+
+Run lines 215-250 for deep learning model.
+
+
+``` r
+library(keras)
+
+# Build neural network for nonresponse prediction
+build_response_model &lt;- function(train_data, val_data) {
+  
+  # Define model architecture
+  model &lt;- keras_model_sequential() %&gt;%
+    layer_dense(units = 128, activation = "relu", 
+                input_shape = ncol(train_data) - 1) %&gt;%
+    layer_dropout(rate = 0.3) %&gt;%
+    layer_dense(units = 64, activation = "relu") %&gt;%
+    layer_batch_normalization() %&gt;%
+    layer_dropout(rate = 0.2) %&gt;%
+    layer_dense(units = 32, activation = "relu") %&gt;%
+    layer_dense(units = 1, activation = "sigmoid")
+  
+  # Compile model
+  model %&gt;% compile(
+    optimizer = optimizer_adam(learning_rate = 0.001),
+    loss = "binary_crossentropy",
+    metrics = c("accuracy", "AUC")
+  )
+  
+  # Custom callback for early stopping
+  early_stop &lt;- callback_early_stopping(
+    monitor = "val_loss",
+    patience = 10,
+    restore_best_weights = TRUE
+  )
+  
+  # Train model
+  history &lt;- model %&gt;% fit(
+    x = as.matrix(train_data[, -1]),
+    y = train_data$responded,
+    epochs = 100,
+    batch_size = 32,
+    validation_data = list(
+      as.matrix(val_data[, -1]),
+      val_data$responded
+    ),
+    callbacks = list(early_stop)
+  )
+  
+  return(list(model = model, history = history))
+}
+```
+
+---
+
+# Reinforcement Learning for Contact Strategy
+
+&lt;img src="Day1_files/figure-html/reinforcement_learning-1.png" width="100%" /&gt;
+
+---
+
+# Automated Machine Learning Pipeline
+
+
+``` r
+# AutoML pipeline for survey optimization
+run_automl_pipeline &lt;- function(data, target, task_type = "classification") {
+  
+  library(h2o)
+  h2o.init()
+  
+  # Convert to H2O format
+  h2o_data &lt;- as.h2o(data)
+  
+  # Split data
+  splits &lt;- h2o.splitFrame(h2o_data, ratios = c(0.7, 0.15))
+  train &lt;- splits[[1]]
+  valid &lt;- splits[[2]]
+  test &lt;- splits[[3]]
+  
+  # Run AutoML
+  automl &lt;- h2o.automl(
+    x = setdiff(names(train), target),
+    y = target,
+    training_frame = train,
+    validation_frame = valid,
+    max_models = 20,
+    max_runtime_secs = 3600,
+    include_algos = c("DRF", "GBM", "XGBoost", "GLM", "DeepLearning"),
+    sort_metric = "AUC"
+  )
+  
+  # Get best model
+  best_model &lt;- automl@leader
+  
+  # Generate predictions
+  predictions &lt;- h2o.predict(best_model, test)
+  
+  # Model interpretation
+  importance &lt;- h2o.varimp(best_model)
+  shap_values &lt;- h2o.shap_summary_plot(best_model, test)
+  
+  return(list(
+    model = best_model,
+    performance = h2o.performance(best_model, test),
+    importance = importance,
+    shap = shap_values
+  ))
+}
+```
+
+---
+
+# Explainable AI for Transparency
+
+&lt;img src="Day1_files/figure-html/shap_example-1.png" width="100%" /&gt;
+
+---
+
+class: inverse, center, middle
+
+# Real-Time Dashboards
+
+---
+
+# 10:30 PM: Building the Command Center
+
+Harry creates the ultimate monitoring dashboard:
+
+"We need real-time visibility into:
+- Field operations
+- Data quality
+- Cost tracking
+- Performance metrics
+
+All in one integrated system."
+
+---
+
+# Your Turn: Create Live Dashboard
+
+Run lines 255-290 for Shiny dashboard.
+
+
+``` r
+library(shiny)
+library(shinydashboard)
+library(leaflet)
+
+# Create real-time monitoring dashboard
+ui &lt;- dashboardPage(
+  dashboardHeader(title = "NSO Command Center"),
+  
+  dashboardSidebar(
+    sidebarMenu(
+      menuItem("Overview", tabName = "overview", icon = icon("dashboard")),
+      menuItem("Field Ops", tabName = "field", icon = icon("users")),
+      menuItem("Quality", tabName = "quality", icon = icon("check")),
+      menuItem("Costs", tabName = "costs", icon = icon("dollar"))
+    )
+  ),
+  
+  dashboardBody(
+    tabItems(
+      tabItem(tabName = "overview",
+        fluidRow(
+          valueBoxOutput("response_rate"),
+          valueBoxOutput("interviews_today"),
+          valueBoxOutput("quality_score")
+        ),
+        fluidRow(
+          box(plotlyOutput("trend_chart"), width = 8),
+          box(leafletOutput("field_map"), width = 4)
+        )
+      ),
+      
+      tabItem(tabName = "field",
+        fluidRow(
+          box(DTOutput("interviewer_table"), width = 12)
+        )
+      )
+    )
+  )
+)
+
+server &lt;- function(input, output, session) {
+  
+  # Reactive data updates every 30 seconds
+  survey_data &lt;- reactivePoll(
+    intervalMillis = 30000,
+    session,
+    checkFunc = function() { Sys.time() },
+    valueFunc = function() { load_current_data() }
+  )
+  
+  # Update value boxes
+  output$response_rate &lt;- renderValueBox({
+    valueBox(
+      value = paste0(round(survey_data()$response_rate * 100, 1), "%"),
+      subtitle = "Response Rate",
+      icon = icon("percentage"),
+      color = ifelse(survey_data()$response_rate &gt; 0.5, "green", "yellow")
+    )
+  })
+  
+  # Real-time map
+  output$field_map &lt;- renderLeaflet({
+    leaflet() %&gt;%
+      addTiles() %&gt;%
+      addMarkers(
+        data = survey_data()$interviewer_locations,
+        popup = ~paste("Interviewer:", interviewer_id,
+                      "&lt;br&gt;Completes:", completes)
+      )
+  })
+}
+
+shinyApp(ui, server)
+```
+
+---
+
+# Performance Monitoring Dashboard
+
+&lt;img src="Day1_files/figure-html/performance_dashboard-1.png" width="100%" /&gt;
+
+---
+
+# Automated Alert System
+
+
+``` r
+# Real-time alert system
+setup_alert_system &lt;- function(thresholds) {
+  
+  check_alerts &lt;- function(current_metrics) {
+    alerts &lt;- list()
+    
+    # Response rate alert
+    if(current_metrics$response_rate &lt; thresholds$min_response) {
+      alerts$response &lt;- list(
+        level = "critical",
+        message = sprintf("Response rate critically low: %.1f%%",
+                         current_metrics$response_rate * 100),
+        action = "Increase contact attempts in high-probability segments"
+      )
+    }
+    
+    # Quality alert
+    if(current_metrics$quality_score &lt; thresholds$min_quality) {
+      alerts$quality &lt;- list(
+        level = "warning",
+        message = "Data quality below threshold",
+        action = "Review interviewer performance"
+      )
+    }
+    
+    # Cost overrun alert
+    if(current_metrics$cost_per_complete &gt; thresholds$max_cost) {
+      alerts$cost &lt;- list(
+        level = "warning",
+        message = sprintf("Cost per complete: $%.2f (threshold: $%.2f)",
+                         current_metrics$cost_per_complete,
+                         thresholds$max_cost),
+        action = "Optimize resource allocation"
+      )
+    }
+    
+    # Send notifications
+    if(length(alerts) &gt; 0) {
+      send_notifications(alerts)
+    }
+    
+    return(alerts)
+  }
+  
+  # Schedule checks every 5 minutes
+  later::later(
+    function() { check_alerts(get_current_metrics()) },
+    delay = 300,
+    loop = TRUE
+  )
+}
+```
+
+---
+
+# Predictive Analytics Dashboard
+
+&lt;img src="Day1_files/figure-html/predictive_dashboard-1.png" width="100%" /&gt;
+
+---
+
+# Integration Architecture
+
+
+``` r
+# Master integration controller
+class SurveySystemController {
+  
+  initialize &lt;- function() {
+    self$monitoring &lt;- MonitoringSystem$new()
+    self$quality &lt;- QualityEngine$new()
+    self$ml_models &lt;- MLPipeline$new()
+    self$dashboard &lt;- DashboardServer$new()
+    self$database &lt;- DatabaseConnection$new()
+    
+    # Start all services
+    self$start_services()
+  }
+  
+  start_services &lt;- function() {
+    # Data ingestion
+    self$monitoring$start_ingestion()
+    
+    # Quality checks
+    self$quality$enable_realtime_checks()
+    
+    # ML predictions
+    self$ml_models$load_production_models()
+    
+    # Dashboard server
+    self$dashboard$launch(port = 3838)
+    
+    # Alert system
+    self$setup_alerts()
+  }
+  
+  process_new_data &lt;- function(data) {
+    # Run through pipeline
+    data %&gt;%
+      self$quality$check() %&gt;%
+      self$ml_models$score() %&gt;%
+      self$database$store() %&gt;%
+      self$dashboard$update()
+  }
+}
+
+# Initialize system
+system &lt;- SurveySystemController$new()
+```
+
+---
+
+class: inverse, center, middle
+
+# Bringing Everything Together
+
+---
+
+# 11:45 PM: Harry's Complete System
+
+After 15+ hours, Harry has built:
+
+✓ Real-time monitoring infrastructure
+✓ Adaptive sampling algorithms  
+✓ Cost optimization framework
+✓ ML-powered predictions
+✓ Big data integration pipeline
+✓ Advanced imputation system
+✓ Privacy-preserving linkage
+✓ Live operational dashboard
+
+All automated, scalable, and production-ready.
+
+---
+
+# The Technical Architecture
+
+&lt;img src="Day1_files/figure-html/architecture_summary-1.png" width="100%" /&gt;
+
+---
+
+# Tomorrow's Field Deployment
+
+Harry's systems are ready for:
+
+**Morning (Day 2):**
+- Interviewer training modules
+- Mobile app deployment
+- Quality calibration
+
+**Afternoon (Day 2):**
+- Live monitoring activation
+- Adaptive algorithm testing
+- Cost tracking initialization
+
+**Evening (Day 2):**
+- Performance review
+- System optimization
+- Stakeholder reporting
+
+---
+
+# Key Module 4 Achievements
+
+1. **Real-time Infrastructure** - Complete monitoring ecosystem
+
+2. **Advanced Sampling** - RDS and venue-based methods
+
+3. **Big Data Integration** - Satellite, mobile, social media
+
+4. **Machine Learning** - Deep learning and AutoML pipelines
+
+5. **Live Dashboards** - Shiny-based command center
+
+6. **Full Automation** - End-to-end survey operations
+
+---
+
+# Your Complete Toolkit
+
+&lt;img src="Day1_files/figure-html/toolkit_complete-1.png" width="100%" /&gt;
+
+---
+
+# Harry's Reflection Before Midnight
+
+"This morning I was worried about sample sizes.
+
+Now I have neural networks predicting nonresponse,
+satellites measuring poverty,
+and real-time dashboards monitoring everything.
+
+In one day, we've transformed our NSO.
+
+Tomorrow, we make it operational."
+
+---
+
+# Day 1 Final Statistics
+
+**Training Delivered:**
+- 400 slides of content
+- 4 comprehensive R scripts
+- 50+ code examples
+- 20+ visualization techniques
+- 15+ international standards referenced
+
+**Systems Built:**
+- Complete survey infrastructure
+- ML pipeline
+- Real-time monitoring
+- Quality framework
+- Integration architecture
+
+---
+
+# Preparation for Day 2
+
+**Before tomorrow's session:**
+
+1. Review all Day 1 code
+2. Test dashboard deployment
+3. Prepare mobile devices
+4. Install additional packages:
+   ```r
+   install.packages(c("shiny", "leaflet", 
+                     "h2o", "keras", "plumber"))
+   ```
+5. Download field operation materials
+
+---
+
+# Day 1 Complete
+
+## 400 Slides | 4 Modules | 10+ Hours
+
+### You've mastered:
+- **Fundamental sampling theory**
+- **Advanced estimation techniques**  
+- **Quality control systems**
+- **Modern technology integration**
+
+### Tomorrow: Field Operations Begin!
+
+---
+
+class: inverse, center, middle
+
+# End of Day 1 - Extended Session
+
+## "From Basic Statistics to AI-Powered Operations"
+
+### Rest well - Day 2 brings real-world deployment!
+
+#### Thank you for your dedication!
+
+```
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
