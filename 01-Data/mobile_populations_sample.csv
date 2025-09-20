@@ -1,0 +1,501 @@
+"respondent_id","sample_method","location_type","interview_date","interview_time","age","gender","nationality","migration_reason","duration_current_location_days","frequency_movement","employment_type","income_last_month","accommodation_type","health_service_access","documentation_status","network_size","recruitment_coupon","recruiter_id","venue_size_estimate","sampling_weight","rds_weight","tls_weight"
+"MP00001","TLS","Transport hub",2024-06-16,"12:38",26,"Male","National","Work",9,"Seasonal","Self-employed",1277,"Other",1,"Partial",27,NA,NA,57,180.548342852853,NA,0.667376263970197
+"MP00002","TLS","Mining area",2024-06-07,"10:25",46,"Male","National","Work",62,"Irregular","Informal",148,"Other",1,"Full",33,NA,NA,84,82.9832586459816,NA,0.983501862692922
+"MP00003","TLS","Agricultural zone",2024-02-12,"19:33",18,"Male","SADC country","Work",2,"Irregular","Formal",645,"Other",0,"None",20,NA,NA,22,181.36347043328,NA,0.25758382118148
+"MP00004","TLS","Border post",2024-01-08,"12:40",40,"Female","Other","Work",46,"Monthly","Self-employed",1698,"Street",0,"Partial",15,NA,NA,23,168.423473194707,NA,0.269292176689729
+"MP00005","TLS","Market",2024-04-06,"08:54",21,"Female","Other African","Work",28,"Monthly","Self-employed",247,"Hostel",0,"Partial",8,NA,NA,46,96.564697928261,NA,0.538584353379457
+"MP00006","RDS","Market",2024-02-15,"08:58",48,"Female","National","Work",12,"Irregular","Informal",133,"Street",1,"Full",25,"RDS0001",NA,4,68.9569195732474,1.42405063291139,NA
+"MP00007","TLS","Mining area",2024-04-10,"13:26",31,"Male","National","Other",39,"Monthly","Informal",330,"Street",1,"Partial",21,NA,NA,175,142.293186602183,NA,2.04896221394359
+"MP00008","RDS","Border post",2024-04-05,"18:26",25,"Female","National","Work",26,"Weekly","Informal",103,"Hostel",1,"Full",21,"RDS0002","MP00002",16,62.8617582842708,1.19620253164557,NA
+"MP00009","RDS","Construction site",2024-05-21,"10:14",54,"Male","SADC country","Education",34,"Irregular","Self-employed",1724,"Rented room",0,"Partial",7,"RDS0003","MP00006",16,72.0880574546754,0.39873417721519,NA
+"MP00010","TLS","Agricultural zone",2024-04-16,"14:52",25,"Female","National","Work",11,"Monthly","Informal",110,"Rented room",0,"Partial",18,NA,NA,72,181.28082905896,NA,0.843001596593933
+"MP00011","Venue","Mining area",2024-03-13,"13:24",20,"Male","National","Work",10,"Seasonal","Formal",851,"Street",0,"Full",23,NA,NA,26,185.177248320542,NA,NA
+"MP00012","TLS","Mining area",2024-04-24,"12:03",24,"Male","SADC country","Family",25,"Irregular","Formal",1231,"Employer provided",1,"None",15,NA,NA,12,59.4393888022751,NA,0.140500266098989
+"MP00013","TLS","Mining area",2024-03-01,"14:01",22,"Male","SADC country","Other",23,"Daily","Informal",187,"Street",0,"Partial",9,NA,NA,222,72.1161448629573,NA,2.59925492283129
+"MP00014","RDS","Market",2024-01-16,"17:49",25,"Male","National","Work",3,"Daily","Informal",145,"Rented room",0,"Partial",27,"RDS0004","MP00009",129,142.313991533592,1.5379746835443,NA
+"MP00015","RDS","Border post",2024-01-22,"12:59",18,"Female","Other African","Work",24,"Monthly","Unemployed",329,"Other",1,"Full",11,"RDS0005","MP00006",28,114.19282653369,0.626582278481013,NA
+"MP00016","TLS","Border post",2024-06-25,"06:43",32,"Male","Other","Work",55,"Weekly","Informal",2238,"Employer provided",1,"None",10,NA,NA,33,69.6748713846318,NA,0.386375731772219
+"MP00017","RDS","Border post",2024-03-31,"13:45",43,"Male","SADC country","Family",33,"Monthly","Informal",71,"Street",0,"None",5,"RDS0006","MP00014",48,113.689728011377,0.284810126582278,NA
+"MP00018","RDS","Transport hub",2024-02-19,"16:58",27,"Male","SADC country","Trade",49,"Monthly","Informal",768,"Hostel",0,"None",25,"RDS0007","MP00008",55,91.0056492779404,1.42405063291139,NA
+"MP00019","TLS","Construction site",2024-01-26,"16:50",33,"Female","SADC country","Trade",3,"Irregular","Self-employed",894,"Other",0,"Partial",12,NA,NA,17,159.61363761453,NA,0.199042043640234
+"MP00020","Venue","Transport hub",2024-01-19,"12:29",18,"Female","SADC country","Family",31,"Weekly","Informal",471,"Employer provided",0,"Partial",5,NA,NA,75,146.498734713532,NA,NA
+"MP00021","RDS","Transport hub",2024-01-05,"12:36",38,"Male","SADC country","Trade",7,"Seasonal","Self-employed",1643,"Hostel",0,"Full",28,"RDS0008","MP00006",101,133.516143995803,1.59493670886076,NA
+"MP00022","TLS","Agricultural zone",2024-02-12,"17:23",25,"Male","National","Other",32,"Seasonal","Informal",1480,"Hostel",1,"Full",5,NA,NA,128,176.825989666395,NA,1.49866950505588
+"MP00023","TLS","Mining area",2024-01-17,"20:25",32,"Male","National","Work",80,"Monthly","Self-employed",301,"Rented room",0,"Partial",16,NA,NA,188,100.038594705984,NA,2.20117083555082
+"MP00024","RDS","Transport hub",2024-04-25,"20:22",38,"Male","SADC country","Other",33,"Seasonal","Self-employed",373,"Employer provided",1,"Partial",5,"RDS0009","MP00017",60,71.2489915429614,0.284810126582278,NA
+"MP00025","RDS","Market",2024-02-15,"20:16",45,"Female","National","Work",9,"Monthly","Informal",483,"Other",0,"None",24,"RDS0010","MP00018",107,159.049162222072,1.36708860759494,NA
+"MP00026","TLS","Mining area",2024-04-23,"17:24",18,"Male","National","Work",46,"Seasonal","Informal",748,"Employer provided",1,"Full",19,NA,NA,8,124.948764604051,NA,0.0936668440659926
+"MP00027","Venue","Border post",2024-02-16,"06:08",25,"Male","SADC country","Work",41,"Weekly","Self-employed",147,"Other",1,"Partial",15,NA,NA,55,126.224847335834,NA,NA
+"MP00028","TLS","Market",2024-03-27,"20:52",26,"Male","SADC country","Work",42,"Seasonal","Informal",93,"Other",1,"Full",8,NA,NA,122,51.8988051917404,NA,1.42841937200639
+"MP00029","RDS","Market",2024-03-12,"07:37",37,"Male","National","Education",69,"Monthly","Informal",467,"Street",0,"Full",27,"RDS0011","MP00006",61,152.680133492686,1.5379746835443,NA
+"MP00030","RDS","Market",2024-05-07,"16:17",25,"Female","National","Trade",18,"Weekly","Formal",105,"Employer provided",1,"None",22,"RDS0012","MP00006",125,189.565722667612,1.25316455696203,NA
+"MP00031","Venue","Agricultural zone",2024-03-19,"17:51",33,"Male","SADC country","Other",8,"Weekly","Informal",828,"Street",1,"Partial",18,NA,NA,186,86.9381065829657,NA,NA
+"MP00032","TLS","Market",2024-02-07,"06:07",24,"Male","Other African","Work",118,"Weekly","Informal",75,"Hostel",1,"Partial",20,NA,NA,173,149.608916300349,NA,2.02554550292709
+"MP00033","TLS","Mining area",2024-03-26,"20:25",31,"Female","National","Trade",13,"Daily","Self-employed",326,"Street",1,"Full",5,NA,NA,94,194.7301852284,NA,1.10058541777541
+"MP00034","TLS","Market",2024-05-08,"17:10",31,"Female","Other African","Work",1,"Irregular","Informal",824,"Rented room",0,"Full",7,NA,NA,7,136.342829221394,NA,0.0819584885577435
+"MP00035","TLS","Transport hub",2024-02-25,"16:46",26,"Male","Other African","Education",4,"Monthly","Self-employed",484,"Employer provided",1,"None",23,NA,NA,189,118.790850834921,NA,2.21287919105907
+"MP00036","TLS","Border post",2024-01-13,"17:11",31,"Male","SADC country","Work",19,"Daily","Formal",3276,"Other",1,"None",9,NA,NA,34,91.3514808751643,NA,0.398084087280468
+"MP00037","RDS","Border post",2024-01-29,"17:05",27,"Female","National","Work",76,"Monthly","Informal",1492,"Rented room",1,"Full",30,"RDS0013","MP00008",64,74.9709029332735,1.70886075949367,NA
+"MP00038","RDS","Market",2024-06-27,"09:51",46,"Male","SADC country","Education",66,"Weekly","Informal",258,"Other",0,"None",23,"RDS0014","SEED",31,134.138941613492,1.31012658227848,NA
+"MP00039","RDS","Mining area",2024-06-02,"09:23",19,"Male","National","Family",49,"Daily","Formal",58,"Street",0,"None",13,"RDS0015","MP00024",61,144.189290341455,0.740506329113924,NA
+"MP00040","TLS","Mining area",2024-06-05,"18:27",26,"Female","National","Work",53,"Daily","Informal",332,"Other",0,"Partial",9,NA,NA,59,190.828271524515,NA,0.690792974986695
+"MP00041","TLS","Border post",2024-05-29,"19:35",32,"Male","National","Work",4,"Weekly","Self-employed",1323,"Hostel",0,"Full",20,NA,NA,20,123.371629440226,NA,0.234167110164981
+"MP00042","TLS","Mining area",2024-05-08,"14:00",23,"Female","SADC country","Work",4,"Monthly","Informal",218,"Hostel",1,"Full",2,NA,NA,180,50.6818378577009,NA,2.10750399148483
+"MP00043","RDS","Market",2024-06-16,"06:35",31,"Male","National","Education",12,"Irregular","Informal",924,"Rented room",1,"Partial",29,"RDS0016","MP00024",99,115.597937069833,1.65189873417722,NA
+"MP00044","TLS","Transport hub",2024-02-19,"11:20",17,"Female","SADC country","Work",106,"Weekly","Formal",4711,"Hostel",1,"Partial",25,NA,NA,66,121.255191171076,NA,0.772751463544439
+"MP00045","TLS","Construction site",2024-04-04,"17:57",29,"Female","SADC country","Trade",18,"Irregular","Self-employed",297,"Hostel",1,"Full",4,NA,NA,5,55.6603088858537,NA,0.0585417775412453
+"MP00046","RDS","Transport hub",2024-02-16,"12:56",20,"Male","National","Work",5,"Daily","Informal",257,"Employer provided",0,"Partial",15,"RDS0017","MP00014",43,111.109136475716,0.854430379746835,NA
+"MP00047","RDS","Border post",2024-05-04,"11:57",20,"Male","National","Work",45,"Weekly","Formal",3625,"Rented room",0,"Partial",10,"RDS0018","MP00039",181,52.8728651464917,0.569620253164557,NA
+"MP00048","Venue","Market",2024-05-09,"06:28",58,"Male","National","Work",28,"Irregular","Self-employed",162,"Hostel",1,"Partial",3,NA,NA,57,172.516988019925,NA,NA
+"MP00049","TLS","Agricultural zone",2024-03-17,"20:41",21,"Female","National","Work",24,"Seasonal","Informal",134,"Rented room",0,"Full",29,NA,NA,162,178.628534183372,NA,1.89675359233635
+"MP00050","RDS","Market",2024-04-29,"07:34",31,"Male","National","Trade",18,"Weekly","Informal",852,"Employer provided",1,"Partial",25,"RDS0019","MP00037",53,77.1017594379373,1.42405063291139,NA
+"MP00051","Venue","Market",2024-01-28,"20:11",18,"Male","SADC country","Education",1,"Seasonal","Informal",1116,"Street",1,"None",3,NA,NA,113,191.222153080162,NA,NA
+"MP00052","Venue","Transport hub",2024-04-30,"10:34",16,"Male","SADC country","Work",11,"Seasonal","Unemployed",388,"Other",0,"Partial",13,NA,NA,179,109.522499656305,NA,NA
+"MP00053","TLS","Border post",2024-04-01,"06:09",31,"Male","National","Work",3,"Irregular","Formal",116,"Other",0,"Full",27,NA,NA,51,134.117513487581,NA,0.597126130920703
+"MP00054","RDS","Market",2024-01-07,"09:07",41,"Male","National","Family",14,"Irregular","Self-employed",196,"Hostel",0,"Full",24,"RDS0020","MP00009",127,165.36981392419,1.36708860759494,NA
+"MP00055","RDS","Agricultural zone",2024-02-07,"13:45",16,"Male","SADC country","Work",18,"Daily","Self-employed",87,"Hostel",1,"None",17,"RDS0021","MP00018",143,92.7243846468627,0.968354430379747,NA
+"MP00056","RDS","Border post",2024-06-06,"06:34",38,"Male","SADC country","Trade",27,"Seasonal","Unemployed",252,"Employer provided",0,"Full",28,"RDS0022","MP00014",72,59.9134427378885,1.59493670886076,NA
+"MP00057","RDS","Border post",2024-05-27,"09:04",20,"Female","SADC country","Trade",23,"Monthly","Formal",1190,"Other",0,"Full",11,"RDS0023","MP00025",76,115.127984154969,0.626582278481013,NA
+"MP00058","TLS","Construction site",2024-04-28,"15:43",25,"Male","Other African","Education",14,"Irregular","Formal",689,"Rented room",0,"Full",15,NA,NA,28,127.411939122248,NA,0.327833954230974
+"MP00059","TLS","Agricultural zone",2024-04-28,"12:31",27,"Male","Other African","Work",17,"Seasonal","Informal",499,"Employer provided",1,"Full",4,NA,NA,8,167.742542363703,NA,0.0936668440659926
+"MP00060","Venue","Construction site",2024-06-26,"13:17",24,"Male","National","Education",63,"Weekly","Self-employed",463,"Street",1,"Full",14,NA,NA,266,143.087167793419,NA,NA
+"MP00061","RDS","Market",2024-05-27,"17:53",34,"Female","National","Family",14,"Irregular","Self-employed",1022,"Other",1,"Partial",9,"RDS0024","MP00055",22,115.665984328371,0.512658227848101,NA
+"MP00062","Venue","Market",2024-05-20,"19:45",22,"Male","SADC country","Work",1,"Seasonal","Informal",3152,"Other",0,"Partial",12,NA,NA,22,119.12203959655,NA,NA
+"MP00063","TLS","Market",2024-06-15,"19:27",28,"Male","National","Work",20,"Weekly","Self-employed",167,"Rented room",0,"Partial",31,NA,NA,197,135.298934602179,NA,2.30654603512507
+"MP00064","TLS","Market",2024-05-21,"16:23",28,"Female","Other","Education",8,"Seasonal","Informal",4987,"Other",1,"Full",2,NA,NA,6,70.6952528445981,NA,0.0702501330494944
+"MP00065","RDS","Mining area",2024-06-29,"14:33",32,"Male","SADC country","Trade",5,"Monthly","Self-employed",2172,"Hostel",1,"Partial",16,"RDS0025","MP00024",20,61.3002061611041,0.911392405063291,NA
+"MP00066","TLS","Transport hub",2024-04-20,"19:54",29,"Female","Other","Work",36,"Seasonal","Formal",4272,"Rented room",0,"Partial",19,NA,NA,47,122.39876013482,NA,0.550292708887706
+"MP00067","RDS","Transport hub",2024-02-05,"10:06",31,"Male","SADC country","Work",4,"Daily","Informal",160,"Hostel",0,"Partial",24,"RDS0026","MP00046",29,188.387082493864,1.36708860759494,NA
+"MP00068","TLS","Agricultural zone",2024-01-28,"14:46",40,"Male","National","Work",45,"Daily","Informal",223,"Hostel",0,"Full",10,NA,NA,13,76.5349196852185,NA,0.152208621607238
+"MP00069","RDS","Border post",2024-03-29,"08:25",40,"Female","SADC country","Work",59,"Weekly","Formal",793,"Employer provided",0,"Full",15,"RDS0027","MP00061",61,171.409778983798,0.854430379746835,NA
+"MP00070","RDS","Market",2024-03-14,"10:00",23,"Male","Other African","Work",79,"Seasonal","Informal",321,"Other",1,"Partial",5,"RDS0028","MP00057",301,65.9740520059131,0.284810126582278,NA
+"MP00071","TLS","Market",2024-04-04,"11:42",24,"Male","SADC country","Trade",13,"Daily","Self-employed",884,"Rented room",1,"Partial",14,NA,NA,64,158.879003475886,NA,0.74933475252794
+"MP00072","TLS","Market",2024-04-22,"20:14",33,"Male","SADC country","Work",10,"Monthly","Informal",1730,"Hostel",0,"Full",9,NA,NA,67,123.928559652995,NA,0.784459819052688
+"MP00073","RDS","Agricultural zone",2024-03-17,"07:47",30,"Female","Other African","Trade",12,"Daily","Formal",250,"Other",0,"None",17,"RDS0029","MP00061",533,98.9156920928508,0.968354430379747,NA
+"MP00074","TLS","Transport hub",2024-05-23,"10:31",33,"Male","Other African","Trade",62,"Irregular","Self-employed",2092,"Employer provided",1,"Partial",24,NA,NA,97,139.168851822615,NA,1.13571048430016
+"MP00075","TLS","Transport hub",2024-05-15,"17:44",36,"Female","Other African","Work",11,"Seasonal","Self-employed",1703,"Employer provided",1,"None",11,NA,NA,39,109.376997011714,NA,0.456625864821714
+"MP00076","RDS","Construction site",2024-04-22,"20:59",28,"Female","National","Work",31,"Daily","Informal",9558,"Rented room",1,"None",34,"RDS0030","MP00006",224,133.701854280662,1.93670886075949,NA
+"MP00077","TLS","Construction site",2024-06-26,"07:40",27,"Male","National","Work",62,"Daily","Formal",520,"Other",0,"Partial",21,NA,NA,91,80.1967536099255,NA,1.06546035125067
+"MP00078","RDS","Agricultural zone",2024-03-22,"06:58",24,"Male","SADC country","Trade",16,"Weekly","Formal",889,"Employer provided",0,"Partial",13,"RDS0031","MP00050",3,78.2572864787653,0.740506329113924,NA
+"MP00079","Venue","Construction site",2024-03-25,"14:27",21,"Male","National","Education",125,"Weekly","Self-employed",1349,"Rented room",1,"Partial",20,NA,NA,171,72.8801580960862,NA,NA
+"MP00080","TLS","Transport hub",2024-04-27,"06:46",32,"Male","Other African","Trade",8,"Monthly","Informal",375,"Street",0,"Full",4,NA,NA,36,102.985604910646,NA,0.421500798296966
+"MP00081","TLS","Mining area",2024-01-31,"12:45",24,"Male","National","Work",30,"Daily","Self-employed",1996,"Rented room",0,"Partial",28,NA,NA,29,196.483197098132,NA,0.339542309739223
+"MP00082","TLS","Mining area",2024-02-21,"20:55",33,"Male","National","Work",24,"Daily","Self-employed",1881,"Hostel",0,"None",1,NA,NA,21,56.753378699068,NA,0.24587546567323
+"MP00083","TLS","Mining area",2024-03-21,"20:31",19,"Male","National","Education",21,"Seasonal","Self-employed",1081,"Street",0,"Full",7,NA,NA,427,51.8741762614809,NA,4.99946780202235
+"MP00084","Venue","Mining area",2024-05-19,"20:39",23,"Male","National","Work",80,"Daily","Informal",2791,"Hostel",0,"Partial",11,NA,NA,40,172.638729715254,NA,NA
+"MP00085","RDS","Transport hub",2024-02-01,"13:41",35,"Male","SADC country","Work",69,"Monthly","Self-employed",123,"Employer provided",0,"Full",21,"RDS0032","MP00006",111,178.912366344593,1.19620253164557,NA
+"MP00086","RDS","Construction site",2024-03-17,"16:59",31,"Male","Other African","Work",23,"Daily","Informal",91,"Rented room",0,"None",17,"RDS0033","MP00038",49,166.540277027525,0.968354430379747,NA
+"MP00087","TLS","Mining area",2024-01-10,"10:54",27,"Male","SADC country","Family",29,"Irregular","Unemployed",233,"Other",1,"Partial",11,NA,NA,88,99.0645354148,NA,1.03033528472592
+"MP00088","Venue","Construction site",2024-04-02,"09:07",28,"Male","SADC country","Work",61,"Irregular","Self-employed",841,"Street",0,"None",16,NA,NA,518,158.18116676528,NA,NA
+"MP00089","TLS","Agricultural zone",2024-03-11,"20:39",16,"Female","Other African","Other",28,"Seasonal","Informal",692,"Other",0,"Full",11,NA,NA,80,99.4404007680714,NA,0.936668440659925
+"MP00090","TLS","Agricultural zone",2024-01-10,"07:48",37,"Male","Other African","Trade",18,"Weekly","Formal",1951,"Rented room",1,"Full",25,NA,NA,83,61.9488263619132,NA,0.971793507184673
+"MP00091","Venue","Border post",2024-04-10,"13:38",30,"Male","SADC country","Work",28,"Monthly","Self-employed",3957,"Other",0,"None",4,NA,NA,47,52.377465122845,NA,NA
+"MP00092","Venue","Mining area",2024-05-28,"17:45",36,"Male","National","Education",6,"Weekly","Formal",743,"Employer provided",0,"Partial",8,NA,NA,59,54.5027113403194,NA,NA
+"MP00093","TLS","Border post",2024-03-07,"17:34",30,"Male","National","Family",4,"Monthly","Informal",564,"Hostel",0,"Partial",6,NA,NA,5,149.721818126272,NA,0.0585417775412453
+"MP00094","TLS","Construction site",2024-01-03,"18:56",23,"Male","SADC country","Work",29,"Monthly","Informal",536,"Hostel",1,"None",16,NA,NA,109,190.103102196008,NA,1.27621075039915
+"MP00095","RDS","Market",2024-04-03,"10:15",21,"Female","SADC country","Work",9,"Weekly","Self-employed",918,"Other",0,"None",16,"RDS0034","MP00067",32,52.9946309747174,0.911392405063291,NA
+"MP00096","RDS","Construction site",2024-01-21,"15:15",26,"Female","SADC country","Education",9,"Seasonal","Formal",133,"Employer provided",0,"Partial",15,"RDS0035","MP00030",150,70.5941804684699,0.854430379746835,NA
+"MP00097","TLS","Agricultural zone",2024-01-25,"06:07",27,"Male","National","Trade",5,"Monthly","Informal",3608,"Street",1,"Partial",18,NA,NA,36,92.5907436525449,NA,0.421500798296966
+"MP00098","TLS","Border post",2024-03-01,"17:50",16,"Male","SADC country","Family",75,"Seasonal","Formal",685,"Other",0,"Full",7,NA,NA,208,59.2896021320485,NA,2.43533794571581
+"MP00099","Venue","Border post",2024-06-05,"14:27",41,"Male","SADC country","Work",3,"Weekly","Self-employed",254,"Hostel",0,"None",19,NA,NA,31,103.731240751222,NA,NA
+"MP00100","TLS","Border post",2024-05-05,"20:23",28,"Male","National","Trade",12,"Irregular","Informal",265,"Hostel",0,"Partial",18,NA,NA,15,60.0314833689481,NA,0.175625332623736
+"MP00101","RDS","Market",2024-01-18,"20:24",32,"Female","SADC country","Family",31,"Irregular","Informal",348,"Street",0,"Full",25,"RDS0036","SEED",56,196.814141212963,1.42405063291139,NA
+"MP00102","Venue","Border post",2024-02-07,"13:45",19,"Male","SADC country","Family",11,"Seasonal","Informal",229,"Other",0,"None",9,NA,NA,129,174.730376829393,NA,NA
+"MP00103","Venue","Mining area",2024-05-31,"20:05",17,"Female","SADC country","Work",48,"Weekly","Unemployed",1557,"Employer provided",1,"None",22,NA,NA,125,140.794871468097,NA,NA
+"MP00104","TLS","Construction site",2024-02-07,"14:12",18,"Male","SADC country","Work",28,"Monthly","Unemployed",199,"Other",1,"Full",2,NA,NA,69,65.3297385317273,NA,0.807876530069186
+"MP00105","TLS","Mining area",2024-06-24,"10:14",23,"Male","SADC country","Education",23,"Seasonal","Informal",811,"Employer provided",0,"Partial",32,NA,NA,72,74.7133192955516,NA,0.843001596593933
+"MP00106","TLS","Border post",2024-02-29,"18:06",37,"Male","National","Trade",1,"Weekly","Informal",11472,"Rented room",1,"None",29,NA,NA,59,82.1595700690523,NA,0.690792974986695
+"MP00107","RDS","Agricultural zone",2024-02-26,"20:22",19,"Male","SADC country","Work",26,"Monthly","Informal",77,"Hostel",1,"None",21,"RDS0037","MP00069",65,137.915298528969,1.19620253164557,NA
+"MP00108","TLS","Transport hub",2024-05-14,"11:24",37,"Male","National","Trade",5,"Irregular","Informal",253,"Rented room",0,"Full",10,NA,NA,104,104.706320329569,NA,1.2176689728579
+"MP00109","Venue","Mining area",2024-01-11,"13:20",26,"Female","National","Trade",9,"Seasonal","Informal",209,"Street",0,"Partial",17,NA,NA,81,139.328249776736,NA,NA
+"MP00110","Venue","Border post",2024-06-06,"15:56",37,"Male","SADC country","Work",17,"Seasonal","Formal",225,"Rented room",1,"Partial",11,NA,NA,106,180.221237998921,NA,NA
+"MP00111","RDS","Construction site",2024-03-01,"17:39",50,"Female","National","Trade",3,"Irregular","Informal",339,"Hostel",0,"Partial",21,"RDS0038","SEED",30,96.4179209549911,1.19620253164557,NA
+"MP00112","TLS","Transport hub",2024-01-05,"17:27",31,"Male","National","Work",21,"Weekly","Self-employed",1271,"Employer provided",0,"Partial",36,NA,NA,19,170.506747695617,NA,0.222458754656732
+"MP00113","TLS","Agricultural zone",2024-04-27,"16:11",24,"Male","SADC country","Work",1,"Daily","Self-employed",40,"Rented room",0,"Partial",8,NA,NA,19,150.825428043026,NA,0.222458754656732
+"MP00114","TLS","Transport hub",2024-04-06,"14:47",23,"Male","SADC country","Education",4,"Irregular","Informal",1150,"Rented room",0,"None",10,NA,NA,122,137.080491741654,NA,1.42841937200639
+"MP00115","RDS","Transport hub",2024-06-26,"07:53",27,"Male","National","Work",54,"Seasonal","Informal",1915,"Street",1,"Full",4,"RDS0039","MP00015",106,69.3408906110562,0.227848101265823,NA
+"MP00116","Venue","Mining area",2024-04-29,"20:33",18,"Male","National","Trade",30,"Monthly","Formal",276,"Street",0,"Full",23,NA,NA,20,147.387046611402,NA,NA
+"MP00117","RDS","Mining area",2024-01-17,"06:10",19,"Male","National","Work",92,"Monthly","Informal",924,"Hostel",0,"Full",23,"RDS0040","MP00069",94,76.258522621356,1.31012658227848,NA
+"MP00118","TLS","Border post",2024-03-08,"19:10",44,"Male","SADC country","Work",6,"Seasonal","Formal",419,"Employer provided",1,"Full",12,NA,NA,113,160.139755846467,NA,1.32304417243214
+"MP00119","TLS","Construction site",2024-04-08,"17:01",26,"Male","National","Work",2,"Seasonal","Informal",548,"Rented room",0,"Partial",13,NA,NA,32,164.871914626565,NA,0.37466737626397
+"MP00120","TLS","Agricultural zone",2024-02-09,"06:07",36,"Male","National","Trade",47,"Irregular","Formal",210,"Rented room",1,"Partial",18,NA,NA,176,174.92822620552,NA,2.06067056945184
+"MP00121","RDS","Transport hub",2024-01-01,"12:07",32,"Male","National","Work",38,"Monthly","Self-employed",787,"Employer provided",0,"None",15,"RDS0041","MP00056",44,98.961843829602,0.854430379746835,NA
+"MP00122","RDS","Agricultural zone",2024-04-01,"08:47",32,"Male","National","Work",46,"Irregular","Informal",2672,"Rented room",0,"Partial",27,"RDS0042","MP00024",258,158.334793744143,1.5379746835443,NA
+"MP00123","RDS","Transport hub",2024-03-30,"07:20",46,"Male","SADC country","Education",77,"Daily","Self-employed",3809,"Hostel",0,"None",11,"RDS0043","MP00107",8,158.038601523731,0.626582278481013,NA
+"MP00124","TLS","Agricultural zone",2024-05-10,"16:06",25,"Male","Other African","Education",12,"Monthly","Informal",1522,"Rented room",1,"None",1,NA,NA,134,196.313893515617,NA,1.56891963810538
+"MP00125","RDS","Agricultural zone",2024-06-07,"10:23",24,"Male","National","Education",18,"Daily","Informal",4909,"Other",0,"Full",12,"RDS0044","MP00096",16,55.3053975221701,0.683544303797468,NA
+"MP00126","Venue","Transport hub",2024-06-01,"14:06",31,"Male","SADC country","Work",149,"Daily","Formal",1154,"Hostel",1,"Partial",21,NA,NA,38,142.030068358872,NA,NA
+"MP00127","TLS","Transport hub",2024-02-18,"17:06",17,"Male","National","Work",31,"Daily","Informal",5378,"Employer provided",0,"Partial",26,NA,NA,192,158.105311414693,NA,2.24800425758382
+"MP00128","TLS","Market",2024-02-18,"17:14",31,"Male","National","Work",12,"Monthly","Self-employed",1079,"Hostel",0,"Partial",13,NA,NA,7,136.601243400946,NA,0.0819584885577435
+"MP00129","RDS","Market",2024-03-12,"13:14",36,"Male","National","Work",24,"Seasonal","Informal",686,"Rented room",0,"Partial",32,"RDS0045","MP00006",29,66.1207851837389,1.82278481012658,NA
+"MP00130","TLS","Border post",2024-03-05,"09:32",52,"Male","National","Family",13,"Daily","Formal",1273,"Hostel",1,"Partial",28,NA,NA,3,58.1157320993952,NA,0.0351250665247472
+"MP00131","TLS","Construction site",2024-05-30,"19:16",28,"Male","National","Education",0,"Seasonal","Self-employed",3177,"Street",0,"Full",15,NA,NA,53,99.3614559178241,NA,0.620542841937201
+"MP00132","TLS","Border post",2024-05-31,"14:02",32,"Female","SADC country","Education",31,"Seasonal","Informal",1489,"Employer provided",1,"Partial",9,NA,NA,91,183.427400863729,NA,1.06546035125067
+"MP00133","Venue","Border post",2024-04-17,"11:50",21,"Male","Other African","Family",13,"Monthly","Formal",3184,"Rented room",1,"Partial",16,NA,NA,123,66.9588741497137,NA,NA
+"MP00134","RDS","Mining area",2024-06-04,"17:28",25,"Male","SADC country","Trade",13,"Daily","Self-employed",1420,"Employer provided",0,"Partial",15,"RDS0046","MP00096",29,149.376627639867,0.854430379746835,NA
+"MP00135","RDS","Mining area",2024-04-16,"12:38",24,"Male","Other African","Work",4,"Daily","Unemployed",519,"Hostel",1,"None",9,"RDS0047","MP00018",8,118.246310576797,0.512658227848101,NA
+"MP00136","RDS","Border post",2024-06-18,"16:06",34,"Female","SADC country","Trade",26,"Daily","Formal",539,"Employer provided",1,"None",27,"RDS0048","MP00135",144,123.591775936075,1.5379746835443,NA
+"MP00137","TLS","Border post",2024-04-26,"11:44",36,"Male","National","Work",18,"Seasonal","Formal",867,"Rented room",1,"Partial",12,NA,NA,50,180.577539117076,NA,0.585417775412453
+"MP00138","TLS","Agricultural zone",2024-06-02,"07:10",42,"Female","National","Family",9,"Daily","Self-employed",1711,"Street",0,"None",7,NA,NA,20,163.263235287741,NA,0.234167110164981
+"MP00139","TLS","Market",2024-04-24,"18:03",44,"Male","Other African","Family",24,"Seasonal","Self-employed",155,"Other",0,"Full",16,NA,NA,30,159.435062389821,NA,0.351250665247472
+"MP00140","TLS","Mining area",2024-02-25,"08:27",21,"Male","SADC country","Work",10,"Seasonal","Self-employed",1805,"Street",0,"Full",17,NA,NA,78,114.246387348976,NA,0.913251729643427
+"MP00141","RDS","Market",2024-02-24,"10:40",33,"Male","Other","Trade",30,"Irregular","Informal",1181,"Street",0,"None",20,"RDS0049","MP00018",112,87.5478004221804,1.13924050632911,NA
+"MP00142","TLS","Transport hub",2024-01-08,"12:55",30,"Female","National","Trade",30,"Irregular","Informal",1168,"Other",0,"None",20,NA,NA,127,164.33587326901,NA,1.48696114954763
+"MP00143","RDS","Construction site",2024-04-27,"15:38",47,"Male","Other African","Work",12,"Irregular","Informal",772,"Rented room",0,"Partial",16,"RDS0050","MP00125",54,97.8657549247146,0.911392405063291,NA
+"MP00144","TLS","Market",2024-04-02,"12:05",24,"Male","SADC country","Work",2,"Irregular","Informal",185,"Hostel",1,"Full",7,NA,NA,17,110.599696345162,NA,0.199042043640234
+"MP00145","RDS","Agricultural zone",2024-06-15,"13:31",35,"Male","National","Trade",11,"Daily","Self-employed",877,"Street",1,"Full",19,"RDS0051","MP00037",157,124.194501619786,1.08227848101266,NA
+"MP00146","RDS","Border post",2024-05-28,"16:35",27,"Male","National","Family",2,"Irregular","Formal",42,"Employer provided",0,"None",16,"RDS0052","SEED",26,136.792093678378,0.911392405063291,NA
+"MP00147","TLS","Transport hub",2024-02-06,"13:50",24,"Male","Other African","Education",19,"Daily","Informal",595,"Employer provided",1,"None",23,NA,NA,22,100.174706720281,NA,0.25758382118148
+"MP00148","RDS","Market",2024-03-13,"12:17",25,"Female","Other African","Family",10,"Irregular","Informal",93,"Other",0,"Partial",17,"RDS0053","MP00145",102,149.677285703365,0.968354430379747,NA
+"MP00149","TLS","Construction site",2024-01-24,"15:31",25,"Male","Other African","Education",7,"Seasonal","Formal",282,"Rented room",0,"Full",14,NA,NA,522,162.402536836453,NA,6.11176157530601
+"MP00150","TLS","Transport hub",2024-01-02,"06:37",22,"Male","National","Trade",26,"Weekly","Self-employed",336,"Other",1,"Partial",21,NA,NA,41,179.468803247437,NA,0.480042575838212
+"MP00151","RDS","Mining area",2024-03-10,"20:14",27,"Female","National","Education",10,"Irregular","Unemployed",934,"Rented room",0,"None",16,"RDS0054","MP00076",21,196.305110643152,0.911392405063291,NA
+"MP00152","TLS","Mining area",2024-05-28,"19:19",20,"Female","Other African","Work",15,"Irregular","Informal",391,"Other",1,"Full",30,NA,NA,81,85.8849488780834,NA,0.948376796168175
+"MP00153","Venue","Mining area",2024-02-11,"18:25",31,"Male","National","Work",5,"Monthly","Informal",2326,"Street",0,"Partial",27,NA,NA,94,111.813236458693,NA,NA
+"MP00154","TLS","Mining area",2024-05-09,"10:55",31,"Female","National","Work",40,"Daily","Self-employed",1355,"Hostel",1,"None",8,NA,NA,179,181.966929498594,NA,2.09579563597658
+"MP00155","TLS","Transport hub",2024-03-26,"18:22",25,"Female","SADC country","Work",9,"Daily","Formal",601,"Other",1,"None",0,NA,NA,156,195.141655299813,NA,1.82650345928685
+"MP00156","TLS","Transport hub",2024-06-25,"10:38",32,"Female","National","Trade",13,"Irregular","Informal",216,"Rented room",1,"Full",12,NA,NA,59,167.454150482081,NA,0.690792974986695
+"MP00157","RDS","Mining area",2024-06-24,"17:59",34,"Male","Other African","Education",51,"Irregular","Informal",212,"Hostel",0,"Partial",26,"RDS0055","MP00085",80,174.068716482725,1.48101265822785,NA
+"MP00158","TLS","Border post",2024-03-09,"08:01",28,"Male","SADC country","Other",23,"Monthly","Self-employed",4515,"Street",1,"Partial",21,NA,NA,129,79.8639191314578,NA,1.51037786056413
+"MP00159","TLS","Construction site",2024-01-26,"16:06",18,"Female","Other","Family",21,"Weekly","Self-employed",988,"Hostel",1,"Full",8,NA,NA,54,93.5751191107556,NA,0.63225119744545
+"MP00160","Venue","Market",2024-06-27,"09:23",39,"Male","National","Trade",22,"Daily","Unemployed",136,"Rented room",1,"Partial",34,NA,NA,78,180.331277824007,NA,NA
+"MP00161","RDS","Border post",2024-06-09,"07:45",44,"Male","National","Education",18,"Daily","Informal",10488,"Employer provided",0,"Partial",14,"RDS0056","MP00134",66,66.8032115558162,0.79746835443038,NA
+"MP00162","TLS","Market",2024-01-01,"12:26",38,"Male","Other African","Work",43,"Irregular","Self-employed",229,"Rented room",0,"Partial",6,NA,NA,57,79.1864899452776,NA,0.667376263970197
+"MP00163","TLS","Mining area",2024-01-26,"12:24",31,"Male","SADC country","Education",99,"Monthly","Informal",412,"Other",0,"Full",10,NA,NA,146,78.1341117224656,NA,1.70941990420436
+"MP00164","RDS","Construction site",2024-01-06,"16:01",16,"Female","National","Trade",7,"Irregular","Informal",3246,"Rented room",0,"Partial",6,"RDS0057","MP00043",46,195.817801461089,0.341772151898734,NA
+"MP00165","Venue","Construction site",2024-04-25,"15:37",27,"Male","National","Other",21,"Monthly","Formal",144,"Street",0,"Full",33,NA,NA,33,81.9906250573695,NA,NA
+"MP00166","TLS","Mining area",2024-03-19,"16:20",18,"Male","National","Work",50,"Daily","Informal",522,"Hostel",0,"Partial",18,NA,NA,90,171.975526714232,NA,1.05375199574242
+"MP00167","TLS","Construction site",2024-01-16,"08:31",35,"Male","SADC country","Trade",91,"Weekly","Self-employed",2389,"Street",0,"Partial",17,NA,NA,14,86.7740756715648,NA,0.163916977115487
+"MP00168","TLS","Transport hub",2024-02-20,"11:55",20,"Male","SADC country","Education",29,"Daily","Self-employed",1488,"Other",0,"Partial",3,NA,NA,513,131.808486185037,NA,6.00638637573177
+"MP00169","Venue","Border post",2024-01-26,"19:18",25,"Male","National","Other",8,"Irregular","Formal",1345,"Street",1,"Full",7,NA,NA,38,147.513849299867,NA,NA
+"MP00170","RDS","Market",2024-02-14,"16:42",24,"Male","National","Family",6,"Weekly","Informal",882,"Employer provided",0,"Full",22,"RDS0058","MP00067",33,80.6498362333514,1.25316455696203,NA
+"MP00171","TLS","Mining area",2024-06-04,"18:56",42,"Male","Other African","Family",15,"Daily","Self-employed",120,"Street",0,"Full",5,NA,NA,63,151.002165779937,NA,0.737626397019691
+"MP00172","TLS","Border post",2024-01-13,"17:34",49,"Male","Other African","Education",31,"Daily","Informal",116,"Hostel",0,"Partial",2,NA,NA,112,156.967779481784,NA,1.3113358169239
+"MP00173","TLS","Mining area",2024-06-25,"17:14",30,"Male","SADC country","Family",52,"Monthly","Formal",23833,"Hostel",0,"Partial",31,NA,NA,70,134.409635071643,NA,0.819584885577435
+"MP00174","RDS","Market",2024-06-19,"07:52",32,"Female","National","Work",8,"Irregular","Informal",9349,"Rented room",0,"Partial",25,"RDS0059","MP00125",30,167.131123214494,1.42405063291139,NA
+"MP00175","RDS","Construction site",2024-06-17,"09:55",21,"Male","National","Trade",44,"Weekly","Self-employed",5985,"Hostel",1,"Partial",36,"RDS0060","MP00143",84,156.176932842936,2.0506329113924,NA
+"MP00176","RDS","Market",2024-04-19,"13:54",19,"Male","National","Work",10,"Irregular","Informal",769,"Rented room",0,"None",9,"RDS0061","MP00029",113,109.218534862157,0.512658227848101,NA
+"MP00177","RDS","Border post",2024-01-14,"13:58",24,"Male","Other African","Work",19,"Monthly","Informal",765,"Other",1,"Partial",18,"RDS0062","MP00017",85,180.019642994739,1.0253164556962,NA
+"MP00178","Venue","Mining area",2024-04-11,"12:37",54,"Male","Other African","Work",2,"Monthly","Informal",15314,"Other",0,"Full",1,NA,NA,13,136.041833576746,NA,NA
+"MP00179","Venue","Mining area",2024-01-17,"19:42",31,"Female","SADC country","Work",2,"Irregular","Formal",9063,"Other",1,"Full",7,NA,NA,81,103.18780610105,NA,NA
+"MP00180","RDS","Market",2024-01-09,"20:13",29,"Female","National","Work",58,"Daily","Informal",2033,"Street",1,"Partial",17,"RDS0063","MP00115",15,102.362136950251,0.968354430379747,NA
+"MP00181","Venue","Market",2024-04-06,"19:40",22,"Female","SADC country","Work",45,"Irregular","Self-employed",424,"Rented room",0,"Partial",15,NA,NA,87,113.827046076767,NA,NA
+"MP00182","TLS","Border post",2024-03-21,"09:06",38,"Female","National","Trade",12,"Daily","Informal",804,"Hostel",0,"Partial",19,NA,NA,141,68.134875909891,NA,1.65087812666312
+"MP00183","TLS","Agricultural zone",2024-03-30,"06:13",15,"Female","SADC country","Trade",5,"Daily","Self-employed",80,"Rented room",1,"Full",26,NA,NA,249,111.472433514427,NA,2.91538052155402
+"MP00184","TLS","Border post",2024-01-19,"07:40",27,"Male","SADC country","Work",40,"Seasonal","Formal",98,"Street",1,"Full",10,NA,NA,17,75.5082787247375,NA,0.199042043640234
+"MP00185","TLS","Border post",2024-05-30,"14:02",42,"Male","SADC country","Trade",1,"Seasonal","Informal",128,"Street",1,"Full",10,NA,NA,27,178.702857566532,NA,0.316125598722725
+"MP00186","TLS","Border post",2024-05-25,"14:02",52,"Male","Other African","Work",7,"Monthly","Informal",258,"Hostel",0,"Full",1,NA,NA,37,86.8521781056188,NA,0.433209153805216
+"MP00187","RDS","Market",2024-06-07,"13:05",38,"Male","National","Work",82,"Daily","Formal",3384,"Street",0,"None",7,"RDS0064","MP00115",34,194.378663401585,0.39873417721519,NA
+"MP00188","RDS","Agricultural zone",2024-02-08,"19:04",34,"Female","Other","Other",4,"Weekly","Self-employed",832,"Employer provided",1,"Full",22,"RDS0065","MP00046",271,165.741104225162,1.25316455696203,NA
+"MP00189","TLS","Agricultural zone",2024-04-12,"12:35",24,"Male","SADC country","Trade",53,"Monthly","Formal",1058,"Street",0,"Partial",8,NA,NA,446,99.6460343478248,NA,5.22192655667908
+"MP00190","RDS","Border post",2024-06-18,"16:06",38,"Female","SADC country","Work",15,"Seasonal","Formal",581,"Rented room",0,"None",17,"RDS0066","MP00177",57,65.0085603469051,0.968354430379747,NA
+"MP00191","RDS","Mining area",2024-03-07,"10:07",22,"Male","National","Trade",61,"Daily","Informal",435,"Hostel",1,"Partial",23,"RDS0067","MP00067",36,127.052236138843,1.31012658227848,NA
+"MP00192","TLS","Transport hub",2024-05-14,"09:43",28,"Male","National","Education",36,"Daily","Informal",397,"Employer provided",1,"Partial",14,NA,NA,35,99.9886539648287,NA,0.409792442788717
+"MP00193","Venue","Border post",2024-06-15,"12:51",31,"Male","National","Trade",8,"Daily","Informal",965,"Other",0,"Partial",24,NA,NA,248,156.07544304803,NA,NA
+"MP00194","TLS","Agricultural zone",2024-01-03,"06:03",23,"Male","Other African","Work",16,"Seasonal","Informal",44,"Other",0,"Full",6,NA,NA,18,74.6273163589649,NA,0.210750399148483
+"MP00195","TLS","Construction site",2024-01-11,"06:28",20,"Male","National","Work",54,"Seasonal","Informal",836,"Employer provided",1,"Partial",3,NA,NA,154,148.852526058909,NA,1.80308674827036
+"MP00196","RDS","Construction site",2024-02-05,"15:53",26,"Female","Other African","Work",26,"Weekly","Self-employed",1446,"Rented room",0,"Partial",17,"RDS0068","MP00055",15,124.941734841559,0.968354430379747,NA
+"MP00197","TLS","Transport hub",2024-03-02,"08:22",24,"Male","National","Work",24,"Monthly","Informal",252,"Rented room",1,"Partial",21,NA,NA,289,194.473963859491,NA,3.38371474188398
+"MP00198","TLS","Mining area",2024-05-22,"06:19",30,"Male","Other","Trade",25,"Daily","Informal",403,"Hostel",1,"Partial",13,NA,NA,120,56.8607961758971,NA,1.40500266098989
+"MP00199","TLS","Border post",2024-05-31,"20:44",45,"Male","Other African","Work",1,"Seasonal","Informal",706,"Hostel",1,"Partial",30,NA,NA,20,66.9928893097676,NA,0.234167110164981
+"MP00200","RDS","Agricultural zone",2024-06-19,"13:42",22,"Female","Other African","Trade",44,"Monthly","Self-employed",324,"Other",0,"Partial",17,"RDS0069","MP00055",62,83.5832310141996,0.968354430379747,NA
+"MP00201","TLS","Border post",2024-04-16,"06:28",24,"Female","National","Work",2,"Irregular","Informal",176,"Rented room",0,"Partial",8,NA,NA,76,146.79527617991,NA,0.889835018626929
+"MP00202","TLS","Construction site",2024-03-09,"15:14",17,"Female","National","Work",19,"Weekly","Informal",184,"Rented room",0,"Partial",15,NA,NA,51,62.7165107987821,NA,0.597126130920703
+"MP00203","TLS","Market",2024-04-04,"08:22",32,"Male","Other African","Trade",61,"Seasonal","Informal",157,"Employer provided",1,"Full",20,NA,NA,209,118.729917821474,NA,2.44704630122406
+"MP00204","RDS","Border post",2024-05-23,"09:01",31,"Male","National","Trade",21,"Irregular","Informal",81,"Other",0,"Full",21,"RDS0070","MP00065",3,151.984803809319,1.19620253164557,NA
+"MP00205","TLS","Market",2024-01-06,"15:51",45,"Male","National","Work",10,"Daily","Self-employed",285,"Hostel",0,"Partial",19,NA,NA,185,165.53554678103,NA,2.16604576902608
+"MP00206","TLS","Market",2024-06-06,"08:54",32,"Male","National","Work",7,"Seasonal","Unemployed",2246,"Other",1,"None",26,NA,NA,9,108.941526792478,NA,0.105375199574242
+"MP00207","Venue","Agricultural zone",2024-04-09,"17:24",28,"Male","National","Trade",2,"Monthly","Self-employed",9064,"Employer provided",1,"Full",23,NA,NA,14,177.022590872366,NA,NA
+"MP00208","Venue","Agricultural zone",2024-04-21,"09:11",43,"Male","National","Work",3,"Monthly","Informal",38,"Street",0,"Partial",26,NA,NA,33,125.480244599748,NA,NA
+"MP00209","TLS","Market",2024-03-27,"15:34",28,"Male","Other African","Family",15,"Seasonal","Self-employed",1527,"Hostel",0,"Full",3,NA,NA,58,51.1572553543374,NA,0.679084619478446
+"MP00210","TLS","Border post",2024-01-04,"06:45",42,"Male","National","Work",16,"Seasonal","Unemployed",166,"Employer provided",1,"Full",15,NA,NA,25,103.41706086183,NA,0.292708887706227
+"MP00211","Venue","Market",2024-03-17,"15:58",39,"Male","Other African","Work",2,"Daily","Informal",242,"Street",0,"Full",13,NA,NA,75,119.128341041505,NA,NA
+"MP00212","TLS","Transport hub",2024-04-27,"08:14",44,"Male","National","Work",64,"Daily","Self-employed",1806,"Hostel",1,"None",12,NA,NA,284,113.984086725395,NA,3.32517296434274
+"MP00213","Venue","Agricultural zone",2024-06-01,"11:06",25,"Male","Other African","Work",1,"Daily","Unemployed",4318,"Street",1,"None",23,NA,NA,57,63.2775941397995,NA,NA
+"MP00214","TLS","Mining area",2024-05-13,"14:49",24,"Male","Other African","Trade",44,"Irregular","Unemployed",7685,"Other",0,"Partial",5,NA,NA,22,124.353058834095,NA,0.25758382118148
+"MP00215","TLS","Agricultural zone",2024-06-14,"12:48",23,"Male","National","Family",37,"Daily","Self-employed",724,"Rented room",1,"None",24,NA,NA,15,114.982531312853,NA,0.175625332623736
+"MP00216","RDS","Border post",2024-05-29,"16:28",30,"Male","Other","Trade",8,"Seasonal","Informal",1775,"Street",0,"Partial",4,"RDS0071","MP00014",50,101.036418508738,0.227848101265823,NA
+"MP00217","TLS","Border post",2024-04-10,"18:28",32,"Male","National","Work",32,"Seasonal","Informal",960,"Employer provided",0,"None",6,NA,NA,24,165.73763237102,NA,0.281000532197978
+"MP00218","TLS","Agricultural zone",2024-01-07,"09:42",25,"Male","SADC country","Education",16,"Monthly","Unemployed",1013,"Hostel",0,"None",15,NA,NA,14,185.05258228397,NA,0.163916977115487
+"MP00219","RDS","Border post",2024-03-15,"08:20",50,"Female","Other African","Work",30,"Seasonal","Informal",1270,"Rented room",0,"Partial",9,"RDS0072","MP00216",125,130.025937047321,0.512658227848101,NA
+"MP00220","RDS","Construction site",2024-02-12,"08:52",33,"Female","SADC country","Family",18,"Monthly","Informal",497,"Employer provided",1,"Partial",11,"RDS0073","MP00196",370,93.963117164094,0.626582278481013,NA
+"MP00221","RDS","Construction site",2024-04-30,"15:14",20,"Male","National","Family",64,"Daily","Informal",277,"Employer provided",0,"Partial",3,"RDS0074","MP00216",42,116.941167926416,0.170886075949367,NA
+"MP00222","RDS","Construction site",2024-04-06,"11:29",20,"Male","National","Trade",50,"Weekly","Informal",1112,"Rented room",0,"Partial",16,"RDS0075","MP00073",105,134.908811771311,0.911392405063291,NA
+"MP00223","TLS","Market",2024-06-07,"13:35",37,"Male","National","Trade",1,"Irregular","Informal",149,"Employer provided",0,"Partial",20,NA,NA,193,121.925825462677,NA,2.25971261309207
+"MP00224","TLS","Mining area",2024-06-27,"07:31",35,"Male","National","Work",7,"Monthly","Informal",5281,"Other",0,"Partial",18,NA,NA,128,87.3522480716929,NA,1.49866950505588
+"MP00225","Venue","Market",2024-01-22,"09:29",17,"Male","National","Other",7,"Irregular","Informal",545,"Rented room",1,"Partial",19,NA,NA,102,71.5975844534114,NA,NA
+"MP00226","RDS","Border post",2024-01-11,"15:40",25,"Female","SADC country","Education",16,"Irregular","Informal",1007,"Rented room",0,"Full",30,"RDS0076","MP00187",51,113.236898765899,1.70886075949367,NA
+"MP00227","RDS","Border post",2024-03-08,"20:25",25,"Male","SADC country","Work",21,"Weekly","Self-employed",234,"Other",0,"None",23,"RDS0077","MP00122",47,97.7575264987536,1.31012658227848,NA
+"MP00228","TLS","Mining area",2024-05-17,"13:54",43,"Male","SADC country","Education",3,"Irregular","Formal",637,"Other",0,"None",14,NA,NA,37,53.4271800657734,NA,0.433209153805216
+"MP00229","TLS","Agricultural zone",2024-04-09,"14:35",17,"Male","Other African","Work",19,"Weekly","Self-employed",525,"Hostel",0,"Partial",20,NA,NA,33,113.046043529175,NA,0.386375731772219
+"MP00230","TLS","Agricultural zone",2024-03-17,"18:16",27,"Male","National","Family",49,"Seasonal","Unemployed",6041,"Employer provided",0,"Full",19,NA,NA,42,132.012681779452,NA,0.491750931346461
+"MP00231","RDS","Transport hub",2024-04-09,"07:59",32,"Female","SADC country","Work",17,"Irregular","Informal",251,"Rented room",0,"Full",16,"RDS0078","MP00188",41,191.002458892763,0.911392405063291,NA
+"MP00232","TLS","Mining area",2024-04-21,"11:29",27,"Male","SADC country","Trade",29,"Weekly","Informal",4003,"Rented room",1,"Partial",17,NA,NA,8,58.3912719739601,NA,0.0936668440659926
+"MP00233","RDS","Construction site",2024-03-22,"11:02",30,"Male","National","Work",23,"Monthly","Formal",1860,"Hostel",1,"None",27,"RDS0079","MP00061",230,79.3093318701722,1.5379746835443,NA
+"MP00234","TLS","Construction site",2024-01-05,"07:00",22,"Male","SADC country","Family",20,"Monthly","Informal",299,"Hostel",0,"Full",17,NA,NA,22,157.636193197686,NA,0.25758382118148
+"MP00235","Venue","Market",2024-06-20,"15:47",37,"Female","Other African","Work",2,"Seasonal","Unemployed",667,"Other",0,"Full",22,NA,NA,50,65.7858369988389,NA,NA
+"MP00236","TLS","Market",2024-01-31,"09:22",36,"Male","SADC country","Work",81,"Daily","Self-employed",260,"Rented room",0,"Partial",12,NA,NA,45,97.0592397148721,NA,0.526875997871208
+"MP00237","TLS","Agricultural zone",2024-06-09,"14:04",33,"Male","Other","Work",20,"Irregular","Formal",396,"Employer provided",0,"Full",21,NA,NA,151,111.127211665735,NA,1.76796168174561
+"MP00238","TLS","Border post",2024-01-28,"18:27",27,"Male","Other African","Education",54,"Seasonal","Informal",99,"Rented room",0,"Partial",13,NA,NA,88,72.744157386478,NA,1.03033528472592
+"MP00239","RDS","Market",2024-02-29,"11:58",36,"Male","National","Trade",32,"Seasonal","Self-employed",1584,"Employer provided",1,"Partial",15,"RDS0080","MP00174",38,140.022571291775,0.854430379746835,NA
+"MP00240","RDS","Border post",2024-05-30,"14:48",42,"Male","SADC country","Family",30,"Seasonal","Informal",1525,"Hostel",0,"Full",5,"RDS0081","MP00025",45,185.947317059617,0.284810126582278,NA
+"MP00241","RDS","Agricultural zone",2024-02-08,"09:10",38,"Male","Other","Trade",22,"Daily","Informal",83,"Other",0,"Partial",2,"RDS0082","MP00067",25,90.5507681076415,0.113924050632911,NA
+"MP00242","Venue","Transport hub",2024-04-28,"11:20",27,"Female","National","Trade",49,"Monthly","Informal",1654,"Hostel",1,"Partial",27,NA,NA,14,119.998680287972,NA,NA
+"MP00243","RDS","Construction site",2024-02-23,"07:38",33,"Female","National","Trade",11,"Daily","Formal",649,"Employer provided",1,"Full",8,"RDS0083","MP00006",58,95.1303178211674,0.455696202531646,NA
+"MP00244","TLS","Market",2024-01-04,"18:36",25,"Female","National","Trade",9,"Weekly","Formal",2309,"Other",0,"Full",7,NA,NA,59,117.172913055401,NA,0.690792974986695
+"MP00245","TLS","Transport hub",2024-05-25,"06:24",35,"Female","National","Work",45,"Daily","Self-employed",24,"Other",1,"None",21,NA,NA,27,115.937165019568,NA,0.316125598722725
+"MP00246","TLS","Border post",2024-03-11,"12:49",43,"Female","Other African","Work",37,"Weekly","Informal",5083,"Employer provided",0,"Partial",6,NA,NA,8,80.1810592995025,NA,0.0936668440659926
+"MP00247","TLS","Border post",2024-04-30,"17:35",33,"Male","Other African","Trade",21,"Seasonal","Unemployed",6194,"Other",1,"Partial",21,NA,NA,132,61.2012695986778,NA,1.54550292708888
+"MP00248","TLS","Border post",2024-02-01,"20:57",39,"Female","National","Work",80,"Monthly","Formal",354,"Employer provided",0,"Full",29,NA,NA,12,83.6146704503335,NA,0.140500266098989
+"MP00249","TLS","Border post",2024-04-28,"17:43",36,"Male","National","Work",86,"Monthly","Informal",1635,"Street",0,"Full",37,NA,NA,40,162.51229471527,NA,0.468334220329963
+"MP00250","TLS","Agricultural zone",2024-02-05,"15:06",26,"Male","SADC country","Work",1,"Weekly","Informal",6123,"Street",0,"Full",20,NA,NA,64,133.767307829112,NA,0.74933475252794
+"MP00251","TLS","Agricultural zone",2024-06-08,"08:11",22,"Male","SADC country","Education",23,"Monthly","Self-employed",968,"Rented room",0,"Partial",12,NA,NA,54,119.682387844659,NA,0.63225119744545
+"MP00252","Venue","Mining area",2024-02-11,"20:39",36,"Male","SADC country","Trade",4,"Daily","Formal",12271,"Street",0,"Partial",0,NA,NA,41,136.102538008709,NA,NA
+"MP00253","Venue","Agricultural zone",2024-04-25,"11:42",56,"Female","Other African","Work",32,"Weekly","Informal",1376,"Street",1,"Partial",4,NA,NA,70,116.239269520156,NA,NA
+"MP00254","RDS","Transport hub",2024-06-26,"09:24",47,"Female","SADC country","Work",10,"Weekly","Informal",1194,"Other",0,"Full",9,"RDS0084","MP00107",465,102.50728140818,0.512658227848101,NA
+"MP00255","RDS","Construction site",2024-04-11,"16:11",27,"Male","Other African","Education",59,"Seasonal","Self-employed",3219,"Hostel",0,"Partial",6,"RDS0085","MP00175",68,177.554350963328,0.341772151898734,NA
+"MP00256","TLS","Construction site",2024-05-22,"10:20",42,"Male","SADC country","Education",20,"Weekly","Informal",1069,"Other",0,"Full",13,NA,NA,23,111.128621816169,NA,0.269292176689729
+"MP00257","TLS","Market",2024-03-21,"08:58",23,"Female","National","Work",3,"Seasonal","Informal",97,"Hostel",1,"Partial",25,NA,NA,65,169.095345353708,NA,0.761043108036189
+"MP00258","RDS","Construction site",2024-04-27,"15:04",28,"Male","SADC country","Work",41,"Daily","Informal",348,"Hostel",1,"Full",16,"RDS0086","MP00025",36,129.726058570668,0.911392405063291,NA
+"MP00259","TLS","Market",2024-04-25,"13:32",35,"Female","SADC country","Work",67,"Daily","Self-employed",931,"Street",0,"None",20,NA,NA,30,100.933548773173,NA,0.351250665247472
+"MP00260","TLS","Transport hub",2024-01-02,"11:57",23,"Female","Other African","Work",55,"Daily","Self-employed",216,"Other",0,"Partial",22,NA,NA,70,196.249349438585,NA,0.819584885577435
+"MP00261","TLS","Agricultural zone",2024-06-02,"08:50",17,"Female","National","Trade",61,"Daily","Formal",135,"Hostel",1,"Partial",9,NA,NA,55,160.199226322584,NA,0.643959552953699
+"MP00262","TLS","Agricultural zone",2024-01-05,"12:56",33,"Male","SADC country","Family",24,"Monthly","Self-employed",969,"Hostel",0,"Partial",16,NA,NA,30,59.4962527509779,NA,0.351250665247472
+"MP00263","TLS","Construction site",2024-06-25,"18:16",47,"Male","National","Trade",73,"Monthly","Formal",818,"Hostel",1,"Partial",23,NA,NA,8,169.198462809436,NA,0.0936668440659926
+"MP00264","TLS","Mining area",2024-04-20,"14:54",17,"Male","Other","Trade",114,"Monthly","Informal",1863,"Street",0,"Partial",13,NA,NA,39,140.464670374058,NA,0.456625864821714
+"MP00265","RDS","Agricultural zone",2024-04-09,"09:56",29,"Female","SADC country","Other",1,"Seasonal","Informal",253,"Street",0,"Partial",13,"RDS0087","MP00175",255,176.48138392251,0.740506329113924,NA
+"MP00266","Venue","Transport hub",2024-06-08,"11:59",20,"Female","SADC country","Trade",17,"Seasonal","Informal",985,"Hostel",0,"Full",25,NA,NA,124,127.336296637077,NA,NA
+"MP00267","RDS","Market",2024-01-03,"13:50",32,"Male","Other African","Other",19,"Daily","Self-employed",327,"Rented room",1,"Partial",17,"RDS0088","MP00254",94,163.37560985703,0.968354430379747,NA
+"MP00268","TLS","Border post",2024-06-03,"09:41",27,"Female","National","Education",147,"Seasonal","Informal",3805,"Other",0,"None",8,NA,NA,98,52.4173328070901,NA,1.14741883980841
+"MP00269","Venue","Transport hub",2024-02-28,"10:16",47,"Male","Other African","Trade",34,"Weekly","Informal",639,"Street",0,"Full",18,NA,NA,59,159.739621076733,NA,NA
+"MP00270","TLS","Construction site",2024-05-12,"15:02",25,"Male","National","Other",31,"Weekly","Informal",179,"Street",0,"Partial",49,NA,NA,33,67.5590940983966,NA,0.386375731772219
+"MP00271","TLS","Construction site",2024-03-22,"10:23",23,"Male","Other","Education",6,"Daily","Informal",5843,"Employer provided",1,"None",17,NA,NA,26,184.12359674694,NA,0.304417243214476
+"MP00272","RDS","Construction site",2024-03-27,"17:45",43,"Male","National","Education",54,"Weekly","Informal",2965,"Employer provided",0,"None",6,"RDS0089","MP00043",38,145.250795898028,0.341772151898734,NA
+"MP00273","Venue","Market",2024-03-25,"14:42",32,"Female","SADC country","Trade",17,"Daily","Self-employed",49,"Employer provided",0,"None",9,NA,NA,34,149.947870755568,NA,NA
+"MP00274","Venue","Agricultural zone",2024-01-08,"14:14",35,"Male","SADC country","Trade",24,"Weekly","Formal",2446,"Street",0,"Full",17,NA,NA,32,144.440945773385,NA,NA
+"MP00275","TLS","Market",2024-01-04,"13:11",42,"Male","SADC country","Trade",8,"Seasonal","Informal",589,"Hostel",0,"None",12,NA,NA,16,64.5163303241134,NA,0.187333688131985
+"MP00276","Venue","Border post",2024-01-04,"11:36",33,"Male","National","Other",73,"Seasonal","Self-employed",174,"Other",1,"Partial",20,NA,NA,218,129.974324814975,NA,NA
+"MP00277","Venue","Agricultural zone",2024-02-08,"10:14",35,"Female","SADC country","Work",8,"Irregular","Unemployed",978,"Other",1,"Full",25,NA,NA,281,180.088485346641,NA,NA
+"MP00278","Venue","Transport hub",2024-01-16,"14:18",19,"Female","National","Work",11,"Seasonal","Self-employed",246,"Other",0,"Full",18,NA,NA,94,180.748457508162,NA,NA
+"MP00279","TLS","Border post",2024-01-26,"06:18",33,"Male","National","Work",72,"Seasonal","Formal",411,"Employer provided",1,"Partial",7,NA,NA,181,54.6990010188892,NA,2.11921234699308
+"MP00280","Venue","Market",2024-04-21,"06:41",30,"Male","National","Work",32,"Daily","Informal",2410,"Street",0,"Full",7,NA,NA,41,132.091155147646,NA,NA
+"MP00281","TLS","Agricultural zone",2024-01-28,"20:02",47,"Male","SADC country","Work",12,"Irregular","Informal",934,"Employer provided",1,"Partial",35,NA,NA,15,100.53526168922,NA,0.175625332623736
+"MP00282","Venue","Agricultural zone",2024-05-28,"13:45",21,"Female","SADC country","Work",22,"Seasonal","Unemployed",73,"Other",0,"Full",15,NA,NA,20,120.411943178624,NA,NA
+"MP00283","Venue","Agricultural zone",2024-01-11,"12:43",35,"Female","National","Education",61,"Monthly","Self-employed",3243,"Street",0,"None",23,NA,NA,37,88.0773629178293,NA,NA
+"MP00284","TLS","Mining area",2024-01-04,"11:16",22,"Male","Other African","Work",36,"Seasonal","Informal",144,"Other",0,"Partial",16,NA,NA,28,183.652865188196,NA,0.327833954230974
+"MP00285","RDS","Transport hub",2024-06-27,"10:39",33,"Male","Other African","Family",0,"Irregular","Self-employed",2603,"Street",0,"Partial",40,"RDS0090","MP00216",49,140.294118307065,2.27848101265823,NA
+"MP00286","Venue","Border post",2024-01-24,"17:56",29,"Female","National","Other",10,"Weekly","Informal",172,"Other",1,"None",14,NA,NA,43,169.421376450919,NA,NA
+"MP00287","Venue","Transport hub",2024-03-23,"09:16",22,"Male","SADC country","Family",22,"Seasonal","Self-employed",370,"Street",1,"Partial",11,NA,NA,278,109.965210931841,NA,NA
+"MP00288","TLS","Construction site",2024-01-06,"18:06",17,"Female","SADC country","Work",37,"Irregular","Informal",969,"Employer provided",0,"Partial",6,NA,NA,160,163.305009121541,NA,1.87333688131985
+"MP00289","RDS","Mining area",2024-04-16,"11:06",15,"Male","SADC country","Trade",8,"Weekly","Informal",101,"Rented room",0,"Full",15,"RDS0091","MP00255",27,98.3355522854254,0.854430379746835,NA
+"MP00290","TLS","Market",2024-04-13,"20:44",47,"Male","Other African","Work",26,"Weekly","Informal",4022,"Rented room",0,"Partial",4,NA,NA,55,162.405761005357,NA,0.643959552953699
+"MP00291","RDS","Mining area",2024-01-08,"07:41",26,"Female","Other African","Trade",12,"Weekly","Unemployed",1119,"Other",1,"Partial",17,"RDS0092","MP00070",112,132.766525284387,0.968354430379747,NA
+"MP00292","TLS","Agricultural zone",2024-03-02,"13:39",20,"Male","SADC country","Work",33,"Monthly","Informal",339,"Street",0,"None",2,NA,NA,74,56.803380837664,NA,0.866418307610431
+"MP00293","RDS","Mining area",2024-01-19,"12:35",26,"Male","SADC country","Education",11,"Monthly","Unemployed",2219,"Hostel",1,"Full",18,"RDS0093","MP00157",47,187.211897724774,1.0253164556962,NA
+"MP00294","TLS","Transport hub",2024-03-25,"12:54",23,"Male","National","Other",40,"Daily","Informal",757,"Rented room",0,"Partial",19,NA,NA,29,92.8094843635336,NA,0.339542309739223
+"MP00295","TLS","Construction site",2024-01-17,"19:34",28,"Male","National","Trade",5,"Monthly","Self-employed",228,"Hostel",1,"Full",15,NA,NA,61,192.507491179276,NA,0.714209686003193
+"MP00296","TLS","Construction site",2024-01-24,"20:40",41,"Male","Other African","Work",4,"Daily","Informal",2633,"Rented room",0,"Partial",32,NA,NA,38,150.811439519748,NA,0.444917509313465
+"MP00297","Venue","Transport hub",2024-03-17,"09:32",16,"Male","National","Education",58,"Irregular","Self-employed",1840,"Hostel",1,"None",6,NA,NA,41,109.191886591725,NA,NA
+"MP00298","TLS","Transport hub",2024-01-25,"15:01",19,"Female","SADC country","Work",3,"Monthly","Informal",866,"Hostel",0,"Partial",18,NA,NA,423,196.462203678675,NA,4.95263437998936
+"MP00299","RDS","Border post",2024-05-10,"15:44",33,"Male","Other African","Family",13,"Daily","Informal",1101,"Employer provided",0,"Full",19,"RDS0094","MP00221",45,144.453362026252,1.08227848101266,NA
+"MP00300","TLS","Border post",2024-04-06,"18:57",47,"Male","Other","Education",38,"Daily","Informal",3910,"Other",0,"Partial",11,NA,NA,105,88.6637405725196,NA,1.22937732836615
+"MP00301","TLS","Construction site",2024-03-29,"15:28",41,"Male","SADC country","Work",96,"Weekly","Informal",143,"Other",0,"Partial",8,NA,NA,29,62.2677976964042,NA,0.339542309739223
+"MP00302","Venue","Construction site",2024-03-30,"19:35",22,"Male","SADC country","Work",25,"Daily","Formal",1030,"Hostel",1,"Partial",22,NA,NA,65,109.179100766778,NA,NA
+"MP00303","TLS","Mining area",2024-06-06,"07:36",29,"Male","Other African","Work",163,"Weekly","Informal",526,"Street",0,"None",11,NA,NA,19,160.999528726097,NA,0.222458754656732
+"MP00304","TLS","Border post",2024-02-06,"20:55",32,"Female","National","Work",8,"Irregular","Informal",231,"Rented room",1,"Partial",8,NA,NA,169,198.114195105154,NA,1.97871208089409
+"MP00305","TLS","Mining area",2024-05-30,"17:53",17,"Female","Other African","Work",25,"Irregular","Formal",3041,"Rented room",0,"None",21,NA,NA,22,111.760842578951,NA,0.25758382118148
+"MP00306","Venue","Market",2024-06-06,"18:00",34,"Male","National","Education",22,"Irregular","Self-employed",131,"Street",1,"Partial",19,NA,NA,30,117.660710727796,NA,NA
+"MP00307","TLS","Market",2024-04-05,"08:55",25,"Male","National","Family",89,"Monthly","Unemployed",61,"Other",0,"Full",7,NA,NA,194,67.8968082065694,NA,2.27142096860032
+"MP00308","RDS","Border post",2024-03-27,"19:25",39,"Male","SADC country","Work",20,"Irregular","Informal",737,"Employer provided",0,"Full",29,"RDS0095","SEED",24,160.513255547266,1.65189873417722,NA
+"MP00309","TLS","Agricultural zone",2024-01-14,"18:34",30,"Female","National","Trade",13,"Irregular","Unemployed",87,"Employer provided",1,"Partial",5,NA,NA,14,128.843338415027,NA,0.163916977115487
+"MP00310","TLS","Market",2024-03-31,"19:27",23,"Female","Other African","Work",93,"Daily","Self-employed",301,"Street",0,"Full",28,NA,NA,68,162.993292079773,NA,0.796168174560937
+"MP00311","TLS","Construction site",2024-01-08,"11:48",18,"Male","SADC country","Work",45,"Weekly","Formal",469,"Employer provided",0,"None",17,NA,NA,118,54.4892280362546,NA,1.38158594997339
+"MP00312","RDS","Agricultural zone",2024-04-26,"07:31",32,"Male","National","Other",64,"Daily","Informal",37340,"Other",0,"Full",6,"RDS0096","SEED",402,119.587530160788,0.341772151898734,NA
+"MP00313","TLS","Market",2024-05-17,"10:23",39,"Male","National","Work",14,"Irregular","Self-employed",365,"Employer provided",0,"Partial",18,NA,NA,90,183.902720781043,NA,1.05375199574242
+"MP00314","TLS","Mining area",2024-06-19,"15:49",41,"Male","Other African","Trade",53,"Seasonal","Informal",537,"Other",0,"Full",17,NA,NA,77,87.2648126329295,NA,0.901543374135178
+"MP00315","RDS","Border post",2024-04-21,"07:38",42,"Male","National","Work",68,"Irregular","Informal",797,"Street",0,"Partial",24,"RDS0097","MP00239",16,184.083732310683,1.36708860759494,NA
+"MP00316","TLS","Agricultural zone",2024-06-19,"08:03",37,"Male","SADC country","Family",16,"Seasonal","Informal",2001,"Employer provided",0,"None",15,NA,NA,57,160.367265669629,NA,0.667376263970197
+"MP00317","RDS","Mining area",2024-04-18,"18:28",31,"Male","SADC country","Work",26,"Daily","Informal",778,"Rented room",1,"Partial",24,"RDS0098","MP00240",51,122.705720621161,1.36708860759494,NA
+"MP00318","TLS","Market",2024-03-31,"08:53",23,"Female","National","Trade",87,"Monthly","Informal",653,"Other",0,"Partial",13,NA,NA,74,166.985107213259,NA,0.866418307610431
+"MP00319","TLS","Transport hub",2024-03-17,"16:22",42,"Male","National","Work",5,"Monthly","Informal",357,"Other",1,"Full",21,NA,NA,74,154.529464954976,NA,0.866418307610431
+"MP00320","RDS","Mining area",2024-06-10,"11:54",20,"Female","National","Education",26,"Daily","Formal",526,"Hostel",1,"Partial",26,"RDS0099","MP00289",22,101.105491782073,1.48101265822785,NA
+"MP00321","Venue","Market",2024-02-24,"13:39",30,"Male","National","Work",18,"Irregular","Informal",138,"Hostel",1,"None",15,NA,NA,61,97.4720832309686,NA,NA
+"MP00322","RDS","Border post",2024-06-22,"07:46",48,"Male","Other African","Trade",28,"Monthly","Informal",101,"Other",1,"Partial",10,"RDS0100","MP00015",136,82.0714404340833,0.569620253164557,NA
+"MP00323","TLS","Transport hub",2024-05-18,"14:50",32,"Male","National","Work",5,"Seasonal","Informal",3896,"Other",0,"Partial",12,NA,NA,119,79.5474765822291,NA,1.39329430548164
+"MP00324","TLS","Border post",2024-02-02,"08:23",33,"Male","Other African","Trade",59,"Irregular","Unemployed",64,"Employer provided",0,"None",3,NA,NA,23,160.479459853377,NA,0.269292176689729
+"MP00325","TLS","Mining area",2024-04-09,"20:35",35,"Male","National","Work",13,"Irregular","Informal",534,"Employer provided",0,"None",11,NA,NA,43,198.380234930664,NA,0.50345928685471
+"MP00326","TLS","Construction site",2024-06-14,"12:23",35,"Female","Other African","Work",7,"Seasonal","Unemployed",1901,"Other",0,"Partial",8,NA,NA,21,122.893934475724,NA,0.24587546567323
+"MP00327","RDS","Border post",2024-05-27,"09:33",27,"Female","SADC country","Work",180,"Weekly","Informal",2112,"Street",0,"Partial",22,"RDS0101","SEED",40,71.3429600116797,1.25316455696203,NA
+"MP00328","TLS","Agricultural zone",2024-04-05,"19:24",43,"Female","Other","Family",18,"Monthly","Formal",905,"Street",0,"Full",27,NA,NA,30,84.8134309984744,NA,0.351250665247472
+"MP00329","TLS","Border post",2024-04-22,"18:52",20,"Female","National","Trade",3,"Monthly","Informal",322,"Employer provided",1,"Full",18,NA,NA,30,89.7597790812142,NA,0.351250665247472
+"MP00330","TLS","Mining area",2024-01-27,"09:58",37,"Female","SADC country","Other",40,"Irregular","Informal",7187,"Street",0,"None",32,NA,NA,45,75.5464347195812,NA,0.526875997871208
+"MP00331","TLS","Agricultural zone",2024-02-29,"06:20",44,"Male","SADC country","Education",34,"Weekly","Self-employed",202,"Rented room",0,"None",20,NA,NA,67,152.942339400761,NA,0.784459819052688
+"MP00332","Venue","Border post",2024-01-19,"09:05",31,"Female","Other African","Trade",13,"Monthly","Informal",1293,"Other",0,"Partial",8,NA,NA,569,91.8817744823173,NA,NA
+"MP00333","TLS","Transport hub",2024-06-15,"17:48",21,"Male","SADC country","Work",1,"Irregular","Informal",603,"Hostel",0,"Full",1,NA,NA,161,97.4346924689598,NA,1.8850452368281
+"MP00334","TLS","Agricultural zone",2024-04-11,"06:56",23,"Male","National","Trade",8,"Irregular","Informal",1096,"Street",0,"None",10,NA,NA,10,192.619878635742,NA,0.117083555082491
+"MP00335","TLS","Mining area",2024-01-14,"18:29",29,"Male","National","Education",36,"Daily","Unemployed",135,"Rented room",1,"Full",6,NA,NA,81,184.988504066132,NA,0.948376796168175
+"MP00336","RDS","Agricultural zone",2024-06-19,"20:11",23,"Male","National","Other",15,"Monthly","Informal",10399,"Other",0,"None",21,"RDS0102","MP00190",20,127.48340361286,1.19620253164557,NA
+"MP00337","RDS","Transport hub",2024-04-22,"13:47",35,"Male","SADC country","Work",3,"Weekly","Informal",269,"Employer provided",0,"None",19,"RDS0103","MP00122",770,198.621439072303,1.08227848101266,NA
+"MP00338","TLS","Border post",2024-05-19,"06:39",24,"Female","National","Trade",18,"Weekly","Self-employed",128,"Other",0,"Partial",13,NA,NA,27,123.568431148306,NA,0.316125598722725
+"MP00339","RDS","Construction site",2024-05-09,"16:35",29,"Male","Other African","Work",4,"Daily","Self-employed",203,"Street",1,"Full",10,"RDS0104","SEED",29,191.657474974636,0.569620253164557,NA
+"MP00340","RDS","Market",2024-02-08,"09:50",45,"Male","SADC country","Trade",12,"Seasonal","Formal",857,"Other",0,"Partial",26,"RDS0105","MP00101",30,170.884409011342,1.48101265822785,NA
+"MP00341","TLS","Agricultural zone",2024-06-24,"17:42",34,"Female","SADC country","Work",6,"Weekly","Unemployed",290,"Hostel",0,"Partial",8,NA,NA,408,79.3834164738655,NA,4.77700904736562
+"MP00342","Venue","Market",2024-04-05,"11:00",27,"Male","National","Work",11,"Weekly","Informal",777,"Hostel",0,"Full",27,NA,NA,59,93.2632120442577,NA,NA
+"MP00343","Venue","Market",2024-01-12,"15:19",21,"Male","Other African","Work",1,"Irregular","Informal",201,"Rented room",0,"Partial",12,NA,NA,50,84.9626640090719,NA,NA
+"MP00344","RDS","Agricultural zone",2024-06-14,"20:54",33,"Male","National","Work",80,"Monthly","Informal",4738,"Employer provided",0,"None",24,"RDS0106","MP00243",122,136.091928055976,1.36708860759494,NA
+"MP00345","TLS","Border post",2024-04-05,"09:27",23,"Female","National","Work",22,"Irregular","Informal",1086,"Employer provided",0,"None",4,NA,NA,39,165.145420702174,NA,0.456625864821714
+"MP00346","RDS","Transport hub",2024-04-19,"15:25",23,"Female","SADC country","Work",18,"Seasonal","Informal",101,"Rented room",0,"Full",20,"RDS0107","MP00175",9,151.318185741547,1.13924050632911,NA
+"MP00347","RDS","Mining area",2024-03-07,"06:26",29,"Male","National","Work",39,"Weekly","Informal",1635,"Other",1,"None",18,"RDS0108","MP00129",112,100.245440553408,1.0253164556962,NA
+"MP00348","TLS","Transport hub",2024-04-26,"07:23",27,"Female","National","Other",2,"Irregular","Formal",1300,"Rented room",0,"Partial",22,NA,NA,65,94.0245394711383,NA,0.761043108036189
+"MP00349","RDS","Mining area",2024-06-14,"09:35",28,"Male","SADC country","Work",1,"Monthly","Formal",190,"Other",0,"Full",10,"RDS0109","MP00337",106,63.3228296996094,0.569620253164557,NA
+"MP00350","TLS","Market",2024-05-22,"06:40",22,"Female","Other African","Work",0,"Seasonal","Informal",405,"Other",1,"Partial",10,NA,NA,10,52.6173644815572,NA,0.117083555082491
+"MP00351","Venue","Construction site",2024-04-07,"06:30",31,"Female","SADC country","Education",10,"Seasonal","Self-employed",1315,"Street",1,"Full",17,NA,NA,33,64.9870266788639,NA,NA
+"MP00352","Venue","Mining area",2024-01-20,"14:24",41,"Male","Other African","Work",53,"Weekly","Informal",127,"Street",0,"Partial",9,NA,NA,94,80.7904065470211,NA,NA
+"MP00353","TLS","Transport hub",2024-04-23,"16:07",35,"Male","SADC country","Other",119,"Weekly","Self-employed",126,"Hostel",1,"Partial",21,NA,NA,36,84.3211989849806,NA,0.421500798296966
+"MP00354","RDS","Transport hub",2024-01-17,"08:24",26,"Female","Other African","Trade",94,"Monthly","Self-employed",1551,"Hostel",0,"Partial",15,"RDS0110","MP00187",33,89.680818549823,0.854430379746835,NA
+"MP00355","TLS","Agricultural zone",2024-03-19,"15:21",19,"Male","Other African","Work",18,"Weekly","Informal",1369,"Rented room",1,"Full",17,NA,NA,20,172.998431930318,NA,0.234167110164981
+"MP00356","TLS","Agricultural zone",2024-02-10,"15:01",41,"Female","SADC country","Education",45,"Daily","Formal",1914,"Hostel",1,"None",10,NA,NA,112,146.536581800319,NA,1.3113358169239
+"MP00357","RDS","Construction site",2024-06-10,"14:51",24,"Male","National","Trade",2,"Monthly","Formal",539,"Street",1,"None",28,"RDS0111","MP00017",58,84.4122871523723,1.59493670886076,NA
+"MP00358","TLS","Market",2024-05-31,"08:48",16,"Male","Other African","Family",36,"Weekly","Informal",488,"Rented room",0,"Full",7,NA,NA,7,54.061655595433,NA,0.0819584885577435
+"MP00359","TLS","Transport hub",2024-03-19,"17:33",39,"Male","SADC country","Work",18,"Monthly","Formal",9097,"Hostel",0,"Partial",24,NA,NA,4,113.0499648978,NA,0.0468334220329963
+"MP00360","RDS","Agricultural zone",2024-04-15,"14:12",28,"Male","National","Family",12,"Irregular","Formal",530,"Hostel",1,"Partial",29,"RDS0112","MP00024",47,143.463718262501,1.65189873417722,NA
+"MP00361","RDS","Mining area",2024-01-19,"13:42",42,"Female","SADC country","Trade",37,"Daily","Self-employed",63,"Rented room",0,"None",20,"RDS0113","MP00175",95,195.361048262566,1.13924050632911,NA
+"MP00362","Venue","Transport hub",2024-03-02,"18:11",39,"Male","National","Trade",14,"Daily","Self-employed",1403,"Street",0,"Partial",15,NA,NA,27,168.60652131727,NA,NA
+"MP00363","RDS","Construction site",2024-02-01,"08:51",27,"Female","SADC country","Trade",4,"Irregular","Informal",628,"Employer provided",0,"None",20,"RDS0114","MP00349",43,164.539923402481,1.13924050632911,NA
+"MP00364","RDS","Agricultural zone",2024-05-22,"19:02",20,"Male","National","Trade",13,"Weekly","Informal",305,"Employer provided",1,"None",18,"RDS0115","MP00272",23,150.034347514156,1.0253164556962,NA
+"MP00365","RDS","Mining area",2024-01-21,"06:58",30,"Male","SADC country","Trade",21,"Daily","Informal",2536,"Rented room",1,"None",31,"RDS0116","MP00221",32,135.544812737498,1.76582278481013,NA
+"MP00366","TLS","Construction site",2024-02-10,"15:57",21,"Male","SADC country","Work",45,"Irregular","Self-employed",965,"Hostel",1,"Partial",21,NA,NA,37,136.415340960957,NA,0.433209153805216
+"MP00367","RDS","Agricultural zone",2024-03-24,"09:59",24,"Male","National","Other",45,"Daily","Informal",58,"Hostel",0,"Partial",7,"RDS0117","MP00025",22,74.6798537787981,0.39873417721519,NA
+"MP00368","TLS","Transport hub",2024-03-28,"10:00",33,"Male","SADC country","Work",19,"Daily","Informal",193,"Employer provided",0,"Partial",13,NA,NA,51,113.096515194047,NA,0.597126130920703
+"MP00369","TLS","Construction site",2024-01-05,"08:36",33,"Male","National","Work",29,"Seasonal","Informal",92,"Other",0,"Partial",7,NA,NA,24,124.670945201069,NA,0.281000532197978
+"MP00370","RDS","Mining area",2024-02-19,"06:34",32,"Male","SADC country","Trade",37,"Seasonal","Informal",2626,"Employer provided",1,"Full",39,"RDS0118","MP00191",33,130.741862254217,2.22151898734177,NA
+"MP00371","RDS","Construction site",2024-06-22,"18:13",35,"Male","SADC country","Family",17,"Irregular","Unemployed",103,"Street",0,"Partial",24,"RDS0119","MP00349",44,67.6248508272693,1.36708860759494,NA
+"MP00372","RDS","Agricultural zone",2024-06-15,"14:35",31,"Male","National","Trade",24,"Seasonal","Informal",82,"Rented room",0,"Partial",19,"RDS0120","MP00141",190,184.058337868191,1.08227848101266,NA
+"MP00373","Venue","Agricultural zone",2024-02-02,"10:59",28,"Female","SADC country","Work",58,"Monthly","Unemployed",843,"Hostel",0,"Partial",6,NA,NA,790,103.876118315384,NA,NA
+"MP00374","TLS","Transport hub",2024-03-14,"17:50",31,"Male","National","Family",34,"Monthly","Formal",425,"Hostel",0,"Partial",7,NA,NA,55,180.268221499864,NA,0.643959552953699
+"MP00375","RDS","Agricultural zone",2024-06-08,"18:07",17,"Female","SADC country","Work",36,"Monthly","Unemployed",294,"Street",1,"Partial",12,"RDS0121","MP00360",12,133.330437412951,0.683544303797468,NA
+"MP00376","RDS","Construction site",2024-02-09,"17:52",24,"Male","SADC country","Other",6,"Daily","Informal",104,"Hostel",0,"Partial",8,"RDS0122","MP00123",53,171.702291723341,0.455696202531646,NA
+"MP00377","RDS","Border post",2024-05-03,"17:33",32,"Male","Other African","Other",7,"Monthly","Unemployed",2501,"Street",0,"None",22,"RDS0123","MP00216",36,125.042415363714,1.25316455696203,NA
+"MP00378","RDS","Transport hub",2024-04-16,"12:05",26,"Female","National","Work",10,"Daily","Formal",88,"Rented room",0,"Full",21,"RDS0124","SEED",14,195.188137807418,1.19620253164557,NA
+"MP00379","TLS","Construction site",2024-04-27,"18:06",20,"Female","Other African","Work",45,"Daily","Informal",893,"Street",1,"None",0,NA,NA,112,100.829300493933,NA,1.3113358169239
+"MP00380","TLS","Construction site",2024-01-28,"13:26",20,"Female","National","Education",46,"Daily","Unemployed",1312,"Employer provided",1,"None",33,NA,NA,310,133.940460416488,NA,3.62959020755721
+"MP00381","RDS","Construction site",2024-02-11,"15:35",21,"Male","SADC country","Family",17,"Weekly","Formal",290,"Street",0,"Partial",17,"RDS0125","MP00243",42,71.5376385836862,0.968354430379747,NA
+"MP00382","RDS","Agricultural zone",2024-04-13,"15:15",28,"Female","National","Work",43,"Seasonal","Formal",444,"Employer provided",0,"None",19,"RDS0126","MP00122",124,140.798377094325,1.08227848101266,NA
+"MP00383","RDS","Market",2024-06-22,"12:01",31,"Female","Other","Work",2,"Monthly","Self-employed",166,"Rented room",0,"None",6,"RDS0127","MP00017",702,134.404146531597,0.341772151898734,NA
+"MP00384","TLS","Mining area",2024-06-19,"13:18",25,"Female","National","Family",4,"Daily","Self-employed",2643,"Hostel",1,"Partial",25,NA,NA,33,123.816459451336,NA,0.386375731772219
+"MP00385","TLS","Agricultural zone",2024-05-25,"19:49",25,"Female","SADC country","Other",118,"Weekly","Unemployed",753,"Rented room",1,"Partial",15,NA,NA,245,126.610380341299,NA,2.86854709952102
+"MP00386","TLS","Transport hub",2024-06-06,"17:54",40,"Male","SADC country","Education",9,"Weekly","Informal",542,"Rented room",0,"Full",23,NA,NA,47,61.7133231367916,NA,0.550292708887706
+"MP00387","TLS","Mining area",2024-02-26,"17:49",28,"Male","SADC country","Family",19,"Seasonal","Self-employed",1897,"Employer provided",0,"Partial",24,NA,NA,35,174.577880918514,NA,0.409792442788717
+"MP00388","TLS","Mining area",2024-04-17,"17:41",15,"Female","National","Trade",24,"Daily","Informal",992,"Employer provided",0,"None",8,NA,NA,66,66.2642426788807,NA,0.772751463544439
+"MP00389","Venue","Mining area",2024-01-29,"12:22",30,"Male","Other African","Education",11,"Daily","Self-employed",2374,"Street",0,"Partial",17,NA,NA,457,183.130630257074,NA,NA
+"MP00390","Venue","Border post",2024-05-20,"17:07",25,"Female","Other African","Work",102,"Weekly","Self-employed",237,"Rented room",0,"Partial",21,NA,NA,17,190.084794408176,NA,NA
+"MP00391","RDS","Construction site",2024-03-27,"09:07",28,"Male","National","Other",38,"Irregular","Informal",1585,"Hostel",1,"Partial",15,"RDS0128","MP00347",154,140.754112263676,0.854430379746835,NA
+"MP00392","RDS","Construction site",2024-01-10,"17:12",48,"Female","SADC country","Work",5,"Daily","Self-employed",137,"Employer provided",0,"None",30,"RDS0129","MP00347",12,124.662250617985,1.70886075949367,NA
+"MP00393","TLS","Agricultural zone",2024-06-16,"07:57",31,"Male","Other African","Trade",43,"Seasonal","Informal",239,"Street",1,"Partial",10,NA,NA,33,95.1298694591969,NA,0.386375731772219
+"MP00394","RDS","Border post",2024-01-18,"07:23",32,"Female","SADC country","Trade",15,"Daily","Unemployed",913,"Employer provided",1,"Partial",13,"RDS0130","MP00243",54,197.864503168967,0.740506329113924,NA
+"MP00395","TLS","Mining area",2024-04-10,"16:46",27,"Male","SADC country","Work",33,"Irregular","Informal",447,"Other",1,"Full",12,NA,NA,16,50.6206841906533,NA,0.187333688131985
+"MP00396","TLS","Market",2024-04-29,"13:19",28,"Female","Other","Work",41,"Seasonal","Informal",1123,"Employer provided",1,"Partial",24,NA,NA,110,181.162499636412,NA,1.2879191059074
+"MP00397","TLS","Agricultural zone",2024-01-11,"08:52",59,"Male","SADC country","Trade",3,"Weekly","Formal",201,"Employer provided",0,"Full",1,NA,NA,111,128.393634222448,NA,1.29962746141565
+"MP00398","Venue","Transport hub",2024-02-09,"17:18",34,"Male","SADC country","Trade",2,"Daily","Self-employed",751,"Other",1,"Full",26,NA,NA,22,182.964486267883,NA,NA
+"MP00399","Venue","Transport hub",2024-01-25,"07:49",43,"Female","National","Work",7,"Irregular","Unemployed",345,"Other",1,"Full",10,NA,NA,169,109.857730870135,NA,NA
+"MP00400","TLS","Mining area",2024-06-06,"06:56",32,"Male","SADC country","Work",38,"Irregular","Formal",124,"Rented room",0,"Full",24,NA,NA,29,60.3176523698494,NA,0.339542309739223
+"MP00401","RDS","Transport hub",2024-05-05,"16:25",29,"Male","Other African","Education",53,"Weekly","Informal",651,"Street",1,"Full",15,"RDS0131","MP00067",137,120.956857339479,0.854430379746835,NA
+"MP00402","RDS","Border post",2024-03-07,"19:51",25,"Male","National","Work",22,"Weekly","Formal",569,"Rented room",0,"None",15,"RDS0132","MP00322",419,114.883335120976,0.854430379746835,NA
+"MP00403","Venue","Mining area",2024-02-27,"07:30",38,"Male","Other African","Other",2,"Daily","Self-employed",2326,"Rented room",1,"Partial",22,NA,NA,88,126.033574645407,NA,NA
+"MP00404","RDS","Transport hub",2024-01-24,"10:51",24,"Female","National","Education",12,"Irregular","Unemployed",586,"Other",0,"Full",13,"RDS0133","MP00272",23,83.967401611153,0.740506329113924,NA
+"MP00405","TLS","Agricultural zone",2024-05-24,"08:57",25,"Male","SADC country","Other",10,"Monthly","Informal",990,"Rented room",0,"Partial",13,NA,NA,58,96.666337933857,NA,0.679084619478446
+"MP00406","TLS","Construction site",2024-01-17,"09:34",24,"Male","Other","Work",11,"Monthly","Self-employed",274,"Street",1,"None",13,NA,NA,31,177.512116229627,NA,0.362959020755721
+"MP00407","RDS","Construction site",2024-03-16,"08:00",30,"Male","National","Other",44,"Seasonal","Unemployed",2831,"Street",1,"Partial",26,"RDS0134","MP00336",25,179.654405929614,1.48101265822785,NA
+"MP00408","RDS","Market",2024-06-11,"10:53",21,"Male","Other African","Trade",5,"Monthly","Formal",289,"Street",0,"Partial",18,"RDS0135","SEED",8,130.542665242683,1.0253164556962,NA
+"MP00409","TLS","Border post",2024-03-23,"20:31",40,"Male","SADC country","Trade",3,"Irregular","Informal",933,"Other",1,"Partial",27,NA,NA,58,97.4354431731626,NA,0.679084619478446
+"MP00410","RDS","Agricultural zone",2024-06-16,"08:05",26,"Male","SADC country","Work",52,"Seasonal","Informal",544,"Rented room",0,"Partial",5,"RDS0136","MP00069",20,169.124705065042,0.284810126582278,NA
+"MP00411","RDS","Agricultural zone",2024-03-06,"15:43",28,"Male","Other African","Work",18,"Daily","Formal",2072,"Other",1,"Partial",28,"RDS0137","MP00383",57,141.6630520951,1.59493670886076,NA
+"MP00412","Venue","Mining area",2024-02-28,"14:28",28,"Male","Other African","Work",1,"Monthly","Informal",8667,"Other",1,"Partial",9,NA,NA,382,136.175956600346,NA,NA
+"MP00413","RDS","Construction site",2024-01-29,"09:54",20,"Male","National","Other",2,"Daily","Informal",43,"Street",1,"Partial",10,"RDS0138","MP00143",152,102.365969400853,0.569620253164557,NA
+"MP00414","TLS","Mining area",2024-06-08,"09:26",23,"Female","SADC country","Work",62,"Monthly","Self-employed",412,"Hostel",1,"Partial",20,NA,NA,92,138.664794235956,NA,1.07716870675891
+"MP00415","Venue","Border post",2024-05-07,"14:49",24,"Male","Other African","Family",49,"Weekly","Unemployed",338,"Street",0,"Full",5,NA,NA,91,84.5154746319167,NA,NA
+"MP00416","RDS","Construction site",2024-01-21,"20:19",36,"Male","Other African","Work",22,"Irregular","Unemployed",157,"Street",1,"Partial",2,"RDS0139","MP00021",51,159.329714230262,0.113924050632911,NA
+"MP00417","RDS","Market",2024-04-15,"09:06",23,"Female","SADC country","Trade",33,"Daily","Self-employed",263,"Employer provided",0,"None",0,"RDS0140","MP00365",73,91.5823912713677,0,NA
+"MP00418","RDS","Construction site",2024-01-28,"17:25",34,"Female","SADC country","Trade",20,"Daily","Self-employed",933,"Street",0,"Full",11,"RDS0141","MP00363",57,161.117552104406,0.626582278481013,NA
+"MP00419","Venue","Mining area",2024-03-05,"08:09",35,"Female","Other African","Work",14,"Monthly","Self-employed",219,"Rented room",0,"Full",26,NA,NA,52,134.968438919168,NA,NA
+"MP00420","Venue","Market",2024-01-03,"20:29",29,"Male","SADC country","Family",52,"Monthly","Informal",643,"Employer provided",0,"Partial",8,NA,NA,60,55.417876446154,NA,NA
+"MP00421","Venue","Market",2024-06-25,"16:18",31,"Male","National","Family",24,"Daily","Informal",422,"Employer provided",1,"Full",13,NA,NA,67,171.363487478811,NA,NA
+"MP00422","RDS","Transport hub",2024-06-15,"16:47",35,"Male","SADC country","Work",33,"Weekly","Self-employed",1475,"Rented room",1,"Partial",29,"RDS0142","MP00375",71,116.130174719729,1.65189873417722,NA
+"MP00423","RDS","Agricultural zone",2024-06-20,"18:15",32,"Male","Other","Work",5,"Daily","Informal",528,"Rented room",0,"Partial",28,"RDS0143","MP00378",287,110.88844697224,1.59493670886076,NA
+"MP00424","TLS","Border post",2024-03-07,"19:23",45,"Female","National","Work",117,"Daily","Self-employed",364,"Street",0,"Full",26,NA,NA,92,183.03290278418,NA,1.07716870675891
+"MP00425","RDS","Mining area",2024-03-01,"13:13",35,"Male","SADC country","Work",73,"Monthly","Formal",733,"Rented room",1,"Partial",6,"RDS0144","MP00096",185,104.555717087351,0.341772151898734,NA
+"MP00426","TLS","Mining area",2024-06-27,"19:35",30,"Male","SADC country","Work",50,"Weekly","Informal",1762,"Street",1,"Partial",12,NA,NA,105,104.080204421189,NA,1.22937732836615
+"MP00427","Venue","Mining area",2024-03-01,"09:56",36,"Male","SADC country","Work",4,"Monthly","Informal",1620,"Employer provided",0,"Full",4,NA,NA,47,180.279908177909,NA,NA
+"MP00428","TLS","Market",2024-01-29,"19:22",32,"Male","National","Education",0,"Daily","Self-employed",76,"Street",1,"None",18,NA,NA,43,117.828453180846,NA,0.50345928685471
+"MP00429","Venue","Border post",2024-03-15,"17:36",36,"Female","SADC country","Trade",5,"Weekly","Informal",241,"Other",0,"Partial",17,NA,NA,106,75.3281622077338,NA,NA
+"MP00430","Venue","Construction site",2024-01-20,"07:17",28,"Male","SADC country","Work",16,"Monthly","Formal",67,"Other",1,"Partial",13,NA,NA,92,189.517500635702,NA,NA
+"MP00431","RDS","Transport hub",2024-01-24,"13:41",26,"Female","SADC country","Work",5,"Weekly","Informal",2101,"Rented room",1,"Partial",27,"RDS0145","MP00176",586,128.166660037823,1.5379746835443,NA
+"MP00432","Venue","Transport hub",2024-01-20,"19:02",25,"Male","National","Family",14,"Monthly","Self-employed",1144,"Hostel",0,"Full",4,NA,NA,42,160.412715526763,NA,NA
+"MP00433","TLS","Border post",2024-06-18,"17:51",25,"Male","National","Trade",10,"Monthly","Informal",230,"Employer provided",0,"Partial",8,NA,NA,34,123.247678624466,NA,0.398084087280468
+"MP00434","TLS","Agricultural zone",2024-01-25,"14:30",29,"Male","SADC country","Work",13,"Weekly","Formal",224,"Hostel",1,"Partial",5,NA,NA,34,198.482080711983,NA,0.398084087280468
+"MP00435","TLS","Transport hub",2024-04-28,"07:16",44,"Female","SADC country","Work",23,"Seasonal","Informal",906,"Rented room",0,"Partial",24,NA,NA,23,72.5431434577331,NA,0.269292176689729
+"MP00436","TLS","Transport hub",2024-01-05,"17:47",25,"Female","Other African","Education",0,"Weekly","Formal",428,"Rented room",1,"None",29,NA,NA,68,183.011154644191,NA,0.796168174560937
+"MP00437","RDS","Construction site",2024-04-16,"13:00",26,"Male","SADC country","Education",6,"Weekly","Formal",197,"Hostel",1,"Partial",9,"RDS0146","MP00360",214,85.2965321508236,0.512658227848101,NA
+"MP00438","RDS","Transport hub",2024-02-19,"15:41",28,"Male","Other African","Family",5,"Irregular","Informal",27,"Hostel",0,"Partial",16,"RDS0147","MP00190",6,130.811342783272,0.911392405063291,NA
+"MP00439","TLS","Border post",2024-06-18,"08:06",46,"Male","SADC country","Family",15,"Weekly","Informal",1247,"Hostel",0,"Partial",12,NA,NA,152,91.6719015105627,NA,1.77967003725386
+"MP00440","RDS","Border post",2024-01-13,"08:12",36,"Male","SADC country","Trade",59,"Daily","Informal",145,"Other",1,"Full",7,"RDS0148","MP00018",44,113.93629105296,0.39873417721519,NA
+"MP00441","TLS","Construction site",2024-05-15,"13:50",25,"Male","SADC country","Family",8,"Daily","Informal",117,"Hostel",0,"None",5,NA,NA,255,146.819300984498,NA,2.98563065460351
+"MP00442","TLS","Market",2024-06-16,"20:23",44,"Male","Other African","Education",48,"Irregular","Informal",312,"Other",1,"Partial",16,NA,NA,12,65.4714255593717,NA,0.140500266098989
+"MP00443","RDS","Mining area",2024-04-20,"20:57",28,"Male","Other African","Work",6,"Seasonal","Self-employed",382,"Hostel",1,"None",12,"RDS0149","MP00135",15,148.694436799269,0.683544303797468,NA
+"MP00444","TLS","Agricultural zone",2024-04-27,"10:38",33,"Male","Other African","Family",86,"Irregular","Self-employed",71,"Rented room",0,"Partial",14,NA,NA,103,169.285127113108,NA,1.20596061734965
+"MP00445","Venue","Transport hub",2024-04-01,"13:47",45,"Female","National","Family",32,"Monthly","Informal",83,"Other",0,"None",3,NA,NA,14,140.822170313913,NA,NA
+"MP00446","TLS","Transport hub",2024-04-26,"18:28",29,"Female","SADC country","Family",74,"Daily","Unemployed",7516,"Rented room",0,"None",3,NA,NA,45,60.8506670920178,NA,0.526875997871208
+"MP00447","RDS","Transport hub",2024-01-23,"17:04",32,"Male","SADC country","Education",45,"Monthly","Informal",1580,"Employer provided",0,"Full",5,"RDS0150","MP00382",63,123.976284044329,0.284810126582278,NA
+"MP00448","RDS","Market",2024-06-25,"06:26",25,"Male","Other African","Family",115,"Irregular","Self-employed",290,"Street",0,"Full",6,"RDS0151","MP00111",9,88.0252755712718,0.341772151898734,NA
+"MP00449","RDS","Construction site",2024-02-23,"06:16",31,"Female","SADC country","Family",3,"Seasonal","Informal",228,"Employer provided",0,"None",28,"RDS0152","MP00219",82,161.462763126474,1.59493670886076,NA
+"MP00450","RDS","Construction site",2024-04-22,"10:22",15,"Female","Other African","Work",29,"Seasonal","Self-employed",652,"Street",1,"Full",25,"RDS0153","MP00448",468,152.366177120712,1.42405063291139,NA
+"MP00451","TLS","Transport hub",2024-06-16,"12:34",34,"Female","Other African","Work",8,"Weekly","Informal",570,"Street",0,"Partial",15,NA,NA,69,62.9804339492694,NA,0.807876530069186
+"MP00452","RDS","Border post",2024-06-03,"06:56",17,"Male","Other African","Work",11,"Monthly","Formal",3107,"Other",1,"Partial",25,"RDS0154","MP00347",84,108.886838820763,1.42405063291139,NA
+"MP00453","TLS","Construction site",2024-06-09,"07:45",50,"Male","SADC country","Family",36,"Monthly","Unemployed",490,"Employer provided",0,"Partial",16,NA,NA,195,156.546335888561,NA,2.28312932410857
+"MP00454","RDS","Agricultural zone",2024-02-19,"07:20",31,"Male","SADC country","Work",10,"Weekly","Informal",281,"Other",1,"Partial",17,"RDS0155","MP00187",26,68.655875173863,0.968354430379747,NA
+"MP00455","TLS","Border post",2024-05-18,"13:50",18,"Female","Other","Work",19,"Daily","Informal",1594,"Hostel",1,"Full",14,NA,NA,55,69.6072451071814,NA,0.643959552953699
+"MP00456","RDS","Agricultural zone",2024-06-10,"10:04",27,"Female","SADC country","Other",28,"Irregular","Informal",639,"Employer provided",1,"None",16,"RDS0156","MP00267",19,116.508436843287,0.911392405063291,NA
+"MP00457","Venue","Transport hub",2024-06-13,"17:55",35,"Female","National","Work",34,"Weekly","Informal",1305,"Hostel",0,"Partial",22,NA,NA,16,146.873687696643,NA,NA
+"MP00458","RDS","Mining area",2024-03-23,"09:50",26,"Female","SADC country","Trade",18,"Daily","Informal",102,"Other",1,"Full",11,"RDS0157","MP00383",122,76.3507258612663,0.626582278481013,NA
+"MP00459","TLS","Transport hub",2024-02-27,"17:58",22,"Male","Other","Trade",32,"Irregular","Formal",68,"Rented room",0,"Full",37,NA,NA,4,137.178831512574,NA,0.0468334220329963
+"MP00460","RDS","Agricultural zone",2024-04-17,"15:41",21,"Male","National","Work",16,"Daily","Informal",553,"Rented room",0,"Partial",8,"RDS0158","MP00418",11,60.191823868081,0.455696202531646,NA
+"MP00461","RDS","Construction site",2024-04-20,"14:17",31,"Female","National","Work",62,"Monthly","Informal",1091,"Rented room",0,"Partial",10,"RDS0159","MP00017",19,112.588371150196,0.569620253164557,NA
+"MP00462","RDS","Border post",2024-03-01,"07:58",21,"Male","National","Family",42,"Irregular","Informal",657,"Rented room",0,"Partial",21,"RDS0160","MP00188",49,185.451995965559,1.19620253164557,NA
+"MP00463","TLS","Mining area",2024-05-02,"12:52",42,"Male","Other African","Trade",43,"Monthly","Unemployed",1288,"Other",1,"None",24,NA,NA,42,74.1390523733571,NA,0.491750931346461
+"MP00464","TLS","Market",2024-05-18,"17:01",26,"Male","SADC country","Trade",9,"Monthly","Informal",299,"Rented room",1,"Full",16,NA,NA,22,184.881514310837,NA,0.25758382118148
+"MP00465","RDS","Border post",2024-06-23,"06:39",41,"Female","National","Trade",55,"Monthly","Formal",432,"Other",0,"Full",5,"RDS0161","MP00038",111,128.080171090551,0.284810126582278,NA
+"MP00466","RDS","Agricultural zone",2024-01-27,"07:06",29,"Female","SADC country","Trade",9,"Monthly","Self-employed",85,"Employer provided",0,"Full",40,"RDS0162","MP00219",54,104.645116894972,2.27848101265823,NA
+"MP00467","TLS","Transport hub",2024-04-24,"12:39",28,"Male","SADC country","Work",49,"Seasonal","Formal",1756,"Street",0,"Partial",17,NA,NA,46,52.5625695707276,NA,0.538584353379457
+"MP00468","TLS","Transport hub",2024-02-07,"12:07",36,"Male","SADC country","Education",63,"Monthly","Formal",2461,"Hostel",1,"Full",25,NA,NA,97,99.6323643019423,NA,1.13571048430016
+"MP00469","RDS","Construction site",2024-04-10,"09:37",25,"Female","SADC country","Work",145,"Monthly","Informal",264,"Employer provided",0,"Partial",28,"RDS0163","MP00054",128,59.8897928837687,1.59493670886076,NA
+"MP00470","Venue","Market",2024-02-22,"12:53",26,"Male","National","Education",43,"Weekly","Informal",282,"Other",1,"Partial",17,NA,NA,40,70.0618870439939,NA,NA
+"MP00471","TLS","Border post",2024-05-01,"11:06",19,"Female","SADC country","Work",79,"Weekly","Informal",536,"Hostel",1,"Full",16,NA,NA,976,64.3123289453797,NA,11.4273549760511
+"MP00472","TLS","Border post",2024-03-10,"09:27",30,"Male","SADC country","Family",11,"Irregular","Informal",329,"Hostel",0,"Full",13,NA,NA,31,118.151388666593,NA,0.362959020755721
+"MP00473","RDS","Construction site",2024-04-21,"18:45",36,"Male","Other","Family",167,"Daily","Informal",1397,"Hostel",0,"None",22,"RDS0164","MP00107",146,112.971745606046,1.25316455696203,NA
+"MP00474","TLS","Market",2024-04-20,"11:56",30,"Male","SADC country","Work",2,"Irregular","Informal",55,"Hostel",0,"Partial",20,NA,NA,247,83.4557953523472,NA,2.89196381053752
+"MP00475","Venue","Border post",2024-06-02,"13:46",19,"Male","SADC country","Family",31,"Seasonal","Self-employed",485,"Street",1,"None",35,NA,NA,33,189.226630923804,NA,NA
+"MP00476","RDS","Construction site",2024-03-03,"17:07",26,"Male","National","Family",1,"Weekly","Informal",647,"Employer provided",0,"Full",10,"RDS0165","MP00473",128,157.783812447451,0.569620253164557,NA
+"MP00477","Venue","Mining area",2024-04-11,"07:15",36,"Male","SADC country","Education",47,"Weekly","Formal",361,"Rented room",1,"Full",21,NA,NA,81,197.955985250883,NA,NA
+"MP00478","TLS","Agricultural zone",2024-03-31,"15:35",24,"Male","Other African","Work",54,"Weekly","Self-employed",471,"Rented room",0,"None",17,NA,NA,51,155.405565537512,NA,0.597126130920703
+"MP00479","TLS","Agricultural zone",2024-04-16,"06:09",27,"Male","SADC country","Trade",5,"Seasonal","Self-employed",241,"Employer provided",1,"None",24,NA,NA,48,88.9344322844408,NA,0.562001064395955
+"MP00480","Venue","Market",2024-02-21,"11:56",17,"Male","SADC country","Trade",34,"Daily","Self-employed",828,"Hostel",0,"None",4,NA,NA,72,161.821798421443,NA,NA
+"MP00481","TLS","Agricultural zone",2024-06-18,"12:49",29,"Female","National","Education",100,"Weekly","Unemployed",5059,"Street",0,"Partial",13,NA,NA,40,88.0780791514553,NA,0.468334220329963
+"MP00482","Venue","Border post",2024-03-02,"19:22",35,"Female","National","Trade",16,"Monthly","Informal",1161,"Hostel",0,"Partial",13,NA,NA,23,151.357621827628,NA,NA
+"MP00483","TLS","Transport hub",2024-03-02,"12:50",22,"Male","SADC country","Family",28,"Daily","Self-employed",2003,"Other",1,"Partial",8,NA,NA,142,157.24160176469,NA,1.66258648217137
+"MP00484","Venue","Border post",2024-06-24,"06:27",18,"Male","SADC country","Work",14,"Weekly","Informal",213,"Street",1,"Full",9,NA,NA,14,129.32950577233,NA,NA
+"MP00485","RDS","Construction site",2024-01-15,"14:23",32,"Male","SADC country","Family",35,"Weekly","Informal",1290,"Hostel",1,"Full",15,"RDS0166","MP00151",73,93.7119318172336,0.854430379746835,NA
+"MP00486","TLS","Construction site",2024-01-06,"13:06",29,"Female","Other African","Work",39,"Daily","Formal",377,"Other",0,"None",10,NA,NA,64,145.611111947801,NA,0.74933475252794
+"MP00487","RDS","Market",2024-03-16,"15:16",35,"Female","SADC country","Work",2,"Irregular","Informal",500,"Hostel",1,"None",5,"RDS0167","MP00422",257,86.2059655017219,0.284810126582278,NA
+"MP00488","TLS","Border post",2024-06-25,"06:22",34,"Male","National","Work",26,"Monthly","Informal",716,"Hostel",1,"Partial",15,NA,NA,80,181.357519212179,NA,0.936668440659925
+"MP00489","TLS","Construction site",2024-05-27,"09:21",39,"Female","SADC country","Trade",10,"Daily","Informal",254,"Employer provided",0,"Partial",8,NA,NA,61,55.0748845329508,NA,0.714209686003193
+"MP00490","Venue","Transport hub",2024-04-03,"12:40",36,"Female","National","Work",73,"Seasonal","Self-employed",815,"Other",0,"Partial",11,NA,NA,373,82.4036973295733,NA,NA
+"MP00491","Venue","Border post",2024-04-13,"16:25",36,"Male","National","Work",11,"Irregular","Informal",153,"Other",0,"None",3,NA,NA,34,59.7742958460003,NA,NA
+"MP00492","TLS","Market",2024-02-17,"12:26",18,"Female","National","Trade",13,"Monthly","Informal",522,"Rented room",0,"None",17,NA,NA,24,140.643389418256,NA,0.281000532197978
+"MP00493","RDS","Agricultural zone",2024-05-15,"14:06",49,"Male","Other","Education",10,"Seasonal","Informal",63,"Employer provided",0,"None",14,"RDS0168","MP00129",58,183.945537463296,0.79746835443038,NA
+"MP00494","Venue","Mining area",2024-01-02,"07:02",25,"Female","SADC country","Work",7,"Irregular","Self-employed",125,"Street",1,"Full",1,NA,NA,46,157.341365655884,NA,NA
+"MP00495","RDS","Mining area",2024-03-27,"17:18",44,"Male","SADC country","Family",50,"Monthly","Self-employed",103,"Street",0,"Full",31,"RDS0169","MP00056",116,101.625132304616,1.76582278481013,NA
+"MP00496","TLS","Construction site",2024-01-26,"15:50",51,"Male","National","Trade",62,"Weekly","Self-employed",3298,"Street",0,"Partial",22,NA,NA,30,172.904933476821,NA,0.351250665247472
+"MP00497","RDS","Construction site",2024-06-03,"15:56",29,"Female","SADC country","Education",4,"Seasonal","Self-employed",2426,"Street",0,"Partial",33,"RDS0170","MP00422",17,187.380021973513,1.87974683544304,NA
+"MP00498","RDS","Mining area",2024-05-19,"20:08",30,"Male","Other African","Family",39,"Irregular","Informal",3448,"Rented room",0,"Full",6,"RDS0171","MP00143",115,69.8197696940042,0.341772151898734,NA
+"MP00499","TLS","Construction site",2024-01-23,"18:33",22,"Female","National","Trade",29,"Seasonal","Formal",46,"Employer provided",0,"None",6,NA,NA,120,133.399586752057,NA,1.40500266098989
+"MP00500","TLS","Market",2024-05-06,"17:48",16,"Male","SADC country","Work",1,"Seasonal","Informal",360,"Hostel",0,"Partial",21,NA,NA,75,195.256379246712,NA,0.87812666311868
