@@ -1,0 +1,856 @@
+# Advanced Household Survey Methods
+## Student Exercise Workbook
+
+---
+
+## Table of Contents
+
+1. [Week Overview](#week-overview)
+2. [Daily Exercises](#daily-exercises)
+3. [Practice Problems](#practice-problems)
+4. [Case Studies](#case-studies)
+5. [Self-Assessment](#self-assessment)
+6. [Resources](#resources)
+
+---
+
+## Week Overview
+
+This workbook accompanies the 5-day intensive course on Advanced Household Survey Methods. Complete exercises in order, as each builds on previous concepts.
+
+### Learning Path
+- **Monday**: Foundations (Exercises 1-5)
+- **Tuesday**: Frame & Design (Exercises 6-10)
+- **Wednesday**: Weights & Variance (Exercises 11-15)
+- **Thursday**: Integration (Exercises 16-20)
+- **Friday**: Capstone Project (Exercises 21-25)
+
+---
+
+## Daily Exercises
+
+### MONDAY - DAY 1: FOUNDATIONS
+
+#### Exercise 1: Survey Quality Assessment
+**Time: 30 minutes**
+
+You've been asked to evaluate a recent household survey with these characteristics:
+- Sample size: 3,000 households
+- Response rate: 45%
+- Coverage: Unknown
+- Documentation: Minimal
+- Weights: Not calculated
+
+**Tasks:**
+1. List 5 major quality concerns
+2. Prioritize them by impact
+3. Suggest immediate remedial actions
+4. Estimate the likely bias in poverty estimates
+
+**Your Answer:**
+```
+Quality Concerns:
+1. ________________________________
+2. ________________________________
+3. ________________________________
+4. ________________________________
+5. ________________________________
+
+Priority Order: _____________________
+
+Remedial Actions:
+________________________________
+________________________________
+
+Bias Estimate: _____%
+```
+
+---
+
+#### Exercise 2: Sample Size Calculation
+**Time: 45 minutes**
+
+Calculate sample sizes for these scenarios:
+
+**Scenario A:** National poverty rate
+- Expected rate: 30%
+- Margin of error: ±2%
+- Confidence: 95%
+- Design effect: 2.5
+
+**Scenario B:** Provincial unemployment
+- Expected rate: 12%
+- Margin of error: ±3%
+- Confidence: 95%
+- Design effect: 1.8
+- Number of provinces: 6
+
+**Show your work:**
+```r
+# Scenario A
+p <- _____
+e <- _____
+z <- _____
+deff <- _____
+
+n_srs <- _______________
+n_complex <- ___________
+
+# Scenario B
+# Your calculations here
+```
+
+---
+
+#### Exercise 3: Sampling Frame Evaluation
+**Time: 30 minutes**
+
+You have three potential sampling frames:
+
+| Frame | Coverage | Age | Cost | Quality |
+|-------|----------|-----|------|---------|
+| Census 2020 | 92% | 5 years | Free | Good |
+| Electoral roll | 78% | 1 year | Free | Fair |
+| Utility records | 65% | Current | $5,000 | Good |
+
+**Questions:**
+1. Which frame would you choose as primary? Why?
+2. How would you address coverage gaps?
+3. Design a multi-frame approach
+4. Calculate expected overall coverage
+
+---
+
+#### Exercise 4: International Standards Matching
+**Time: 20 minutes**
+
+Match each survey characteristic with the appropriate international standard:
+
+| Characteristic | Standard | Your Answer |
+|---------------|----------|-------------|
+| Response rate target | | |
+| Documentation requirement | | |
+| Weight trimming bounds | | |
+| Imputation rate maximum | | |
+| CV for national estimates | | |
+
+Standards to choose from:
+- A. DDI metadata standard
+- B. >70% (OECD)
+- C. <5% (Eurostat)
+- D. [0.3, 3.0] (UN)
+- E. <10% (World Bank)
+
+---
+
+#### Exercise 5: Error Source Identification
+**Time: 25 minutes**
+
+For each scenario, identify the primary error source and suggest mitigation:
+
+1. **Scenario**: Interviewers skip houses that look poor
+   - Error type: ________________
+   - Mitigation: ________________
+
+2. **Scenario**: 30% of selected households are not home
+   - Error type: ________________
+   - Mitigation: ________________
+
+3. **Scenario**: Income question has 40% non-response
+   - Error type: ________________
+   - Mitigation: ________________
+
+4. **Scenario**: Rural areas underrepresented in frame
+   - Error type: ________________
+   - Mitigation: ________________
+
+---
+
+### TUESDAY - DAY 2: FRAME & DESIGN
+
+#### Exercise 6: Two-Stage Sample Design
+**Time: 60 minutes**
+
+Design a two-stage sample for a province with:
+- 500 enumeration areas (EAs)
+- Average 200 households per EA
+- Total households: 100,000
+- Target sample: 2,500 households
+- Budget allows visiting 100 EAs maximum
+
+**Design specifications:**
+```
+Stage 1 - PSU Selection:
+Number of PSUs: _______
+Selection method: _______
+Size measure: _______
+
+Stage 2 - Household Selection:
+Households per PSU: _______
+Selection method: _______
+
+Expected design effect: _______
+```
+
+**R Code:**
+```r
+# Write code to select PSUs
+set.seed(2025)
+
+# Your code here
+```
+
+---
+
+#### Exercise 7: Stratification Design
+**Time: 45 minutes**
+
+You have 8 districts with varying characteristics:
+
+| District | Urban % | Pop Size | Poverty (expected) | Your Allocation |
+|----------|---------|----------|-------------------|-----------------|
+| A | 80% | 500,000 | 15% | |
+| B | 60% | 300,000 | 25% | |
+| C | 40% | 400,000 | 35% | |
+| D | 20% | 600,000 | 45% | |
+| E | 30% | 250,000 | 40% | |
+| F | 90% | 450,000 | 12% | |
+| G | 10% | 350,000 | 50% | |
+| H | 50% | 150,000 | 30% | |
+
+Total sample: 5,000 households
+
+**Tasks:**
+1. Create stratification scheme
+2. Allocate sample using:
+   - Proportional allocation
+   - Neyman allocation (use expected poverty as variance proxy)
+   - Your optimal allocation
+
+---
+
+#### Exercise 8: PPS Selection Practice
+**Time: 40 minutes**
+
+Given 20 PSUs with these household counts:
+```
+PSUs:  [150, 230, 180, 320, 190, 410, 280, 160, 370, 200,
+        240, 290, 180, 350, 220, 180, 310, 260, 190, 380]
+```
+
+Select 5 PSUs using systematic PPS:
+
+**Step 1:** Calculate cumulative sizes
+```
+Cumulative: [150, 380, _______, _______, ...]
+```
+
+**Step 2:** Calculate interval
+```
+Total size: _______
+Interval: _______ / 5 = _______
+```
+
+**Step 3:** Generate random start
+```
+Random start (0 to interval): _______
+```
+
+**Step 4:** Identify selected PSUs
+```
+Selection points: _______
+Selected PSUs: _______
+```
+
+---
+
+#### Exercise 9: Frame Integration Problem
+**Time: 35 minutes**
+
+You have two overlapping frames:
+- Frame A: 10,000 households (30% overlap with B)
+- Frame B: 8,000 households (37.5% overlap with A)
+
+**Calculate:**
+1. Number of unique households
+2. Optimal sampling strategy
+3. Weight adjustments needed
+4. Expected efficiency gain vs single frame
+
+---
+
+#### Exercise 10: Design Effect Calculation
+**Time: 30 minutes**
+
+Calculate design effects for:
+
+**Design 1:**
+- Cluster size: 25
+- ICC: 0.05
+- Weight CV: 0.8
+
+**Design 2:**
+- Stratification: 10 strata (equal size)
+- Within-stratum variance: 50% of total
+- Clustering: Average 15 per PSU
+- ICC: 0.03
+
+Show all calculations:
+```
+DEFF₁ = _________________
+DEFF₂ = _________________
+```
+
+Which design is more efficient?
+
+---
+
+### WEDNESDAY - DAY 3: WEIGHTS & VARIANCE
+
+#### Exercise 11: Weight Calculation Complete
+**Time: 50 minutes**
+
+Calculate weights step-by-step:
+
+**Given:**
+- PSU probability: 0.02
+- HH probability within PSU: 0.15
+- Response rate in stratum: 72%
+- Population total: 1,000,000
+- Sample total before weights: 2,000
+
+**Calculate:**
+1. Base weight: _______
+2. Non-response adjusted: _______
+3. Calibration factor: _______
+4. Final weight: _______
+5. Weight CV: _______
+
+---
+
+#### Exercise 12: Variance Estimation Comparison
+**Time: 45 minutes**
+
+Using this sample data, calculate variance three ways:
+
+```r
+# Sample data
+y <- c(23, 45, 31, 52, 48, 29, 38, 41, 35, 44)
+weights <- c(120, 95, 110, 105, 98, 115, 102, 108, 100, 97)
+clusters <- c(1, 1, 2, 2, 3, 3, 4, 4, 5, 5)
+```
+
+1. **Naive (ignoring design):**
+   - Mean: _______
+   - SE: _______
+
+2. **With weights only:**
+   - Weighted mean: _______
+   - SE: _______
+
+3. **With clustering:**
+   - SE: _______
+   - Design effect: _______
+
+---
+
+#### Exercise 13: Calibration Problem
+**Time: 40 minutes**
+
+Your weighted sample totals don't match known populations:
+
+| Variable | Sample Total | Population | Adjustment Needed |
+|----------|-------------|------------|-------------------|
+| Total | 980,000 | 1,000,000 | |
+| Male | 470,000 | 490,000 | |
+| Female | 510,000 | 510,000 | |
+| Urban | 380,000 | 400,000 | |
+| Rural | 600,000 | 600,000 | |
+
+Design a calibration strategy that maintains all marginal totals.
+
+---
+
+#### Exercise 14: Bootstrap Variance Exercise
+**Time: 35 minutes**
+
+Write R code to calculate bootstrap variance for a ratio estimator:
+
+```r
+# Complete this function
+bootstrap_ratio <- function(y, x, weights, n_boot = 100) {
+  # Your code here
+  
+  
+  
+  return(list(estimate = _____, se = _____, ci = _____))
+}
+```
+
+---
+
+#### Exercise 15: Complex Variance Scenario
+**Time: 40 minutes**
+
+A stratified two-stage design has:
+- 3 strata
+- 10 PSUs per stratum  
+- 20 households per PSU
+- Varying weights (CV = 1.2)
+
+Given these within-stratum variances:
+- Stratum 1: 100
+- Stratum 2: 150
+- Stratum 3: 200
+
+And stratum weights:
+- W₁ = 0.3, W₂ = 0.5, W₃ = 0.2
+
+Calculate the total variance.
+
+---
+
+### THURSDAY - DAY 4: INTEGRATION
+
+#### Exercise 16: Missing Data Strategy
+**Time: 45 minutes**
+
+You have these missing data patterns:
+
+| Variable | % Missing | Pattern | Your Method |
+|----------|-----------|---------|-------------|
+| Income | 12% | MAR | |
+| Education | 2% | MCAR | |
+| Employment | 5% | MNAR | |
+| Health status | 8% | MAR | |
+| Assets | 15% | MNAR | |
+
+Design complete imputation strategy with R code outline.
+
+---
+
+#### Exercise 17: Small Area Estimation
+**Time: 50 minutes**
+
+You need poverty estimates for 50 districts but only have:
+- 30-50 samples per district (too small for direct estimates)
+- Census auxiliary variables (education, employment, housing)
+
+Design a small area estimation approach:
+
+1. **Model choice:** _________________
+2. **Auxiliary variables:** _________________
+3. **Expected precision gain:** _________________
+4. **R implementation outline:**
+```r
+# Your code structure
+```
+
+---
+
+#### Exercise 18: Quality Control System
+**Time: 40 minutes**
+
+Design automated quality checks for incoming survey data:
+
+**Check 1: Completeness**
+- Threshold: _______
+- Action if failed: _______
+
+**Check 2: Logical consistency**
+- Rules: _______
+- Action if failed: _______
+
+**Check 3: Outliers**
+- Method: _______
+- Action if detected: _______
+
+**Check 4: Interviewer patterns**
+- What to monitor: _______
+- Red flags: _______
+
+---
+
+#### Exercise 19: Documentation Template
+**Time: 30 minutes**
+
+Create a documentation outline for your survey including all required sections:
+
+```markdown
+# Survey Documentation
+
+## 1. Overview
+- Purpose: _______
+- Scope: _______
+
+## 2. Methodology
+### 2.1 Sample Design
+_______
+
+### 2.2 Data Collection
+_______
+
+## 3. [Continue outline...]
+```
+
+---
+
+#### Exercise 20: Integration Challenge
+**Time: 60 minutes**
+
+You have:
+- Survey data (n=5,000)
+- Administrative data (N=1,000,000)
+- 60% successful linkage rate
+
+**Tasks:**
+1. Calculate weights for linked records
+2. Adjust for linkage bias
+3. Combine estimates optimally
+4. Calculate final variance
+
+---
+
+### FRIDAY - DAY 5: CAPSTONE PROJECT
+
+#### Exercise 21: Complete Survey Design
+**Time: 120 minutes**
+
+Design a complete household survey for your country:
+
+**Part A: Planning (30 min)**
+- Objectives (3 main indicators)
+- Budget constraint: $500,000
+- Timeline: 12 months
+- Sample size calculation
+
+**Part B: Sampling (30 min)**
+- Frame selection and assessment
+- Stratification scheme
+- Two-stage design
+- Sample allocation
+
+**Part C: Implementation (30 min)**
+- Data collection mode
+- Quality control measures
+- Training requirements
+- Field organization
+
+**Part D: Processing (30 min)**
+- Weight calculation plan
+- Variance estimation method
+- Missing data strategy
+- Analysis plan
+
+**Deliverable:** 5-page design document
+
+---
+
+#### Exercise 22: Crisis Response Survey
+**Time: 45 minutes**
+
+Design a rapid phone survey to measure COVID-19 impact:
+- Timeline: 2 weeks
+- Budget: $50,000
+- Sample: 1,000 households
+- Must use existing sample
+
+Your design:
+```
+Week 1:
+Day 1-2: _______
+Day 3-5: _______
+
+Week 2:
+Day 1-3: _______
+Day 4-5: _______
+```
+
+---
+
+#### Exercise 23: Quality Assessment
+**Time: 40 minutes**
+
+Evaluate this survey using international standards:
+
+| Metric | Value | Standard | Pass/Fail | Action Needed |
+|--------|-------|----------|-----------|---------------|
+| Response rate | 68% | | | |
+| Coverage | 88% | | | |
+| Item NR | 7% | | | |
+| CV (national) | 3% | | | |
+| Documentation | Partial | | | |
+
+---
+
+#### Exercise 24: Presentation Preparation
+**Time: 45 minutes**
+
+Prepare a 10-minute presentation on your capstone survey design:
+
+**Slide 1:** Title and objectives
+**Slide 2:** Methodology overview
+**Slide 3:** Sample design details
+**Slide 4:** Expected precision
+**Slide 5:** Budget breakdown
+**Slide 6:** Timeline
+**Slide 7:** Quality measures
+**Slide 8:** Innovation aspects
+**Slide 9:** Risk mitigation
+**Slide 10:** Expected impact
+
+---
+
+#### Exercise 25: Reflection and Planning
+**Time: 30 minutes**
+
+**Reflection Questions:**
+1. What was the most challenging concept this week?
+2. What will you immediately apply in your work?
+3. What additional learning do you need?
+
+**Action Plan:**
+- **Next week:** _______
+- **Next month:** _______
+- **Next quarter:** _______
+
+---
+
+## Practice Problems
+
+### Problem Set A: Sample Design
+
+**A1.** You have a budget for 200 PSUs. How would you allocate them across 10 provinces with populations ranging from 500,000 to 3,000,000?
+
+**A2.** Calculate the optimal cluster size when:
+- Travel cost between clusters: $100
+- Cost per interview: $20
+- ICC: 0.06
+
+**A3.** Design a rotating panel with 20% annual refresh rate for 10,000 households.
+
+### Problem Set B: Weighting
+
+**B1.** Your weights range from 10 to 1,000. What trimming bounds would you apply and why?
+
+**B2.** Calculate calibration factors to match these margins simultaneously:
+- Age groups: 3 categories
+- Gender: 2 categories  
+- Region: 4 categories
+
+**B3.** Design a non-response adjustment strategy when response varies from 50% to 85% across strata.
+
+### Problem Set C: Variance Estimation
+
+**C1.** Compare variance estimates using:
+- Taylor linearization
+- Jackknife
+- Bootstrap (B=500)
+
+**C2.** Calculate the design effect for a ratio estimator in a stratified cluster sample.
+
+**C3.** Determine required number of bootstrap replicates for stable variance estimates.
+
+---
+
+## Case Studies
+
+### Case Study 1: The Urban Slum Challenge
+
+You need to survey informal settlements with:
+- No proper addresses
+- High mobility
+- Safety concerns
+- Multiple languages
+
+Design a complete approach addressing all challenges.
+
+### Case Study 2: The Panel Attrition Crisis
+
+Your panel survey has:
+- Wave 1: 10,000 households
+- Wave 2: 7,500 households (25% attrition)
+- Wave 3: 5,800 households (23% additional attrition)
+
+Develop a comprehensive strategy to:
+1. Analyze attrition patterns
+2. Adjust weights
+3. Reduce future attrition
+4. Maintain representativeness
+
+### Case Study 3: The Multi-Mode Integration
+
+You're combining:
+- Face-to-face (n=3,000)
+- Phone (n=2,000)
+- Web (n=1,000)
+
+Design an integration strategy handling mode effects.
+
+---
+
+## Self-Assessment
+
+### Knowledge Check
+
+Rate your confidence (1-5) in:
+
+| Topic | Before Course | After Course |
+|-------|---------------|--------------|
+| Sample size calculation | | |
+| PPS selection | | |
+| Weight calculation | | |
+| Variance estimation | | |
+| Missing data handling | | |
+| Small area estimation | | |
+| Quality frameworks | | |
+| International standards | | |
+
+### Skills Checklist
+
+Can you:
+- [ ] Calculate sample size for complex designs?
+- [ ] Implement PPS selection?
+- [ ] Construct survey weights?
+- [ ] Estimate variance correctly?
+- [ ] Handle missing data appropriately?
+- [ ] Design quality control systems?
+- [ ] Document surveys properly?
+- [ ] Use R survey package?
+
+### Practical Application
+
+Complete these tasks using real data:
+
+1. **Import and prepare**
+   - Load survey data
+   - Create survey design object
+   - Check design summary
+
+2. **Analysis**
+   - Calculate weighted means
+   - Estimate proportions with CI
+   - Perform domain estimation
+
+3. **Reporting**
+   - Create publication table
+   - Generate quality report
+   - Document methodology
+
+---
+
+## Resources
+
+### Essential R Packages
+```r
+install.packages(c(
+  "survey",      # Core package
+  "srvyr",       # Tidyverse integration  
+  "sampling",    # Sample selection
+  "mice",        # Imputation
+  "haven",       # Read SPSS/Stata
+  "weights"      # Weighting functions
+))
+```
+
+### Key Functions Reference
+```r
+# Design
+svydesign()      # Create design object
+as.svrepdesign() # Create replicate weights
+
+# Estimation  
+svymean()        # Weighted mean
+svytotal()       # Weighted total
+svyby()          # Domain estimation
+svyquantile()    # Weighted quantiles
+
+# Variance
+SE()             # Standard errors
+cv()             # Coefficient of variation
+confint()        # Confidence intervals
+deff()           # Design effects
+```
+
+### Useful Formulas
+
+**Sample size (proportion):**
+```
+n = (z² × p × q / e²) × DEFF × (1 + nr)
+```
+
+**Design effect (clustering):**
+```
+DEFF = 1 + (b - 1) × ρ
+```
+
+**Weight calculation:**
+```
+w = (1/π) × (1/RR) × CF
+```
+
+**Taylor linearization variance:**
+```
+V(θ̂) = ΣΣ[(πᵢⱼ - πᵢπⱼ)/πᵢⱼ] × (yᵢ/πᵢ) × (yⱼ/πⱼ)
+```
+
+### Online Resources
+
+1. **Documentation**
+   - Survey package: https://r-survey.r-forge.r-project.org/
+   - UCLA guide: https://stats.idre.ucla.edu/r/seminars/survey-data/
+
+2. **Standards**
+   - UN Handbook: https://unstats.un.org/unsd/hhsurveys/
+   - Eurostat guidelines: https://ec.europa.eu/eurostat/web/household-budget-surveys
+
+3. **Communities**
+   - Stack Overflow: [r] + [survey] tags
+   - CrossValidated: survey-sampling tag
+
+### Further Reading
+
+1. Lohr, S. (2019). *Sampling: Design and Analysis* (3rd ed.)
+2. Lumley, T. (2010). *Complex Surveys: A Guide to Analysis Using R*
+3. Groves et al. (2009). *Survey Methodology* (2nd ed.)
+4. UN (2005). *Household Sample Surveys in Developing Countries*
+
+---
+
+## Notes Section
+
+Use this space for your own notes:
+
+_________________________________________________
+_________________________________________________
+_________________________________________________
+_________________________________________________
+_________________________________________________
+_________________________________________________
+_________________________________________________
+_________________________________________________
+
+---
+
+## Certificate of Completion
+
+Upon completing all exercises with ≥80% accuracy:
+
+**This certifies that**
+
+_____________________
+
+**has successfully completed the**
+
+ADVANCED HOUSEHOLD SURVEY METHODS  
+Exercise Workbook
+
+Date: _____________
+
+Instructor: _____________
+
+Score: _______ / 100
+
+---
+
+*End of Workbook*

@@ -1,0 +1,886 @@
+################################################################################
+# ADVANCED HOUSEHOLD SURVEY METHODS
+# Complete R Scripts Package
+# SADC Statistical Training Centre
+# Version 1.0 - September 2025
+################################################################################
+
+# CONTENTS:
+# 1. Setup and Installation Script
+# 2. Core Functions Library
+# 3. Module-Specific Scripts
+# 4. Exercises and Solutions
+# 5. Data Generation Scripts
+# 6. Analysis Templates
+
+################################################################################
+# SCRIPT 1: setup_environment.R
+# Run this first to set up your R environment
+################################################################################
+
+# Install required packages
+install_packages <- function() {
+  required_packages <- c(
+    "survey",       # Core survey analysis
+    "srvyr",        # Tidyverse-friendly survey analysis
+    "sampling",     # Sample selection
+    "tidyverse",    # Data manipulation
+    "haven",        # Read SPSS/Stata files
+    "readxl",       # Read Excel files
+    "knitr",        # Reports
+    "kableExtra",   # Better tables
+    "gt",           # Publication tables
+    "plotly",       # Interactive plots
+    "mice",         # Multiple imputation
+    "VIM",          # Missing data visualization
+    "foreign",      # Read various formats
+    "weights",      # Weighting functions
+    "ipw",          # Inverse probability weighting
+    "lme4",         # Mixed models for SAE
+    "Matrix",       # Matrix operations
+    "MASS"          # Statistical functions
+  )
+  
+  # Check and install packages
+  new_packages <- required_packages[!(required_packages %in% installed.packages()[,"Package"])]
+  if(length(new_packages)) {
+    install.packages(new_packages)
+    cat("Installed", length(new_packages), "new packages\n")
+  } else {
+    cat("All required packages already installed\n")
+  }
+  
+  # Load all packages
+  invisible(lapply(required_packages, library, character.only = TRUE))
+  cat("All packages loaded successfully\n")
+}
+
+# Set up working directory structure
+setup_project <- function(base_dir = "survey_course") {
+  
+  # Create directory structure
+  dirs <- c(
+    base_dir,
+    file.path(base_dir, "data"),
+    file.path(base_dir, "data", "raw"),
+    file.path(base_dir, "data", "processed"),
+    file.path(base_dir, "scripts"),
+    file.path(base_dir, "outputs"),
+    file.path(base_dir, "outputs", "tables"),
+    file.path(base_dir, "outputs", "figures"),
+    file.path(base_dir, "outputs", "reports"),
+    file.path(base_dir, "exercises"),
+    file.path(base_dir, "solutions")
+  )
+  
+  for(dir in dirs) {
+    if(!dir.exists(dir)) {
+      dir.create(dir, recursive = TRUE)
+      cat("Created:", dir, "\n")
+    }
+  }
+  
+  setwd(base_dir)
+  cat("\nWorking directory set to:", getwd(), "\n")
+  cat("Project structure ready!\n")
+}
+
+# Run setup
+install_packages()
+setup_project()
+
+################################################################################
+# SCRIPT 2: core_functions.R
+# Core survey functions used throughout the course
+################################################################################
+
+# Function 1: PPS Selection (Probability Proportional to Size)
+pps_selection <- function(frame, n_psu, size_var, seed = NULL) {
+  #' Select PSUs using PPS systematic selection
+  #' @param frame: Data frame with PSUs
+  #' @param n_psu: Number of PSUs to select
+  #' @param size_var: Name of size variable (string)
+  #' @param seed: Random seed for reproducibility
+  #' @return: Selected PSUs with selection probabilities
+  
+  if(!is.null(seed)) set.seed(seed)
+  
+  # Calculate selection probabilities
+  frame$size <- frame[[size_var]]
+  total_size <- sum(frame$size)
+  frame$prob <- n_psu * frame$size / total_size
+  
+  # Handle certainty PSUs (prob >= 1)
+  frame$certain <- frame$prob >= 1
+  certainties <- frame[frame$certain, ]
+  frame <- frame[!frame$certain, ]
+  
+  # Adjust for certainties
+  n_select <- n_psu - nrow(certainties)
+  if(n_select > 0) {
+    # Cumulative size for systematic selection
+    frame$cumsize <- cumsum(frame$size)
+    interval <- sum(frame$size) / n_select
+    start <- runif(1, 0, interval)
+    
+    # Select PSUs
+    select_points <- start + (0:(n_select-1)) * interval
+    selected_idx <- sapply(select_points, function(x) which(frame$cumsize >= x)[1])
+    selected <- frame[selected_idx, ]
+  } else {
+    selected <- data.frame()
+  }
+  
+  # Combine certainties and selected
+  result <- rbind(certainties, selected)
+  result$weight <- 1 / result$prob
+  
+  return(result)
+}
+
+# Function 2: Calculate Base Weights
+calculate_base_weights <- function(data, psu_prob, ssu_prob) {
+  #' Calculate base survey weights
+  #' @param data: Survey data
+  #' @param psu_prob: PSU selection probabilities
+  #' @param ssu_prob: SSU selection probabilities
+  #' @return: Data with base weights
+  
+  data$base_weight <- 1 / (psu_prob * ssu_prob)
+  
+  cat("Base Weight Summary:\n")
+  cat("  Min:", min(data$base_weight), "\n")
+  cat("  Mean:", mean(data$base_weight), "\n")
+  cat("  Max:", max(data$base_weight), "\n")
+  cat("  CV:", sd(data$base_weight)/mean(data$base_weight), "\n")
+  
+  return(data)
+}
+
+# Function 3: Non-Response Adjustment
+adjust_nonresponse <- function(data, response_var, weight_var = "base_weight", 
+                               method = "cell", strata = NULL) {
+  #' Adjust weights for non-response
+  #' @param data: Survey data
+  #' @param response_var: Name of response indicator (1=responded, 0=not)
+  #' @param weight_var: Name of weight variable
+  #' @param method: "cell" or "propensity"
+  #' @param strata: Stratification variables for cell method
+  
+  if(method == "cell") {
+    if(is.null(strata)) stop("Strata required for cell method")
+    
+    # Calculate response rates by cell
+    data$nr_cell <- interaction(data[, strata])
+    rr_by_cell <- tapply(data[[response_var]], data$nr_cell, mean)
+    
+    # Apply adjustment
+    data$nr_adjustment <- 1 / rr_by_cell[data$nr_cell]
+    data$nr_weight <- data[[weight_var]] * data$nr_adjustment
+    
+  } else if(method == "propensity") {
+    # Fit response propensity model
+    formula <- as.formula(paste(response_var, "~ ."))
+    resp_model <- glm(formula, data = data, family = binomial())
+    data$response_prop <- predict(resp_model, type = "response")
+    
+    # Apply adjustment
+    data$nr_adjustment <- 1 / data$response_prop
+    data$nr_weight <- data[[weight_var]] * data$nr_adjustment
+  }
+  
+  # Bound adjustments
+  data$nr_adjustment <- pmax(0.5, pmin(data$nr_adjustment, 3))
+  data$nr_weight <- data[[weight_var]] * data$nr_adjustment
+  
+  cat("Non-response Adjustment Summary:\n")
+  cat("  Method:", method, "\n")
+  cat("  Adjustment range:", range(data$nr_adjustment), "\n")
+  cat("  New weight CV:", sd(data$nr_weight)/mean(data$nr_weight), "\n")
+  
+  return(data)
+}
+
+# Function 4: Calibration Weights
+calibrate_weights <- function(data, weight_var, aux_totals) {
+  #' Calibrate survey weights to known population totals
+  #' @param data: Survey data
+  #' @param weight_var: Name of weight variable
+  #' @param aux_totals: List of auxiliary totals
+  #' @return: Data with calibrated weights
+  
+  library(survey)
+  
+  # Create survey design
+  design <- svydesign(ids = ~1, weights = as.formula(paste("~", weight_var)), 
+                      data = data)
+  
+  # Calibrate
+  cal_design <- calibrate(design, formula = as.formula(paste("~", 
+                          paste(names(aux_totals), collapse = "+"))),
+                          population = aux_totals)
+  
+  # Extract calibrated weights
+  data$cal_weight <- weights(cal_design)
+  
+  cat("Calibration Summary:\n")
+  cat("  Initial total:", sum(data[[weight_var]]), "\n")
+  cat("  Calibrated total:", sum(data$cal_weight), "\n")
+  cat("  Weight ratio range:", range(data$cal_weight / data[[weight_var]]), "\n")
+  
+  return(data)
+}
+
+# Function 5: Calculate Design Effect
+calculate_deff <- function(y, weights, clusters = NULL) {
+  #' Calculate design effect
+  #' @param y: Variable of interest
+  #' @param weights: Survey weights
+  #' @param clusters: Cluster IDs (optional)
+  
+  # Weighted estimate
+  y_weighted <- sum(y * weights) / sum(weights)
+  
+  # Effective sample size
+  n_eff <- sum(weights)^2 / sum(weights^2)
+  n_actual <- length(y)
+  
+  # Design effect
+  deff <- n_actual / n_eff
+  
+  if(!is.null(clusters)) {
+    # Include clustering effect
+    # Simplified ICC calculation
+    cluster_means <- tapply(y, clusters, mean)
+    between_var <- var(cluster_means)
+    within_var <- mean(tapply(y, clusters, var), na.rm = TRUE)
+    icc <- between_var / (between_var + within_var)
+    avg_cluster_size <- mean(table(clusters))
+    deff_cluster <- 1 + (avg_cluster_size - 1) * icc
+    deff <- deff * deff_cluster
+  }
+  
+  cat("Design Effect Analysis:\n")
+  cat("  DEFF:", round(deff, 2), "\n")
+  cat("  Effective n:", round(n_eff), "\n")
+  cat("  Actual n:", n_actual, "\n")
+  if(!is.null(clusters)) {
+    cat("  ICC:", round(icc, 3), "\n")
+  }
+  
+  return(list(deff = deff, n_eff = n_eff))
+}
+
+# Function 6: Taylor Linearization Variance
+taylor_variance <- function(y, weights, strata, clusters) {
+  #' Calculate variance using Taylor linearization
+  #' @param y: Variable of interest
+  #' @param weights: Survey weights
+  #' @param strata: Stratum IDs
+  #' @param clusters: Cluster IDs
+  
+  # Point estimate
+  total_est <- sum(y * weights)
+  
+  # Variance calculation by stratum
+  var_total <- 0
+  
+  for(s in unique(strata)) {
+    idx <- strata == s
+    y_s <- y[idx]
+    w_s <- weights[idx]
+    c_s <- clusters[idx]
+    
+    # PSU totals
+    psu_totals <- tapply(y_s * w_s, c_s, sum)
+    n_psu <- length(unique(c_s))
+    
+    if(n_psu > 1) {
+      # Within-stratum variance
+      var_s <- var(psu_totals) * n_psu / (n_psu - 1)
+      var_total <- var_total + var_s
+    }
+  }
+  
+  se <- sqrt(var_total)
+  cv <- se / total_est
+  
+  cat("Variance Estimation (Taylor):\n")
+  cat("  Estimate:", round(total_est), "\n")
+  cat("  SE:", round(se), "\n")
+  cat("  CV:", round(cv * 100, 1), "%\n")
+  cat("  95% CI: [", round(total_est - 1.96*se), ",", 
+      round(total_est + 1.96*se), "]\n")
+  
+  return(list(estimate = total_est, se = se, cv = cv))
+}
+
+################################################################################
+# SCRIPT 3: generate_sample_data.R
+# Generate sample datasets for exercises
+################################################################################
+
+generate_sample_frame <- function(n_psu = 1000, seed = 2025) {
+  #' Generate a sample frame for exercises
+  
+  set.seed(seed)
+  
+  frame <- data.frame(
+    psu_id = sprintf("PSU%04d", 1:n_psu),
+    province = sample(paste("Province", LETTERS[1:8]), n_psu, replace = TRUE),
+    district = sample(paste("District", 1:20), n_psu, replace = TRUE),
+    urban_rural = sample(c("Urban", "Rural"), n_psu, replace = TRUE, prob = c(0.3, 0.7)),
+    n_households = round(rlnorm(n_psu, log(100), 0.5)),
+    stringsAsFactors = FALSE
+  )
+  
+  # Add coordinates
+  frame$longitude <- runif(n_psu, 25, 35)
+  frame$latitude <- runif(n_psu, -20, -10)
+  
+  # Add quality indicators
+  frame$last_updated <- sample(2020:2024, n_psu, replace = TRUE)
+  frame$quality_score <- runif(n_psu, 0.7, 1.0)
+  
+  return(frame)
+}
+
+generate_survey_data <- function(n = 1000, seed = 2025) {
+  #' Generate sample survey data for analysis
+  
+  set.seed(seed)
+  
+  data <- data.frame(
+    household_id = sprintf("HH%05d", 1:n),
+    cluster_id = sample(1:50, n, replace = TRUE),
+    stratum = sample(paste("Stratum", 1:10), n, replace = TRUE),
+    
+    # Demographics
+    household_size = rpois(n, 4) + 1,
+    head_age = round(rnorm(n, 45, 15)),
+    head_sex = sample(c("Male", "Female"), n, replace = TRUE, prob = c(0.7, 0.3)),
+    head_education = sample(0:16, n, replace = TRUE),
+    
+    # Economic variables
+    employed = rbinom(n, 1, 0.65),
+    income = round(rlnorm(n, log(30000), 0.8)),
+    expenditure = round(income * runif(n, 0.7, 1.1)),
+    
+    # Health variables
+    health_insurance = rbinom(n, 1, 0.4),
+    chronic_disease = rbinom(n, 1, 0.25),
+    health_facility_distance = round(rexp(n, 0.2)),
+    
+    # Housing
+    dwelling_type = sample(c("House", "Flat", "Shack", "Traditional"), n, 
+                          replace = TRUE, prob = c(0.5, 0.2, 0.2, 0.1)),
+    electricity = rbinom(n, 1, 0.75),
+    water_source = sample(c("Piped", "Well", "River", "Other"), n,
+                         replace = TRUE, prob = c(0.6, 0.2, 0.1, 0.1)),
+    
+    # Survey variables
+    response = rbinom(n, 1, 0.78),
+    interview_duration = round(rnorm(n, 45, 10)),
+    
+    stringsAsFactors = FALSE
+  )
+  
+  # Add some missing values
+  missing_income <- sample(1:n, n * 0.05)
+  data$income[missing_income] <- NA
+  
+  # Add weights
+  data$base_weight <- runif(n, 80, 150)
+  
+  return(data)
+}
+
+# Generate and save sample datasets
+frame <- generate_sample_frame()
+survey_data <- generate_survey_data()
+
+write.csv(frame, "data/raw/sample_frame.csv", row.names = FALSE)
+write.csv(survey_data, "data/raw/survey_data.csv", row.names = FALSE)
+cat("Sample datasets generated and saved\n")
+
+################################################################################
+# SCRIPT 4: exercises.R
+# Practice exercises for students
+################################################################################
+
+# EXERCISE 1: Sample Size Calculation
+exercise_1_sample_size <- function() {
+  cat("=" %.% rep(50) %.% "\n")
+  cat("EXERCISE 1: SAMPLE SIZE CALCULATION\n")
+  cat("=" %.% rep(50) %.% "\n\n")
+  
+  cat("Scenario:\n")
+  cat("You need to estimate the unemployment rate in your country.\n")
+  cat("- Expected rate: 15%\n")
+  cat("- Desired precision: ±2% at 95% confidence\n")
+  cat("- Design effect: 2.0\n")
+  cat("- Expected response rate: 80%\n\n")
+  
+  cat("Tasks:\n")
+  cat("1. Calculate the required sample size\n")
+  cat("2. Adjust for non-response\n")
+  cat("3. Allocate sample to 5 regions proportionally\n")
+  cat("   Region populations: 2M, 1.5M, 3M, 2.5M, 1M\n\n")
+  
+  cat("Write your solution below:\n")
+  cat("------------------------\n\n")
+  
+  # Students write code here
+  
+}
+
+# EXERCISE 2: Weight Calculation
+exercise_2_weights <- function() {
+  cat("=" %.% rep(50) %.% "\n")
+  cat("EXERCISE 2: WEIGHT CALCULATION\n")
+  cat("=" %.% rep(50) %.% "\n\n")
+  
+  # Load sample data
+  data <- read.csv("data/raw/survey_data.csv")
+  
+  cat("You have survey data with", nrow(data), "households\n")
+  cat("The data includes:\n")
+  cat("- cluster_id: PSU identifier\n")
+  cat("- stratum: Stratification variable\n")
+  cat("- response: Response indicator (1=yes, 0=no)\n\n")
+  
+  cat("Tasks:\n")
+  cat("1. Calculate base weights (assume equal probability)\n")
+  cat("2. Adjust for non-response by stratum\n")
+  cat("3. Calibrate to population total of 5,000,000\n")
+  cat("4. Calculate the coefficient of variation of final weights\n\n")
+  
+  cat("Data loaded as 'data'. Write your solution:\n")
+  cat("----------------------------------------\n\n")
+  
+  return(data)
+}
+
+# EXERCISE 3: Variance Estimation
+exercise_3_variance <- function() {
+  cat("=" %.% rep(50) %.% "\n")
+  cat("EXERCISE 3: VARIANCE ESTIMATION\n")
+  cat("=" %.% rep(50) %.% "\n\n")
+  
+  # Create survey design
+  data <- read.csv("data/raw/survey_data.csv")
+  
+  cat("Estimate the mean income with proper variance estimation\n\n")
+  
+  cat("Tasks:\n")
+  cat("1. Create a survey design object\n")
+  cat("2. Calculate weighted mean income\n")
+  cat("3. Calculate standard error\n")
+  cat("4. Calculate design effect\n")
+  cat("5. Construct 95% confidence interval\n\n")
+  
+  cat("Hint: Use the survey package\n")
+  cat("Write your solution:\n")
+  cat("-------------------\n\n")
+  
+  return(data)
+}
+
+# EXERCISE 4: PPS Selection
+exercise_4_pps <- function() {
+  cat("=" %.% rep(50) %.% "\n")
+  cat("EXERCISE 4: PPS SELECTION\n")
+  cat("=" %.% rep(50) %.% "\n\n")
+  
+  frame <- read.csv("data/raw/sample_frame.csv")
+  
+  cat("Select 50 PSUs using PPS from the frame\n")
+  cat("Frame has", nrow(frame), "PSUs\n\n")
+  
+  cat("Tasks:\n")
+  cat("1. Select 50 PSUs with PPS (size = n_households)\n")
+  cat("2. Calculate selection probabilities\n")
+  cat("3. Identify any certainty PSUs\n")
+  cat("4. Calculate weights for selected PSUs\n\n")
+  
+  cat("Use the pps_selection function or write your own\n")
+  cat("Write your solution:\n")
+  cat("-------------------\n\n")
+  
+  return(frame)
+}
+
+# EXERCISE 5: Missing Data Imputation
+exercise_5_imputation <- function() {
+  cat("=" %.% rep(50) %.% "\n")
+  cat("EXERCISE 5: MISSING DATA IMPUTATION\n")
+  cat("=" %.% rep(50) %.% "\n\n")
+  
+  data <- read.csv("data/raw/survey_data.csv")
+  
+  cat("The income variable has", sum(is.na(data$income)), "missing values\n\n")
+  
+  cat("Tasks:\n")
+  cat("1. Analyze the missing data pattern\n")
+  cat("2. Test if data is MAR\n")
+  cat("3. Impute using multiple imputation (m=5)\n")
+  cat("4. Compare estimates before and after imputation\n")
+  cat("5. Calculate imputation variance\n\n")
+  
+  cat("Hint: Use the mice package\n")
+  cat("Write your solution:\n")
+  cat("-------------------\n\n")
+  
+  return(data)
+}
+
+################################################################################
+# SCRIPT 5: solutions.R
+# Solutions to exercises
+################################################################################
+
+# SOLUTION 1: Sample Size Calculation
+solution_1_sample_size <- function() {
+  cat("SOLUTION 1: SAMPLE SIZE CALCULATION\n")
+  cat("===================================\n\n")
+  
+  # Parameters
+  p <- 0.15          # Expected unemployment rate
+  e <- 0.02          # Margin of error
+  conf <- 0.95       # Confidence level
+  z <- qnorm((1 + conf) / 2)  # 1.96 for 95%
+  deff <- 2.0        # Design effect
+  rr <- 0.80         # Response rate
+  
+  # Step 1: Basic sample size (SRS)
+  n_srs <- (z^2 * p * (1-p)) / e^2
+  cat("Step 1 - SRS sample size:\n")
+  cat("n = (1.96² × 0.15 × 0.85) / 0.02²\n")
+  cat("n =", round(n_srs), "\n\n")
+  
+  # Step 2: Adjust for design effect
+  n_complex <- n_srs * deff
+  cat("Step 2 - Adjust for design effect:\n")
+  cat("n_complex = ", round(n_srs), "×", deff, "=", round(n_complex), "\n\n")
+  
+  # Step 3: Adjust for non-response
+  n_adjusted <- n_complex / rr
+  cat("Step 3 - Adjust for non-response:\n")
+  cat("n_final = ", round(n_complex), "/", rr, "=", round(n_adjusted), "\n\n")
+  
+  # Step 4: Allocate to regions
+  regions <- data.frame(
+    region = paste("Region", 1:5),
+    population = c(2000000, 1500000, 3000000, 2500000, 1000000)
+  )
+  total_pop <- sum(regions$population)
+  regions$proportion <- regions$population / total_pop
+  regions$sample <- round(n_adjusted * regions$proportion)
+  
+  cat("Step 4 - Regional allocation (proportional):\n")
+  print(regions)
+  
+  cat("\nFINAL ANSWER:\n")
+  cat("Total sample needed:", sum(regions$sample), "households\n")
+  
+  return(regions)
+}
+
+# SOLUTION 2: Weight Calculation
+solution_2_weights <- function() {
+  cat("SOLUTION 2: WEIGHT CALCULATION\n")
+  cat("==============================\n\n")
+  
+  data <- read.csv("data/raw/survey_data.csv")
+  n <- nrow(data)
+  
+  # Step 1: Base weights (equal probability assumed)
+  # Assuming overall sampling fraction of 1/500
+  data$base_weight <- 500
+  cat("Step 1 - Base weights:\n")
+  cat("  All units: 500 (equal probability)\n\n")
+  
+  # Step 2: Non-response adjustment by stratum
+  cat("Step 2 - Non-response adjustment:\n")
+  response_rates <- aggregate(response ~ stratum, data, mean)
+  names(response_rates)[2] <- "rr"
+  data <- merge(data, response_rates, by = "stratum")
+  data$nr_weight <- data$base_weight / data$rr
+  
+  print(response_rates)
+  cat("\n")
+  
+  # Step 3: Calibration to population total
+  current_total <- sum(data$nr_weight)
+  pop_total <- 5000000
+  cal_factor <- pop_total / current_total
+  data$final_weight <- data$nr_weight * cal_factor
+  
+  cat("Step 3 - Calibration:\n")
+  cat("  Current total:", format(current_total, big.mark=","), "\n")
+  cat("  Population total:", format(pop_total, big.mark=","), "\n")
+  cat("  Calibration factor:", round(cal_factor, 4), "\n\n")
+  
+  # Step 4: CV of weights
+  cv_weights <- sd(data$final_weight) / mean(data$final_weight)
+  
+  cat("Step 4 - Weight statistics:\n")
+  cat("  Min:", round(min(data$final_weight), 1), "\n")
+  cat("  Mean:", round(mean(data$final_weight), 1), "\n")
+  cat("  Max:", round(max(data$final_weight), 1), "\n")
+  cat("  CV:", round(cv_weights, 3), "\n")
+  
+  return(data)
+}
+
+# SOLUTION 3: Variance Estimation
+solution_3_variance <- function() {
+  cat("SOLUTION 3: VARIANCE ESTIMATION\n")
+  cat("===============================\n\n")
+  
+  library(survey)
+  data <- read.csv("data/raw/survey_data.csv")
+  
+  # Remove missing income
+  data <- data[!is.na(data$income), ]
+  
+  # Step 1: Create survey design
+  design <- svydesign(
+    ids = ~cluster_id,
+    strata = ~stratum,
+    weights = ~base_weight,
+    data = data
+  )
+  
+  cat("Step 1 - Survey design created\n")
+  cat("  Clusters:", length(unique(data$cluster_id)), "\n")
+  cat("  Strata:", length(unique(data$stratum)), "\n\n")
+  
+  # Step 2: Calculate weighted mean
+  mean_income <- svymean(~income, design)
+  
+  cat("Step 2 - Weighted mean income:\n")
+  cat("  Estimate: $", round(coef(mean_income)), "\n")
+  cat("  SE: $", round(SE(mean_income)), "\n\n")
+  
+  # Step 3: Design effect
+  deff_income <- deff(svymean(~income, design))
+  
+  cat("Step 3 - Design effect:\n")
+  cat("  DEFF:", round(deff_income, 2), "\n\n")
+  
+  # Step 4: Confidence interval
+  ci <- confint(mean_income)
+  
+  cat("Step 4 - 95% Confidence Interval:\n")
+  cat("  Lower: $", round(ci[1]), "\n")
+  cat("  Upper: $", round(ci[2]), "\n")
+  cat("  Width: $", round(ci[2] - ci[1]), "\n\n")
+  
+  # Step 5: CV
+  cv <- cv(mean_income)[1] * 100
+  
+  cat("Step 5 - Coefficient of Variation:\n")
+  cat("  CV:", round(cv, 1), "%\n")
+  
+  return(list(estimate = mean_income, design = design))
+}
+
+# SOLUTION 4: PPS Selection
+solution_4_pps <- function() {
+  cat("SOLUTION 4: PPS SELECTION\n")
+  cat("========================\n\n")
+  
+  frame <- read.csv("data/raw/sample_frame.csv")
+  
+  # Use the pps_selection function
+  selected <- pps_selection(frame, n_psu = 50, size_var = "n_households", seed = 2025)
+  
+  cat("Selection Summary:\n")
+  cat("  PSUs in frame:", nrow(frame), "\n")
+  cat("  PSUs selected:", nrow(selected), "\n")
+  cat("  Certainty PSUs:", sum(selected$certain), "\n\n")
+  
+  cat("Selection probability statistics:\n")
+  cat("  Min:", round(min(selected$prob), 4), "\n")
+  cat("  Mean:", round(mean(selected$prob), 4), "\n")
+  cat("  Max:", round(max(selected$prob), 4), "\n\n")
+  
+  cat("Weight statistics:\n")
+  cat("  Min:", round(min(selected$weight), 1), "\n")
+  cat("  Mean:", round(mean(selected$weight), 1), "\n")
+  cat("  Max:", round(max(selected$weight), 1), "\n\n")
+  
+  # Check coverage
+  coverage <- sum(selected$n_households) / sum(frame$n_households)
+  cat("Coverage: ", round(coverage * 100, 1), "% of households\n")
+  
+  return(selected)
+}
+
+# SOLUTION 5: Missing Data Imputation
+solution_5_imputation <- function() {
+  cat("SOLUTION 5: MISSING DATA IMPUTATION\n")
+  cat("===================================\n\n")
+  
+  library(mice)
+  library(VIM)
+  
+  data <- read.csv("data/raw/survey_data.csv")
+  
+  # Step 1: Analyze missing pattern
+  cat("Step 1 - Missing data pattern:\n")
+  missing_count <- sum(is.na(data$income))
+  missing_pct <- mean(is.na(data$income)) * 100
+  cat("  Missing income values:", missing_count, "(", round(missing_pct, 1), "%)\n\n")
+  
+  # Visualize pattern
+  # aggr(data, col = c('navyblue', 'red'), numbers = TRUE)
+  
+  # Step 2: Test MAR assumption (simplified)
+  cat("Step 2 - Test MAR assumption:\n")
+  data$income_missing <- is.na(data$income)
+  
+  # Compare characteristics
+  employed_missing <- mean(data$employed[data$income_missing])
+  employed_observed <- mean(data$employed[!data$income_missing])
+  
+  cat("  Employment rate (missing income):", round(employed_missing, 3), "\n")
+  cat("  Employment rate (observed income):", round(employed_observed, 3), "\n")
+  cat("  Difference suggests MAR\n\n")
+  
+  # Step 3: Multiple imputation
+  cat("Step 3 - Multiple imputation:\n")
+  
+  # Select variables for imputation
+  imp_vars <- c("income", "household_size", "head_age", "head_education", 
+                "employed", "health_insurance")
+  data_imp <- data[, imp_vars]
+  
+  # Run mice
+  mice_imp <- mice(data_imp, m = 5, method = 'pmm', seed = 2025, printFlag = FALSE)
+  
+  cat("  Imputation method: PMM (Predictive Mean Matching)\n")
+  cat("  Number of imputations: 5\n\n")
+  
+  # Step 4: Compare estimates
+  cat("Step 4 - Compare estimates:\n")
+  
+  # Original (complete case)
+  mean_original <- mean(data$income, na.rm = TRUE)
+  
+  # After imputation
+  complete_data <- complete(mice_imp, 1)  # First imputation
+  mean_imputed <- mean(complete_data$income)
+  
+  # Pooled estimate
+  fit <- with(mice_imp, lm(income ~ 1))
+  pooled <- pool(fit)
+  pooled_summary <- summary(pooled)
+  
+  cat("  Mean income (complete cases): $", round(mean_original), "\n")
+  cat("  Mean income (imputed): $", round(mean_imputed), "\n")
+  cat("  Pooled estimate: $", round(pooled_summary$estimate), "\n")
+  cat("  Pooled SE: $", round(pooled_summary$std.error), "\n\n")
+  
+  # Step 5: Imputation variance
+  cat("Step 5 - Imputation variance:\n")
+  cat("  Between-imputation variance:", round(pooled_summary$b, 2), "\n")
+  cat("  Within-imputation variance:", round(pooled_summary$ubar, 2), "\n")
+  cat("  Total variance:", round(pooled_summary$t, 2), "\n")
+  cat("  Relative increase due to missing:", 
+      round(pooled_summary$r, 3), "\n")
+  
+  return(mice_imp)
+}
+
+################################################################################
+# SCRIPT 6: analysis_template.R
+# Template for survey analysis
+################################################################################
+
+# Load libraries and functions
+source("core_functions.R")
+library(survey)
+library(tidyverse)
+
+# Read data
+data <- read.csv("data/processed/final_survey_data.csv")
+
+# Create survey design
+design <- svydesign(
+  ids = ~psu_id,
+  strata = ~stratum,
+  weights = ~final_weight,
+  data = data,
+  nest = TRUE
+)
+
+# Calculate key indicators
+indicators <- list()
+
+# 1. Poverty rate
+indicators$poverty <- svymean(~poor, design, na.rm = TRUE)
+
+# 2. Unemployment rate  
+indicators$unemployment <- svymean(~unemployed, subset(design, labor_force == 1), 
+                                   na.rm = TRUE)
+
+# 3. Health insurance coverage
+indicators$health_coverage <- svymean(~health_insurance, design, na.rm = TRUE)
+
+# Print results with confidence intervals
+cat("KEY SURVEY INDICATORS\n")
+cat("====================\n\n")
+
+for(name in names(indicators)) {
+  est <- coef(indicators[[name]]) * 100
+  se <- SE(indicators[[name]]) * 100
+  ci <- confint(indicators[[name]]) * 100
+  
+  cat(toupper(name), ":\n")
+  cat("  Estimate:", round(est, 1), "%\n")
+  cat("  SE:", round(se, 2), "%\n")
+  cat("  95% CI: [", round(ci[1], 1), ",", round(ci[2], 1), "]\n\n")
+}
+
+# Domain estimation (by province)
+by_province <- svyby(~poor, ~province, design, svymean, na.rm = TRUE)
+print(by_province)
+
+# Export results
+write.csv(by_province, "outputs/tables/poverty_by_province.csv")
+
+# Create visualization
+library(ggplot2)
+
+plot_data <- as.data.frame(by_province)
+plot_data$province <- rownames(plot_data)
+
+ggplot(plot_data, aes(x = reorder(province, poor), y = poor * 100)) +
+  geom_col(fill = "steelblue") +
+  geom_errorbar(aes(ymin = (poor - 1.96 * se) * 100,
+                    ymax = (poor + 1.96 * se) * 100),
+                width = 0.3) +
+  coord_flip() +
+  labs(title = "Poverty Rate by Province",
+       subtitle = "With 95% confidence intervals",
+       x = "Province",
+       y = "Poverty Rate (%)") +
+  theme_minimal()
+
+ggsave("outputs/figures/poverty_by_province.png", width = 8, height = 6)
+
+cat("Analysis complete. Results saved to outputs/\n")
+
+################################################################################
+# END OF SCRIPTS PACKAGE
+# 
+# To run the complete setup:
+# 1. Save this file as 'survey_scripts.R'
+# 2. Run: source('survey_scripts.R')
+# 3. Follow exercises in order
+# 4. Check solutions when needed
+#
+# For support: training@sadc-stats.org
+################################################################################
